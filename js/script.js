@@ -43,21 +43,24 @@
             follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%) scale(1)`;
         });
 
-        const interactiveElements = document.querySelectorAll('a, button, .service-card, .person, .method-card, .pillar, .case-card, .tier-card, .profile-tab, .quiz-option, .game-card, .social-link, .btn-primary, .btn-secondary, .cta-button, .quiz-float-btn');
-        
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
+        const INTERACTIVE_SELECTOR = 'a, button, .service-card, .person, .method-card, .pillar, .case-card, .tier-card, .profile-tab, .quiz-option, .game-card, .social-link, .btn-primary, .btn-secondary, .btn-gold, .cta-button, .quiz-float-btn, .solution-card, .process-step';
+
+        // Use event delegation so dynamically-created elements (e.g. cookie banner buttons) also react
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(INTERACTIVE_SELECTOR)) {
                 cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(1.5)`;
                 cursor.style.borderColor = 'var(--primary-dark)';
                 follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%) scale(1.5)`;
                 follower.style.background = 'var(--primary-dark)';
-            });
-            el.addEventListener('mouseleave', () => {
+            }
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(INTERACTIVE_SELECTOR)) {
                 cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(1)`;
                 cursor.style.borderColor = 'var(--accent-grey)';
                 follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%) scale(1)`;
                 follower.style.background = 'var(--accent-grey)';
-            });
+            }
         });
     }
 
