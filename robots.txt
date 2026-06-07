@@ -1,0 +1,43 @@
+# robots.txt for KConsulting
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /php/
+Disallow: /includes/
+Disallow: /temp/
+Disallow: /logs/
+
+# Sitemap location
+Sitemap: https://www.thekconsult.co.za/sitemap.php
+
+# Crawl delay for polite bots
+Crawl-delay: 1
+
+# Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Slurp  # Yahoo
+Allow: /
+Crawl-delay: 10
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /

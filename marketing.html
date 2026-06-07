@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KConsulting | Marketing That Builds – Full Service Architect & Engineer</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Complete marketing services: Strategy, Content, Social Media, SEO, Email, Analytics. We combine visionary architecture with technical engineering to build systems that scale.">
+    <meta name="keywords" content="Website development for business growth, CMS optimization and automation, System integration services, API integration for business systems, Website performance improvement, Scalable business systems, IT consulting, marketing agency, digital transformation, cloud solutions, software development, SEO, content marketing, Business growth consultation, Website and marketing support,  Improve website conversions, Ecommerce website optimization, Lead generation strategies, System integration for business growth">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/marketing.html">
+    <meta property="og:title" content="Marketing Services | KConsulting – Full Service Agency">
+    <meta property="og:description" content="Complete marketing services: Strategy, Content, Social Media, SEO, Email & Analytics built to scale your business.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/marketing.html">
+    <meta property="twitter:title" content="Marketing Services | KConsulting – Full Service Agency">
+    <meta property="twitter:description" content="Complete marketing services: Strategy, Content, Social Media, SEO, Email & Analytics built to scale your business.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL (important for SEO) -->
+    <link rel="canonical" href="https://www.thekconsult.co.za/marketing.html">
+    
+    <!-- Geo Tags (for local SEO) -->
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+    
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+            "@type": "Question",
+            "name": "How is your marketing approach different?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We combine strategic architecture with engineering precision to create marketing systems that actually work and scale."
+            }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-bullhorn"></i>
+            <span><strong>Free Website Audit</strong> Discover what’s limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header - Updated to match contact.html -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="marketing.html" class="active">Marketing</a>
+                <a href="it.html">IT Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating Tech Elements -->
+        <div class="floating-tech-elements">
+            <!-- Tech Words -->
+            <div class="floating-item" style="top: 5%; left: 2%;">Java</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">SQL</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">Testing</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">Python</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">JavaScript</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">AWS</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">Docker</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">Kubernetes</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">React</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">Node.js</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">API</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">Cloud</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">Data</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">DevOps</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Agile</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">Scrum</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">Analytics</div>
+            
+            <!-- Diamond Shapes -->
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-diamond" style="bottom: 55%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="floating-diamond" style="top: 70%; right: 60%; width: 60px; height: 60px;"></div>
+            <div class="floating-diamond" style="bottom: 25%; right: 75%; width: 40px; height: 40px;"></div>
+            
+            <!-- Circles -->
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-circle" style="top: 60%; left: 55%; width: 30px; height: 30px; border: 2px solid var(--accent-blue);"></div>
+            
+            <!-- Lines -->
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="bottom: 60%; left: 40%; width: 120px; height: 2px; background: var(--accent-blue);"></div>
+            <div class="floating-line vertical" style="bottom: 20%; right: 65%; width: 2px; height: 100px; background: var(--accent-teal);"></div>
+        </div>
+
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-creative-work-on-a-computer-5093-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Floating geometric elements -->
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i> MARKETING THAT BUILDS
+            </div>
+            <br />
+            <br />
+            <br />
+            <h1 class="hero-title">
+                Turn your marketing into a system that drives real business growth
+            </h1>
+            <p class="hero-subtitle">We help you attract the right audience, improve your website conversions, and turn traffic into consistent leads and sales.</p>
+            <p class="hero-subtitle">Strategy meets execution—built on systems that scale with your business.</p>
+            <div class="hero-buttons">
+                <a href="consultation.html" class="btn-secondary">
+                    <span>Get More Leads</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="contact.html" class="btn-secondary">
+                    <span>Get Your Free Growth Plan</span>
+                    <i class="fas fa-play"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Services Showcase 2 -->
+    <section id="services" style="background: var(--neutral-light);">
+        <div class="container">
+
+            <div class="pillars">
+                <div class="pillar marketing fade-in">
+                    <!--<div class="service-icon"><i class="fas fa-chart-line"></i></div> -->
+                    <h3>What you can expect</h3>
+                    <div class="footer-col">
+                        <div>• More qualified leads, not just traffic</div>
+                        <div>• Higher conversion rates from your existing visitors</div>
+                        <div>• Clear positioning that attracts the right customers</div>
+                        <div>• Marketing that improves over time, not random campaigns</div>
+                    </div>
+                    <br />
+                    <div ><strong>Your marketing should not work alone, it should work with your website and systems to drive real growth.</strong></div>
+                </div>
+
+                <div class="pillar it fade-in">
+                    <!--<div class="service-icon" ><i class="fas fa-microchip"></i></div> -->
+                    <h3>Already know what you need?</h3>
+                    <div class="backlink-buttons">
+                        <a href="conversion-optimization.html" class="btn-primary">Improve your Website Conversions <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                        <a href="lead-generation.html" class="btn-primary">Generate more Leads for your business <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>
+                    <br />
+                    <div class="backlink-buttons">
+                        <a href="ecommerce-optimization.html" class="btn-primary">Ecommerce Website Optimization <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Growth & Discoverability Services</h2>
+                <p>Helping businesses attract more customers, improve conversions, and become easier to find online.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Marketing Strategy -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chess-queen"></i></div>
+                    <h3>Build A Predictable Flow Of New Business Opportunities <br>
+                    Lead Generation Systems</h3>
+                    <p>Create a reliable system for attracting qualified prospects and turning interest into enquiries, consultations, and sales opportunities.</p>
+                    <div class="architect-view">
+                        <p>✔ Lead Generation Strategy</p>
+                        <p>✔ Landing Page Optimization</p>
+                        <p>✔ Lead Capture Systems</p>
+                        <p>✔ Call-To-Action Improvements</p>
+                        <p>✔ Lead Tracking & Reporting</p>
+                    </div>
+                </div>
+
+                <!-- 2. Content Marketing -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-feather-alt"></i></div>
+                    <h3>Turn More Website Visitors Into Paying Customers <br>
+                    Conversion Rate Optimization (CRO)</h3>
+                    <p>Many websites attract traffic but fail to generate enquiries or sales. We help identify what's preventing visitors from taking action and improve the customer journey.</p>
+                    <div class="engineer-view">
+                        <p>✔ Customer Journey Analysis</p>
+                        <p>✔ Website Optimization</p>
+                        <p>✔ Conversion Improvements</p>
+                        <p>✔ Testing & Refinement</p>
+                        <p>✔ Performance Measurement</p>
+                    </div>
+                </div>
+
+                <!-- 3. Social Media Marketing -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+                    <h3>Help AI Tools Recommend Your Business <br>
+                    Generative Engine Optimization (GEO)</h3>
+                    <p>Position your business so AI platforms such as ChatGPT, Copilot, Gemini, and other AI-powered search tools can better understand and recommend your services.</p>
+                    <div class="architect-view">
+                        <p>✔ AI Discoverability Audits</p>
+                        <p>✔ Content Structure Optimization</p>
+                        <p>✔ Business Profile Optimization</p>
+                        <p>✔ Authority Building Strategies</p>
+                        <p>✔ Knowledge & Entity Development</p>
+                    </div>
+                </div>
+
+                <!-- 4. SEO -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Get Found By More Customers Online <br>
+                        Search Engine Optimization (SEO)</h3>
+                    <p>Improve your visibility in search engines so more potential customers can discover your business when they're actively searching for your services.</p>
+                    <div class="engineer-view">
+                        <p>✔ Keyword Research & Strategy</p>
+                        <p>✔ On-Page SEO Optimization</p>
+                        <p>✔ Technical SEO Improvements</p>
+                        <p>✔ Local SEO Optimization</p>
+                        <p>✔ Performance Monitoring</p>
+                    </div>
+                </div>
+
+                <!-- 5. Analytics and Reporting -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Discover What's Costing Your Business Leads And Revenue <br> Website Audit & Growth Analysis</h3>
+                    <p>Identify technical issues, missed opportunities, and growth bottlenecks that may be limiting your website's performance.</p>
+                    <div class="architect-view">
+                        <p>✔ Website Audits</p>
+                        <p>✔ SEO Reviews</p>
+                        <p>✔ Conversion Analysis</p>
+                        <p>✔ User Experience Reviews</p>
+                        <p>✔ Actionable Recommendations</p>
+                    </div>
+                </div>
+                
+                <!-- 6. Analytics & Growth Insights -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Track What Is Generating Leads And Revenue <br>
+                        Analytics & Growth Insights</h3>
+                    <p>Track performance, understand customer behaviour, and make informed business decisions using real data.</p>
+                    <div class="engineer-view">
+                        <p>✔ Analytics Setup</p>
+                        <p>✔ Dashboard Creation</p>
+                        <p>✔ Performance Tracking</p>
+                        <p>✔ Reporting Systems</p>
+                        <p>✔ Growth Recommendations</p>
+                    </div>
+                </div>
+                
+                <!-- 6. CV & LinkedIn Optimization -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-book"></i></div>
+                    <h3>Get Found By Recruiters And Hiring Managers <br>
+                        CV & LinkedIn Optimization</h3>
+                    <p>Help professionals improve their CV, LinkedIn profile, and online presence so recruiters can find them and opportunities come to them.</p>
+                    <div class="engineer-view">
+                        <p>✔ CV Reviews</p>
+                        <p>✔ LinkedIn Optimization</p>
+                        <p>✔ Career Positioning</p>
+                        <p>✔ Personal Branding</p>
+                        <p>✔ Job Search Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <!-- <section style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Trusted by Businesses Like Yours</h2>
+                <p>Real results from real partnerships</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="testimonial-card fade-in">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"KConsulting didn't just deliver a marketing plan; they became an extension of our team. The Architect & Engineer approach gave us both vision and flawless execution."</p>
+                    <div class="testimonial-author">— Sarah J., Marketing Director at TechFlow</div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Our SEO traffic doubled in six months. The combination of strategic content architecture and technical SEO engineering made all the difference."</p>
+                    <div class="testimonial-author">— Michael O., Founder of BuildSmart</div>
+                </div>
+
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">E‑commerce SEO</div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">SEO & Content</div>
+                        <h4>200% Organic Traffic Growth</h4>
+                        <p>For an online retailer, we architected a content strategy and engineered technical SEO, resulting in first-page rankings for key terms.</p>
+                        <a href="#" class="case-link">Read full case <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">Lead Gen Campaign</div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">Email & Social</div>
+                        <h4>150% Increase in Qualified Leads</h4>
+                        <p>Integrated email automation and social media campaigns engineered to convert, with detailed analytics at every stage.</p>
+                        <a href="#" class="case-link">Read full case <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container quiz-container">
+            <div class="section-title fade-in">
+                <h2>What’s holding your business growth back?</h2>
+                <p>Answer a few quick questions and get a clear plan to improve your leads, conversions, and overall growth</p>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="quiz-step active" id="step1">
+                <div class="quiz-question">1. What's your biggest marketing challenge right now?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="strategy"><h4>No Clear Strategy</h4><p>We're doing marketing but don't have a clear roadmap.</p></div>
+                    <div class="quiz-option" data-value="content"><h4>Poor Content Results</h4><p>Our content isn't reaching the right people.</p></div>
+                    <div class="quiz-option" data-value="social"><h4>Social Media Ineffective</h4><p>We post regularly but aren't growing engagement.</p></div>
+                    <div class="quiz-option" data-value="all"><h4>All of the Above</h4><p>We need help with everything.</p></div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="quiz-step" id="step2">
+                <div class="quiz-question">2. What is your primary business goal for the next 6 months?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="leads"><h4>Generate More Leads</h4><p>Increase qualified inquiries and sales.</p></div>
+                    <div class="quiz-option" data-value="brand"><h4>Build Brand Awareness</h4><p>Get your name out there.</p></div>
+                    <div class="quiz-option" data-value="retention"><h4>Improve Customer Retention</h4><p>Keep existing customers engaged.</p></div>
+                    <div class="quiz-option" data-value="launch"><h4>Launch a New Product</h4><p>Introduce something new to market.</p></div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="quiz-step" id="step3">
+                <div class="quiz-question">3. How would you describe your current marketing budget?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="small"><h4>Small / Startup</h4><p>We need cost-effective solutions.</p></div>
+                    <div class="quiz-option" data-value="moderate"><h4>Moderate</h4><p>We can invest in proven channels.</p></div>
+                    <div class="quiz-option" data-value="significant"><h4>Significant</h4><p>We're ready to scale aggressively.</p></div>
+                    <div class="quiz-option" data-value="flexible"><h4>Flexible</h4><p>We'll invest based on ROI.</p></div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="quiz-step" id="step4">
+                <div class="quiz-question">4. Do you have an in-house marketing team?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="none"><h4>No dedicated team</h4><p>It's just me or a few people.</p></div>
+                    <div class="quiz-option" data-value="small"><h4>Small team (1-3)</h4><p>We need extra support.</p></div>
+                    <div class="quiz-option" data-value="established"><h4>Established team</h4><p>We need strategic guidance.</p></div>
+                    <div class="quiz-option" data-value="outsource"><h4>Fully outsourced</h4><p>We want a reliable partner.</p></div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="quiz-step" id="step5">
+                <div class="quiz-question">5. What's your timeline for seeing results?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="immediate"><h4>Immediate (1-2 months)</h4><p>We need quick wins.</p></div>
+                    <div class="quiz-option" data-value="medium"><h4>Medium-term (3-6 months)</h4><p>Sustainable growth.</p></div>
+                    <div class="quiz-option" data-value="long"><h4>Long-term (6+ months)</h4><p>Building a lasting foundation.</p></div>
+                    <div class="quiz-option" data-value="flexible"><h4>Flexible</h4><p>As soon as possible.</p></div>
+                </div>
+            </div>
+
+            <!-- Quiz Progress -->
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="quizProgress" style="width: 20%;"></div>
+            </div>
+
+            <!-- Quiz Navigation -->
+            <div style="display: flex; justify-content: space-between;">
+                <button onclick="previousStep()" style="background: transparent; color: var(--primary-dark); border: 1px solid var(--primary-dark); padding: 12px 30px; border-radius: 8px; cursor: pointer; display: none;" id="prevBtn">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button onclick="nextStep()" style="background: var(--primary-dark); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: 600;" id="nextBtn">
+                    Next Question <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Results -->
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <div class="result-icon"><i class="fas fa-trophy"></i></div>
+                <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary-dark);">Your Perfect Solution</h3>
+                <p style="font-size: 1.2rem; color: var(--accent-grey); margin-bottom: 30px;" id="resultText">
+                    Based on your answers, we recommend...
+                </p>
+                <a href="consultation.html" class="btn-primary" style="display: inline-block;">Book Your Free Consultation <i class="fas fa-calendar-check"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about working with us</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item fade-in">
+                    <h4>What makes your approach different?</h4>
+                    <p>We don’t just run campaigns, we build systems.</p>
+                    <p>That means your marketing, website, and backend all work together to consistently generate leads and sales.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>How long does it take to see results?</h4>
+                    <p>Most businesses start seeing measurable improvements within 3–6 months.</p>
+                    <p>However, quick wins can happen earlier depending on your current setup.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Do you offer once,off services or ongoing support?</h4>
+                    <p>Both. You can start with a once,off project (like improving your website), then move into ongoing growth support.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>What type of businesses do you work with?</h4>
+                    <p>We work with startups, SMEs, and growing businesses that want structured growth—not guesswork.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Can you work with our existing team?</h4>
+                    <p>Yes, We support and enhance your current team with strategy, systems, and technical execution.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>What results can I expect?</h4>
+                    <p>Most clients see:</p>
+                    <ul>
+                        <li>More leads</li>
+                        <li>Better conversion rates</li>
+                        <li>Stronger positioning</li>
+                        <li>More consistent growth</li>
+                    </ul>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Is the consultation really free?</h4>
+                    <p>Yes, We use it to understand your business and identify real opportunities, no pressure.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Do you work internationally?</h4>
+                    <p>Yes, We support businesses locally and globally.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Can AI tools like ChatGPT recommend my business?</h4>
+                    <p>Yes. We help businesses improve their online presence, content structure, authority signals, and business profiles so AI-powered search tools can better understand and reference their services.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>What's included in a website audit?</h4>
+                    <p>We review your website's performance, user experience, conversion paths, SEO foundations, and lead generation opportunities, then provide actionable recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+    <section id="booking" style="padding: 100px 0; background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>How this connects to your website</h2>
+                <p>Your marketing is only as effective as the system behind it.</p>
+                <p>If your website isn’t converting or your platform isn’t optimized, your results will always be limited.</p>
+                <p><strong>That’s why we focus on both marketing and the systems that support it.</strong></p>
+                <a href="contact.html" class="btn-primary" style="margin-top: 30px; display: inline-block;">Improve My Website Performance </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/27645190549" class="social-link whatsapp" target="_blank">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="social-link instagram" target="_blank">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="social-link linkedin" target="_blank">
+                    <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation &amp; Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script> 
+    <script src="js/google-analytics.js"></script>
+    <script>
+        // Quiz logic
+        let currentStep = 1;
+        const totalSteps = 5;
+        const userAnswers = {};
+
+        window.selectOption = function(step, element) {
+            const value = element.getAttribute('data-value') || element.querySelector('h4').textContent;
+            userAnswers[step] = value;
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        };
+
+        document.querySelectorAll('.quiz-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                const stepDiv = this.closest('.quiz-step');
+                const stepId = stepDiv.id;
+                const stepNum = parseInt(stepId.replace('step', ''));
+                selectOption(stepNum, this);
+            });
+        });
+
+        window.nextStep = function() {
+            const currentStepDiv = document.getElementById(`step${currentStep}`);
+            const selected = currentStepDiv.querySelector('.quiz-option.selected');
+            if (!selected) {
+                alert('Please select an answer before proceeding.');
+                return;
+            }
+
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                updateNavigation();
+            } else {
+                showResults();
+            }
+        };
+
+        window.previousStep = function() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                updateNavigation();
+            }
+        };
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('quizProgress').style.width = `${progress}%`;
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            prevBtn.style.display = currentStep > 1 ? 'inline-block' : 'none';
+            if (currentStep === totalSteps) {
+                nextBtn.innerHTML = 'See Results <i class="fas fa-chart-bar"></i>';
+            } else {
+                nextBtn.innerHTML = 'Next Question <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        function showResults() {
+            document.querySelectorAll('.quiz-step').forEach(step => step.style.display = 'none');
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'block';
+            document.getElementById('quizProgress').style.width = '100%';
+
+            let recommendation = '';
+            if (userAnswers[1] === 'strategy' || userAnswers[1]?.includes('No Clear Strategy')) {
+                recommendation = 'You need our Marketing Strategy Blueprint. We\'ll architect a clear roadmap aligned with your business goals.';
+            } else if (userAnswers[1] === 'content' || userAnswers[1]?.includes('Poor Content')) {
+                recommendation = 'You need our Content Marketing Engine. We\'ll create a content framework and engineer high-performing assets.';
+            } else if (userAnswers[1] === 'social' || userAnswers[1]?.includes('Social Media')) {
+                recommendation = 'You need our Social Media Growth System. We\'ll build an engaged community and drive conversions.';
+            } else {
+                recommendation = 'You need our Complete Marketing Transformation package. We\'ll architect a comprehensive strategy and engineer all systems for maximum impact.';
+            }
+            document.getElementById('resultText').textContent = recommendation;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KConsulting | IT Services – Architect & Engineer Approach</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Enterprise IT services: Strategy, Cloud, Data, Software Development, and Managed Services. We architect and engineer robust technology systems that drive business growth. Book your free strategy session today!">
+    <meta name="keywords" content="Website development for business growth, CMS optimization and automation, System integration services, API integration for business systems, Website performance improvement, Scalable business systems, IT consulting, marketing agency, digital transformation, cloud solutions, software development, SEO, content marketing, Business growth consultation, Website and marketing support,  Improve website conversions, Ecommerce website optimization, Lead generation strategies, System integration for business growth">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/it.html">
+    <meta property="og:title" content="IT Services | KConsulting – Architect & Engineer Approach">
+    <meta property="og:description" content="Enterprise IT services including Cloud, Data, Software Development and Managed Services that drive business growth.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/it.html">
+    <meta property="twitter:title" content="IT Services | KConsulting – Architect & Engineer Approach">
+    <meta property="twitter:description" content="Enterprise IT services including Cloud, Data, Software Development and Managed Services that drive business growth.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL (important for SEO) -->
+    <link rel="canonical" href="https://www.thekconsult.co.za/it.html">
+    
+    <!-- Geo Tags (for local SEO) -->
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+    
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPoint",
+        "telephone": "+27645190549",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+    }
+    </script>
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-microchip"></i>
+            <span><strong>Free Website Audit</strong> Discover what’s limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header - Updated to match contact.html -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="it.html" class="active">IT Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating Tech Elements -->
+        <div class="floating-tech-elements">
+            <!-- Tech Words -->
+            <div class="floating-item" style="top: 5%; left: 2%;">Java</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">SQL</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">Testing</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">Python</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">JavaScript</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">AWS</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">Docker</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">Kubernetes</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">React</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">Node.js</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">API</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">Cloud</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">Data</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">DevOps</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Agile</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">Scrum</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">Analytics</div>
+            
+            <!-- Diamond Shapes -->
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-diamond" style="bottom: 55%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="floating-diamond" style="top: 70%; right: 60%; width: 60px; height: 60px;"></div>
+            <div class="floating-diamond" style="bottom: 25%; right: 75%; width: 40px; height: 40px;"></div>
+            
+            <!-- Circles -->
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-circle" style="top: 60%; left: 55%; width: 30px; height: 30px; border: 2px solid var(--accent-blue);"></div>
+            
+            <!-- Lines -->
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="bottom: 60%; left: 40%; width: 120px; height: 2px; background: var(--accent-blue);"></div>
+            <div class="floating-line vertical" style="bottom: 20%; right: 65%; width: 2px; height: 100px; background: var(--accent-teal);"></div>
+        </div>
+        
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-circuit-board-connection-animation-1694-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Floating geometric elements -->
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-microchip"></i> IT THAT BUILDS YOUR FOUNDATION
+            </div>
+            <br />
+            <br />
+            <br />
+            <h1 class="hero-title">
+                Build the systems your business needs to grow, scale, and operate efficiently
+            </h1>
+            <p class="hero-subtitle">
+                We design and implement reliable technology systems that support your website, marketing, and day, to, day operations, so your business can grow without breaking.
+
+            </p>
+            <div class="hero-buttons">
+                <a href="consultation.html" class="btn-secondary">
+                    <span>Free Strategy Session</span>
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Services Showcase 2 -->
+    <section id="services" style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="pillars">
+                <div class="pillar marketing fade-in">
+                    <!--<div class="service-icon"><i class="fas fa-chart-line"></i></div> -->
+                    <h3>What you can expect</h3>
+                    <div class="footer-col">
+                        <div>• Systems that support your business as it grows</div>
+                        <div>• Scalable infrastructure that won’t break under pressure</div>
+                        <div>• Secure and reliable platforms you can trust</div>
+                        <div>• Ongoing support so everything keeps running smoothly</div>
+                    </div>
+                    <br />
+                    <div ><strong>Your website and marketing can only perform as well as the systems behind them. We handle the backend, so you shine upfront.</strong></div>
+                </div>
+
+                <div class="pillar it fade-in">
+                    <!--<div class="service-icon" ><i class="fas fa-microchip"></i></div> -->
+                    <h3>Already know what you need?</h3>
+                    <div class="backlink-buttons">
+                        <a href="conversion-optimization.html" class="btn-primary">Improve your Website Conversions <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                        <a href="lead-generation.html" class="btn-primary">Generate more Leads for your business <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>
+                    <br />
+                    <div class="backlink-buttons">
+                        <a href="ecommerce-optimization.html" class="btn-primary">Ecommerce Website Optimization <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                        <a href="system-integration.html" class="btn-primary">System Integration <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- IT Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>IT Engineering Services</h2>
+                <p>Comprehensive technology solutions built with architectural foresight and engineering precision</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. IT Strategy & Governance -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chess-board"></i></div>
+                    <h3>IT Strategy & Governance</h3>
+                    <h4>Align your technology with your business goals</h4>
+                    <p>We help you define a clear technology strategy so your systems support your growth instead of slowing you down.</p>
+                    <div class="engineer-view">
+                        <p>✔ Better decision, making</p>
+                        <p>✔ Clear direction for your systems</p>
+                        <p>✔ Technology aligned with business growth</p>
+                    </div>
+                </div>
+
+                <!-- 2. Cloud Infrastructure & Architecture -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Infrastructure</h3>
+                    <h4>Build a scalable and reliable foundation</h4>
+                    <p>We design cloud systems that handle growth, reduce downtime, and keep your business running smoothly.</p>
+                    <div class="architect-view">
+                        <p>✔ Scalable performance</p>
+                        <p>✔ Reliable systems</p>
+                        <p>✔ Cost-efficient infrastructure</p>
+                    </div>
+                </div>
+
+                <!-- 3. Data Management & Analytics -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data & Analytics</h3>
+                    <h4>Turn data into better decisions</h4>
+                    <p>We help you collect and use your data so you can understand performance and improve your results.</p>
+                    <div class="engineer-view">
+                        <p>✔ Clear insights</p>
+                        <p>✔ Better decisions</p>
+                        <p>✔ Improved tracking and performance</p>
+                    </div>
+                </div>
+
+                <!-- 4. Software & Application Development -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Software Development & Integrations</h3>
+                    <h4>Build systems that fit your business</h4>
+                    <p>From custom tools to API integrations, we build solutions that connect your systems and improve how your business operates.</p>
+                    <div class="architect-view">
+                        <p>✔ More efficient operations</p>
+                        <p>✔ Systems that work together</p>
+                        <p>✔ Scalable solutions built for your needs</p>
+                    </div>
+                </div>
+
+                <!-- 5. QA -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>QA & Testing</h3>
+                    <h4>Catch issues before they catch your users</h4>
+                    <p>We systematically test your website and applications functionality, usability, and performance so you launch with confidence and maintain quality over time.</p>
+                    <div class="engineer-view">
+                        <p>✔ Fewer post-launch surprises</p>
+                        <p>✔ Test coverage that reduces risks</p>
+                        <p>✔ Consistent user experience</p>
+                    </div>
+                </div>
+
+                <!-- 6. IT Support & Managed Services -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>IT Support & Managed Services</h3>
+                    <h4>Keep everything running without stress</h4>
+                    <p>We monitor, maintain, and support your systems so you can focus on growing your business.</p>
+                    <div class="architect-view">
+                        <p>✔ Fewer disruptions</p>
+                        <p>✔ Ongoing support</p>
+                        <p>✔ Peace of mind</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Principles -->
+    <section style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Engineering Principles</h2>
+                <p>The core principles that guide our IT engineering approach</p>
+            </div>
+
+            <div class="principles-grid">
+                <div class="principle-card fade-in">
+                    <div class="principle-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>Precision & Detail</h3>
+                    <p>Every line of code, every configuration, every architecture decision is made with meticulous attention to detail.</p>
+                </div>
+                <div class="principle-card fade-in">
+                    <div class="principle-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                    <h3>Scalability First</h3>
+                    <p>Systems are engineered to grow with your business, handling increased load without compromising performance.</p>
+                </div>
+                <div class="principle-card fade-in">
+                    <div class="principle-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Security by Design</h3>
+                    <p>Security isn't an afterthought—it's engineered into every layer of our solutions from the ground up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <!-- <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Trusted by Businesses Like Yours</h2>
+                <p>Real results from real IT partnerships</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="testimonial-card fade-in">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"KConsulting didn't just fix our IT issues—they rebuilt our entire infrastructure with a scalable, secure architecture. The Architect & Engineer approach delivered both vision and flawless execution."</p>
+                    <div class="testimonial-author">— David K., CTO at FinTechSA</div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Our cloud migration was seamless. The engineering precision and strategic planning ensured zero downtime and immediate cost savings. Highly recommend."</p>
+                    <div class="testimonial-author">— Nomsa M., IT Director at HealthNet</div>
+                </div>
+
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">Cloud Migration</div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">Cloud & Infrastructure</div>
+                        <h4>40% Cost Reduction, 99.9% Uptime</h4>
+                        <p>Migrated a legacy on-premise system to AWS with automated scaling and disaster recovery.</p>
+                        <a href="#" class="case-link">Read full case <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- FAQ Section -->
+    <section style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our IT services</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item fade-in">
+                    <h4>What makes your IT approach different?</h4>
+                    <p>We don’t just build systems, we design them to support real business growth.</p>
+                    <p>That means your technology, website, and marketing all work together.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Do you only work with large companies?</h4>
+                    <p>No. We work with startups, SMEs, and growing businesses, and scale solutions based on your needs.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Can you support our existing systems?</h4>
+                    <p>Yes. We can improve and optimize what you already have without starting from scratch.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>How does IT support business growth?</h4>
+                    <p>Strong systems improve performance, reduce downtime, and allow your business to scale without breaking.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>Do you offer ongoing support?</h4>
+                    <p>Yes. We provide continuous support to keep your systems running smoothly.</p>
+                </div>
+                <div class="faq-item fade-in">
+                    <h4>What is the first step?</h4>
+                    <p>Book a free strategy session.</p>
+                    <p>We’ll review your current systems and show you where improvements can drive growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+    <section id="booking" style="padding: 100px 0; background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to build systems that support your growth?</h2>
+                <p>Let’s design and implement the technology your business needs to scale and operate efficiently.</p>
+                <a href="consultation.html" class="btn-primary" style="margin-top: 30px; display: inline-block;">Book Your Free Strategy Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/27645190549" class="social-link whatsapp" target="_blank">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="social-link instagram" target="_blank">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="social-link linkedin" target="_blank">
+                    <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation &amp; Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script> 
+    <script src="js/google-analytics.js"></script>
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            if (name && email) {
+                alert(`Thank you ${name}! We'll contact you at ${email} within 24 hours to schedule your free strategy session.`);
+                this.reset();
+                window.location.href = 'consultation.html';
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>

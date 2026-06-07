@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <title>KConsulting Firm - Contact</title>
+    <meta name="description" content="We combine strategic vision (The Architect) with technical execution (The Engineer) to build robust digital systems and campaigns that scale your business in South Africa.">
+    <meta name="keywords" content="Website development for business growth, CMS optimization and automation, System integration services, API integration for business systems, Website performance improvement, Scalable business systems, IT consulting, marketing agency, digital transformation, cloud solutions, software development, SEO, content marketing, Business growth consultation, Website and marketing support,  Improve website conversions, Ecommerce website optimization, Lead generation strategies, System integration for business growth">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/contact.html">
+    <meta property="og:title" content="Contact KConsulting | Get In Touch">
+    <meta property="og:description" content="Get in touch with KConsulting Firm for IT and Marketing solutions that generate leads and grow your business.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/contact.html">
+    <meta property="twitter:title" content="Contact KConsulting | Get In Touch">
+    <meta property="twitter:description" content="Get in touch with KConsulting Firm for IT and Marketing solutions that generate leads and grow your business.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL (important for SEO) -->
+    <link rel="canonical" href="https://www.thekconsult.co.za/contact.html">
+    
+    <!-- Geo Tags (for local SEO) -->
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+    
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-bullhorn"></i>
+            <span><strong>Free Website Audit</strong> Discover what’s limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="it.html">IT Services</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Matching other pages -->
+    <section class="page-header">
+        <!-- Floating Tech Elements (only this one) -->
+        <div class="floating-tech-elements">
+            <!-- Tech Words -->
+            <div class="floating-item" style="top: 5%; left: 2%;">Java</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">SQL</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">Testing</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">Python</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">JavaScript</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">AWS</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">Docker</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">Kubernetes</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">React</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">Node.js</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">API</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">Cloud</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">Data</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">DevOps</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Agile</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">Scrum</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">Analytics</div>
+            
+            <!-- Diamond Shapes -->
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-diamond" style="bottom: 55%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="floating-diamond" style="top: 70%; right: 60%; width: 60px; height: 60px;"></div>
+            <div class="floating-diamond" style="bottom: 25%; right: 75%; width: 40px; height: 40px;"></div>
+            
+            <!-- Circles -->
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-circle" style="top: 60%; left: 55%; width: 30px; height: 30px; border: 2px solid var(--accent-blue);"></div>
+            
+            <!-- Lines -->
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="bottom: 60%; left: 40%; width: 120px; height: 2px; background: var(--accent-blue);"></div>
+            <div class="floating-line vertical" style="bottom: 20%; right: 65%; width: 2px; height: 100px; background: var(--accent-teal);"></div>
+        </div>
+
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-typography-words-animation-24177-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-envelope"></i> GET IN TOUCH
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 class="hero-title">Let’s grow your business</h1>
+            <p class="hero-subtitle">Whether you need more leads, better conversions, or stronger systems, we’ll help you identify what’s holding you back and how to fix it.</p>
+            
+            <div class="hero-buttons">
+                <a href="consultation.html" class="btn-secondary">
+                    <span>Free Strategy Session</span>
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+            </div>
+            <br />
+            <p>We’ll review your current setup, identify where you’re losing opportunities, and show you exactly how to improve your results.</p>
+        </div>
+    </section>    
+    
+    <!-- Integrated Services Showcase 1 -->
+    <section id="services" style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="pillars1">
+                <div class="pillar it fade-in">
+                    <h3>Not sure what you need help with? Start here:</h3>
+                    
+                    <div class="backlink-buttons">
+                        <a href="conversion-optimization.html" class="btn-primary">Improve your Website Conversions <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                        <a href="lead-generation.html" class="btn-primary">Generate more Leads for your business <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>
+                    <br />
+                    <div class="backlink-buttons">
+                        <a href="ecommerce-optimization.html" class="btn-primary">Ecommerce Website Optimization <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                        <a href="system-integration.html" class="btn-primary">System Integration <i class="fas fa-arrow-right" style="color: inherit;"></i></a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <h2>Get In Touch</h2> 
+                        <div class="contact-item">
+                            <h4><i class="fas fa-envelope"></i> Email</h4>
+                            <p>info@thekconsult.co.za</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4><i class="fas fa-phone"></i> Phone</h4>
+                            <p>+27 64 519 0549</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4><i class="fab fa-linkedin"></i> LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/company/kconsulting-pty-ltd" target="_blank" rel="noopener noreferrer">KConsulting Firm (Pty)Ltd</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4><i class="fas fa-map-marker-alt"></i> Cape Town</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Tell us about your business</h2>
+                    <h4>Share a few details so we can understand your situation and guide you properly.</h4>
+                    <br />
+                    <form id="contactForm" method="post">
+                        <div id="form-message" class="form-message" style="display: none;"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group form-column">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group form-column">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group form-column">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name">
+                            </div>
+                            <div class="form-group form-column">
+                                <label for="service">What do you need help with?</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="free-audit">Free Website & Growth Audit </option>
+                                    <option value="lead-sales">Get more leads or sales </option>
+                                    <option value="system-support">Systems / IT support</option>
+                                    <option value="marketing">Marketing strategy</option>
+                                    <option value="improve-my-website">Improve my website performance</option>
+                                    <option value="not-sure">Not sure (need guidance)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="message">What’s your biggest challenge right now? *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="e.g. not getting enough leads, low conversions, systems not working together" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width" style="text-align: center;">
+                                <button type="submit" class="btn-primary" id="submit-button">
+                                    <span id="button-text">Send Message</span>
+                                    <span id="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="office-locations">
+                <h2>We work with businesses across South Africa and globally.</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4><i class="fas fa-map-marker-alt"></i> Johannesburg</h4>
+                    </div>
+                    <div class="contact-item">
+                        <h4><i class="fas fa-map-marker-alt"></i> Durban</h4>
+                    </div>
+                    <div class="contact-item">
+                        <h4><i class="fas fa-map-marker-alt"></i> Cape Town</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Integration -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/27645190549" class="social-link whatsapp" target="_blank">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="social-link instagram" target="_blank">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="social-link linkedin" target="_blank">
+                    <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation &amp; Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script> 
+    <script src="js/google-analytics.js"></script>
+</body>
+</html>

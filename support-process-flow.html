@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Process Flow</title>
+    <link rel="stylesheet" href="css/support-process-flow.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border: 2px solid #333;
+            padding: 40px;
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Step Card */
+        .step {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border: 2px solid #333;
+            margin-bottom: 0;
+            position: relative;
+            box-shadow: 5px 5px 0 #333;
+            transition: all 0.2s ease;
+        }
+
+        .step:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 #333;
+        }
+
+        .step-content {
+            padding: 25px 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .step-details {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        /* Step Metadata */
+        .step-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .meta-icon {
+            width: 20px;
+            height: 20px;
+            background: #f0f0f0;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+        }
+
+        /* Connector Arrow */
+        .connector {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 40px;
+        }
+
+        .arrow-down {
+            width: 2px;
+            height: 40px;
+            background: #333;
+            position: relative;
+        }
+
+        .arrow-down::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: -6px;
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 10px solid #333;
+        }
+
+        /* Timeline Labels */
+        .timeline-label {
+            position: absolute;
+            right: -80px;
+            background: #f0f0f0;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        /* SLA Badge */
+        .sla-badge {
+            background: #f0f0f0;
+            border: 1px solid #333;
+            padding: 4px 12px;
+            font-size: 0.75em;
+            color: #333;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* Priority Tags */
+        .priority-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .priority-tag {
+            padding: 4px 12px;
+            font-size: 0.7em;
+            border: 1px solid #333;
+            background: white;
+        }
+
+        .priority-tag.critical {
+            background: #333;
+            color: white;
+        }
+
+        .priority-tag.major {
+            background: #666;
+            color: white;
+        }
+
+        .priority-tag.minor {
+            background: #999;
+            color: white;
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85em;
+            color: #333;
+        }
+
+        .method-icon {
+            width: 24px;
+            height: 24px;
+            background: #f0f0f0;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            padding: 20px;
+            background: #f8f8f8;
+            border: 2px solid #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-icon {
+            width: 24px;
+            height: 24px;
+            background: #f0f0f0;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+        }
+
+        .legend-text {
+            color: #333;
+            font-size: 0.85em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.85em;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .sla-summary {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        .sla-box {
+            border: 1px solid #333;
+            padding: 8px 15px;
+            background: #f8f8f8;
+        }
+
+        .sla-box span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .step-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-label {
+                position: static;
+                margin-top: 10px;
+                display: inline-block;
+            }
+            
+            .contact-methods {
+                flex-wrap: wrap;
+            }
+        }
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>SUPPORT PROCESS FLOW</h1>
+            <div class="header-subtitle">Incident Management · SLA-driven · Customer-focused</div>
+        </div>
+
+        <!-- Process Flow -->
+        <div class="process-flow">
+            <!-- Step 1: Contact -->
+            <div class="step" onclick="showStepDetails(1)">
+                <div class="step-content">
+                    <div class="step-number">1</div>
+                    <div class="step-details">
+                        <div class="step-title">Contact Initiation</div>
+                        <div class="step-description">Customer reaches out via available channels</div>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="method-icon">📧</span>
+                                <span>Email</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="method-icon">📞</span>
+                                <span>Phone</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="method-icon">💬</span>
+                                <span>Teams</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="method-icon">🎫</span>
+                                <span>Portal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="step-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span>Channel: Multi-channel</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🌐</span>
+                                <span>24/7 Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector">
+                <div class="arrow-down"></div>
+                <span class="timeline-label">IMMEDIATE</span>
+            </div>
+
+            <!-- Step 2: Acknowledge -->
+            <div class="step" onclick="showStepDetails(2)">
+                <div class="step-content">
+                    <div class="step-number">2</div>
+                    <div class="step-details">
+                        <div class="step-title">SLA Acknowledgment</div>
+                        <div class="step-description">We acknowledge within agreed response time</div>
+                        
+                        <div class="sla-badge">SLA Response Time: 15min (Critical) / 1hr (Major) / 4hr (Minor)</div>
+                        
+                        <div class="step-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span>Response timer starts</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🎫</span>
+                                <span>Ticket # generated</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📋</span>
+                                <span>Initial logging</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector">
+                <div class="arrow-down"></div>
+                <span class="timeline-label">WITHIN SLA</span>
+            </div>
+
+            <!-- Step 3: Diagnose -->
+            <div class="step" onclick="showStepDetails(3)">
+                <div class="step-content">
+                    <div class="step-number">3</div>
+                    <div class="step-details">
+                        <div class="step-title">Diagnosis & Classification</div>
+                        <div class="step-description">We analyze the issue and determine priority</div>
+                        
+                        <div class="priority-tags">
+                            <span class="priority-tag critical">CRITICAL</span>
+                            <span class="priority-tag major">MAJOR</span>
+                            <span class="priority-tag minor">MINOR</span>
+                        </div>
+                        
+                        <div class="step-meta" style="margin-top: 15px;">
+                            <div class="meta-item">
+                                <span class="meta-icon">🔍</span>
+                                <span>Root cause analysis</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span>Impact assessment</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏷️</span>
+                                <span>Priority assignment</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #444; background: #f8f8f8; padding: 8px; border-left: 3px solid #333;">
+                            <strong>Classification Guide:</strong><br>
+                            • Critical: System down, data loss<br>
+                            • Major: Feature broken, workaround exists<br>
+                            • Minor: Cosmetic, enhancement request
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector">
+                <div class="arrow-down"></div>
+                <span class="timeline-label">VARIES BY PRIORITY</span>
+            </div>
+
+            <!-- Step 4: Fix -->
+            <div class="step" onclick="showStepDetails(4)">
+                <div class="step-content">
+                    <div class="step-number">4</div>
+                    <div class="step-details">
+                        <div class="step-title">Resolution Delivery</div>
+                        <div class="step-description">We provide fix, workaround, or solution</div>
+                        
+                        <div class="step-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🔧</span>
+                                <span>Permanent fix</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🔄</span>
+                                <span>Temporary workaround</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📝</span>
+                                <span>Solution documentation</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.8em; background: #f0f0f0;">🔧 Code fix</span>
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.8em; background: #f0f0f0;">⚙️ Configuration change</span>
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.8em; background: #f0f0f0;">📋 Workaround steps</span>
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.8em; background: #f0f0f0;">🔄 Service restart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector">
+                <div class="arrow-down"></div>
+                <span class="timeline-label">UPON RESOLUTION</span>
+            </div>
+
+            <!-- Step 5: Confirm -->
+            <div class="step" onclick="showStepDetails(5)">
+                <div class="step-content">
+                    <div class="step-number">5</div>
+                    <div class="step-details">
+                        <div class="step-title">Confirmation</div>
+                        <div class="step-description">We verify the issue is resolved with you</div>
+                        
+                        <div class="step-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">✅</span>
+                                <span>Customer verification</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📧</span>
+                                <span>Confirmation email</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">⭐</span>
+                                <span>Satisfaction survey</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 10px; background: #f8f8f8; padding: 8px; border: 1px solid #ddd; font-size: 0.85em;">
+                            <strong>Verification Steps:</strong> Test with customer • Confirm expected behavior • Document acceptance
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector">
+                <div class="arrow-down"></div>
+                <span class="timeline-label">POST-CLOSURE</span>
+            </div>
+
+            <!-- Step 6: Document -->
+            <div class="step" onclick="showStepDetails(6)">
+                <div class="step-content">
+                    <div class="step-number">6</div>
+                    <div class="step-details">
+                        <div class="step-title">Knowledge Documentation</div>
+                        <div class="step-description">We document for future reference and knowledge base</div>
+                        
+                        <div class="step-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📚</span>
+                                <span>Knowledge base</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏷️</span>
+                                <span>Tags & categories</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🔄</span>
+                                <span>Future reference</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.75em; background: #f0f0f0;">📄 KB article created</span>
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.75em; background: #f0f0f0;">🔍 Searchable</span>
+                            <span style="border: 1px solid #333; padding: 4px 10px; font-size: 0.75em; background: #f0f0f0;">📊 Metrics recorded</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLA Summary -->
+        <div class="sla-summary">
+            <div class="sla-box">
+                <span>CRITICAL:</span> 15min response · 4hr resolution
+            </div>
+            <div class="sla-box">
+                <span>MAJOR:</span> 1hr response · 8hr resolution
+            </div>
+            <div class="sla-box">
+                <span>MINOR:</span> 4hr response · 24hr resolution
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-icon">📧</div>
+                <span class="legend-text">Contact Channels</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">⏱️</div>
+                <span class="legend-text">SLA Timeline</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">🔧</div>
+                <span class="legend-text">Resolution Types</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">📚</div>
+                <span class="legend-text">Knowledge Base</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-text">🖱️ Click = Details</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Support process follows ITIL best practices · 24/7 coverage · Continuous improvement</p>
+            <p style="margin-top: 8px; font-size: 0.8em;">All interactions logged for quality and training purposes</p>
+        </div>
+    </div>
+
+    <script>
+        function showStepDetails(step) {
+            const details = {
+                1: 'STEP 1: CONTACT INITIATION\n\n' +
+                   'CHANNELS:\n' +
+                   '• Email: support@company.com\n' +
+                   '• Phone: +1-800-SUPPORT\n' +
+                   '• Microsoft Teams: #support-channel\n' +
+                   '• Support Portal: https://support.company.com\n\n' +
+                   'AUTOMATION:\n' +
+                   '• Auto-ticket creation from email\n' +
+                   '• IVR phone menu\n' +
+                   '• Teams bot for initial triage\n\n' +
+                   'METRICS:\n' +
+                   '• Average first response: 5min\n' +
+                   '• Channel distribution tracked',
+                
+                2: 'STEP 2: SLA ACKNOWLEDGMENT\n\n' +
+                   'RESPONSE TIMES BY PRIORITY:\n' +
+                   '• Critical: 15 minutes\n' +
+                   '• Major: 1 hour\n' +
+                   '• Minor: 4 hours\n\n' +
+                   'PROCESS:\n' +
+                   '• Auto-assignment to support team\n' +
+                   '• Initial response template\n' +
+                   '• Ticket ID: SUP-{year}-{sequence}\n' +
+                   '• SLA timer starts at receipt\n\n' +
+                   'NOTIFICATIONS:\n' +
+                   '• Customer: Acknowledgment email\n' +
+                   '• Team: Slack/Teams alert\n' +
+                   '• Management: Escalation if SLA at risk',
+                
+                3: 'STEP 3: DIAGNOSIS & CLASSIFICATION\n\n' +
+                   'PRIORITY DEFINITIONS:\n' +
+                   '🔴 CRITICAL:\n' +
+                   '• Production system down\n' +
+                   '• Data loss/corruption\n' +
+                   '• Security breach\n' +
+                   '• All users affected\n\n' +
+                   '🟠 MAJOR:\n' +
+                   '• Feature unavailable\n' +
+                   '• Performance degradation\n' +
+                   '• Workaround exists\n' +
+                   '• Subset of users affected\n\n' +
+                   '🟡 MINOR:\n' +
+                   '• Cosmetic issues\n' +
+                   '• Enhancement requests\n' +
+                   '• Documentation errors\n' +
+                   '• Single user issue',
+                
+                4: 'STEP 4: RESOLUTION DELIVERY\n\n' +
+                   'RESOLUTION TYPES:\n' +
+                   '🔧 PERMANENT FIX:\n' +
+                   '• Code deployment\n' +
+                   '• Configuration change\n' +
+                   '• Database fix\n\n' +
+                   '🔄 WORKAROUND:\n' +
+                   '• Temporary solution\n' +
+                   '• Manual process\n' +
+                   '• Alternative method\n\n' +
+                   '⚙️ OTHER:\n' +
+                   '• User education\n' +
+                   '• Environment reset\n' +
+                   '• Third-party escalation\n\n' +
+                   'TIMELINES:\n' +
+                   '• Critical: 4hr target\n' +
+                   '• Major: 8hr target\n' +
+                   '• Minor: 24hr target',
+                
+                5: 'STEP 5: CONFIRMATION\n\n' +
+                   'VERIFICATION PROCESS:\n' +
+                   '1. Customer tests the solution\n' +
+                   '2. Confirm expected behavior\n' +
+                   '3. Document acceptance\n' +
+                   '4. Send satisfaction survey\n\n' +
+                   'CLOSURE CRITERIA:\n' +
+                   '• Customer confirms resolved\n' +
+                   '• No further action needed\n' +
+                   '• Documentation complete\n' +
+                   '• Survey sent\n\n' +
+                   'FOLLOW-UP:\n' +
+                   '• 24hr post-closure check\n' +
+                   '• Reopen if issue persists',
+                
+                6: 'STEP 6: KNOWLEDGE DOCUMENTATION\n\n' +
+                   'KNOWLEDGE BASE ARTICLES:\n' +
+                   '• Title: Clear description\n' +
+                   '• Symptoms: What happened\n' +
+                   '• Cause: Root cause analysis\n' +
+                   '• Resolution: Steps taken\n' +
+                   '• Tags: For searchability\n\n' +
+                   'METRICS TRACKED:\n' +
+                   '• Time to resolution\n' +
+                   '• Number of touches\n' +
+                   '• Escalation level\n' +
+                   '• Customer satisfaction\n\n' +
+                   'CONTINUOUS IMPROVEMENT:\n' +
+                   '• Trend analysis\n' +
+                   '• Common issue patterns\n' +
+                   '• Training opportunities\n' +
+                   '• Process updates'
+            };
+            
+            alert(details[step]);
+        }
+
+        // Add right-click for metrics
+        document.querySelectorAll('.step').forEach(el => {
+            el.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                alert('SUPPORT METRICS DASHBOARD\n\n' +
+                      'CURRENT PERIOD:\n' +
+                      '• Avg Response Time: 12min\n' +
+                      '• Avg Resolution Time: 3.5hr\n' +
+                      '• SLA Compliance: 98.5%\n' +
+                      '• CSAT Score: 4.8/5\n\n' +
+                      'VOLUME:\n' +
+                      '• Tickets this month: 1,247\n' +
+                      '• Critical: 42 (3.4%)\n' +
+                      '• Major: 386 (31.0%)\n' +
+                      '• Minor: 819 (65.6%)\n\n' +
+                      'TOP CATEGORIES:\n' +
+                      '• Login issues: 22%\n' +
+                      '• Performance: 18%\n' +
+                      '• Configuration: 15%\n' +
+                      '• Feature requests: 12%');
+            });
+        });
+    </script>
+</body>
+</html>

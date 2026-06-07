@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Architecture - Professional</title>
+    <link rel="stylesheet" href="css/architeture-overview.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #333;
+            padding: 40px;
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Audience Toggle */
+        .audience-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            background: #f0f0f0;
+            padding: 8px;
+            border-radius: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #333;
+        }
+
+        .toggle-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 40px;
+            font-size: 0.95em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: transparent;
+            color: #666;
+        }
+
+        .toggle-btn.active {
+            background: #333;
+            color: white;
+            box-shadow: 3px 3px 0 #000;
+        }
+
+        /* Description Panel */
+        .description-panel {
+            background: #f8f8f8;
+            border: 2px solid #333;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .tech-desc, .nontech-desc {
+            display: none;
+        }
+
+        .tech-desc.active, .nontech-desc.active {
+            display: block;
+        }
+
+        .desc-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .desc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .desc-card {
+            background: white;
+            border: 1px solid #333;
+            padding: 20px;
+        }
+
+        .desc-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .desc-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+
+        /* API Gateway */
+        .gateway {
+            background: #333;
+            color: white;
+            padding: 25px;
+            border: 2px solid #000;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            box-shadow: 6px 6px 0 #000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .gateway:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 #000;
+        }
+
+        .gateway .title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gateway .subtitle {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .gateway .badge {
+            background: #555;
+            padding: 6px 20px;
+            display: inline-block;
+            font-size: 0.8em;
+            border: 1px solid #888;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1.5fr 1.2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Column Styles */
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .column-header {
+            text-align: center;
+            padding: 15px;
+            background: #f0f0f0;
+            border: 2px solid #333;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 2px solid #333;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0 #333;
+        }
+
+        .card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0 #333;
+            background: #fafafa;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .card-subtitle {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Tech Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            font-size: 0.7em;
+            color: #333;
+            font-family: monospace;
+        }
+
+        /* Non-Tech Tags */
+        .simple-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 15px 0;
+        }
+
+        .simple-tag {
+            background: white;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            font-size: 0.7em;
+            color: #333;
+        }
+
+        /* Description Blocks */
+        .desc-block {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        .tech-block {
+            border-left: 3px solid #333;
+        }
+
+        .simple-block {
+            border-left: 3px solid #666;
+        }
+
+        .desc-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.85em;
+            text-transform: uppercase;
+        }
+
+        /* Connections */
+        .connections {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            font-size: 0.8em;
+        }
+
+        .connection-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0;
+            color: #444;
+        }
+
+        .connection-dot {
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f8f8;
+            border: 2px solid #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-icon {
+            width: 24px;
+            height: 24px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .legend-text {
+            color: #333;
+            font-size: 0.85em;
+        }
+
+        .click-hint {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .click-hint span {
+            background: #333;
+            color: white;
+            padding: 4px 12px;
+            margin: 0 5px;
+            font-size: 0.8em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Icon Font (using system fonts for icons) */
+        .icon {
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+        }
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>SYSTEM ARCHITECTURE</h1>
+            <div class="header-subtitle">
+                <span>⌨️ TECHNICAL VIEW</span>
+                <span>📋 BUSINESS VIEW</span>
+            </div>
+        </div>
+
+        <!-- Audience Toggle -->
+        <div class="audience-toggle">
+            <button class="toggle-btn active" onclick="showTech(true)">⌨️ TECHNICAL</button>
+            <button class="toggle-btn" onclick="showTech(false)">📋 BUSINESS</button>
+        </div>
+
+        <!-- Dynamic Description Panel -->
+        <div class="description-panel">
+            <!-- Technical Description -->
+            <div class="tech-desc active" id="techDesc">
+                <div class="desc-title">TECHNICAL ARCHITECTURE OVERVIEW</div>
+                <div class="desc-grid">
+                    <div class="desc-card">
+                        <h4>MICROSERVICES</h4>
+                        <p>Java 17 + Spring Boot 3 microservices. Each service independently scalable. REST APIs and RabbitMQ/Kafka for async communication.</p>
+                    </div>
+                    <div class="desc-card">
+                        <h4>SECURITY</h4>
+                        <p>JWT authentication with RBAC. BCrypt encryption. API Gateway handles rate limiting and request validation.</p>
+                    </div>
+                    <div class="desc-card">
+                        <h4>DATA LAYER</h4>
+                        <p>JPA/Hibernate with PostgreSQL. Optimized queries and indexing. Connection pooling with HikariCP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Technical Description -->
+            <div class="nontech-desc" id="nontechDesc">
+                <div class="desc-title">BUSINESS OVERVIEW</div>
+                <div class="desc-grid">
+                    <div class="desc-card">
+                        <h4>MODULAR DESIGN</h4>
+                        <p>Independent components work together seamlessly. Update one part without disrupting others. Scales with your business.</p>
+                    </div>
+                    <div class="desc-card">
+                        <h4>SECURE & RELIABLE</h4>
+                        <p>Multiple security layers protect your data. System handles high traffic automatically without slowing down.</p>
+                    </div>
+                    <div class="desc-card">
+                        <h4>GROWTH READY</h4>
+                        <p>Add new features without rebuilding. Handles more users by adding resources automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Gateway -->
+        <div class="gateway" onclick="showDetails('gateway')">
+            <div class="title">API GATEWAY</div>
+            <div class="subtitle">Authentication · Routing · Rate Limiting · SSL</div>
+            <div class="badge">ENTRY POINT</div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Administration Column (with Reporting & Audit) -->
+            <div class="column">
+                <div class="column-header">ADMINISTRATION</div>
+                
+                <!-- Admin Portal Card -->
+                <div class="card" onclick="showDetails('admin')">
+                    <div class="card-header">
+                        <div class="card-icon">👑</div>
+                        <div>
+                            <div class="card-title">ADMIN PORTAL</div>
+                            <div class="card-subtitle">Internal Management</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">RBAC</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">8083</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">SPECIFICATIONS</span>
+                            • User CRUD with JPA<br>
+                            • Role-based access control<br>
+                            • Audit logging (AOP)<br>
+                            • Permission management<br>
+                            • Redis session cache
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">User Management</span>
+                            <span class="simple-tag">Permissions</span>
+                            <span class="simple-tag">Audit Trail</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • Add/remove system users<br>
+                            • Set access permissions<br>
+                            • Track all admin actions<br>
+                            • Configure system settings
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>↓ Service Level Admin</span>
+                        </div>
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Reporting & Audit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Level Admin Card -->
+                <div class="card" onclick="showDetails('serviceLevel')">
+                    <div class="card-header">
+                        <div class="card-icon">⚙️</div>
+                        <div>
+                            <div class="card-title">SERVICE LEVEL ADMIN</div>
+                            <div class="card-subtitle">SLA & Performance</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Micrometer</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">8084</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">METRICS</span>
+                            • SLA: 99.9% uptime<br>
+                            • 8 service tiers<br>
+                            • 1,000 req/s per tenant<br>
+                            • Real-time alerts
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">Performance</span>
+                            <span class="simple-tag">Service Levels</span>
+                            <span class="simple-tag">Monitoring</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • Track system performance<br>
+                            • Manage service packages<br>
+                            • Set usage limits<br>
+                            • Alert on issues
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Reporting & Audit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reporting & Audit Card (Now under Administration) -->
+                <div class="card" onclick="showDetails('reporting')">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <div>
+                            <div class="card-title">REPORTING & AUDIT</div>
+                            <div class="card-subtitle">Analytics · Compliance</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Elasticsearch</span>
+                            <span class="tech-tag">Kibana</span>
+                            <span class="tech-tag">Logstash</span>
+                            <span class="tech-tag">8086</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">CAPABILITIES</span>
+                            • Centralized audit logging<br>
+                            • Compliance reporting<br>
+                            • Business analytics<br>
+                            • 30-day retention<br>
+                            • Export (CSV, PDF)
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">Reports</span>
+                            <span class="simple-tag">Analytics</span>
+                            <span class="simple-tag">Compliance</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • Generate business reports<br>
+                            • Track all system activities<br>
+                            • Meet compliance needs<br>
+                            • Export data for analysis
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>← From all services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Portals Column -->
+            <div class="column">
+                <div class="column-header">USER PORTALS</div>
+                
+                <!-- Client Portal Card -->
+                <div class="card" onclick="showDetails('client')">
+                    <div class="card-header">
+                        <div class="card-icon">👥</div>
+                        <div>
+                            <div class="card-title">CLIENT PORTAL</div>
+                            <div class="card-subtitle">Customer Dashboard</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring MVC</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">8081</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">SPECIFICATIONS</span>
+                            • Customer CRUD<br>
+                            • Real-time dashboard<br>
+                            • Billing integration<br>
+                            • → Integration Service<br>
+                            • → Message Queue
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">Customer Area</span>
+                            <span class="simple-tag">Dashboard</span>
+                            <span class="simple-tag">Billing</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • View/edit profile<br>
+                            • Dashboard with metrics<br>
+                            • Billing & invoices<br>
+                            • Connects to integrations
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Integration Service</span>
+                        </div>
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Message Queue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applicant Portal Card -->
+                <div class="card" onclick="showDetails('applicant')">
+                    <div class="card-header">
+                        <div class="card-icon">📝</div>
+                        <div>
+                            <div class="card-title">APPLICANT PORTAL</div>
+                            <div class="card-subtitle">Application Processing</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring Data REST</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">File Storage</span>
+                            <span class="tech-tag">8082</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">SPECIFICATIONS</span>
+                            • Application workflow<br>
+                            • Document upload<br>
+                            • Status tracking<br>
+                            • Email triggers<br>
+                            • → Integration Service
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">Applications</span>
+                            <span class="simple-tag">Documents</span>
+                            <span class="simple-tag">Status</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • Submit applications<br>
+                            • Upload documents<br>
+                            • Check status<br>
+                            • Receive updates
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Integration Service</span>
+                        </div>
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Message Queue</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared Services Column -->
+            <div class="column">
+                <div class="column-header">SHARED SERVICES</div>
+                
+                <!-- Integration Service Card -->
+                <div class="card" onclick="showDetails('integration')">
+                    <div class="card-header">
+                        <div class="card-icon">🔌</div>
+                        <div>
+                            <div class="card-title">INTEGRATION SERVICE</div>
+                            <div class="card-subtitle">External Systems</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring Integration</span>
+                            <span class="tech-tag">Resilience4j</span>
+                            <span class="tech-tag">WebClient</span>
+                            <span class="tech-tag">8085</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">INTEGRATIONS</span>
+                            • Xero API (accounting)<br>
+                            • SMTP/SendGrid (email)<br>
+                            • Twilio (SMS)<br>
+                            • Webhook delivery<br>
+                            • Circuit breakers
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">External Apps</span>
+                            <span class="simple-tag">Email</span>
+                            <span class="simple-tag">SMS</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">CONNECTIONS</span>
+                            • Xero accounting<br>
+                            • Email notifications<br>
+                            • SMS alerts<br>
+                            • External webhooks
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>← From all portals</span>
+                        </div>
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Message Queue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Queue Card -->
+                <div class="card" onclick="showDetails('queue')">
+                    <div class="card-header">
+                        <div class="card-icon">🐇</div>
+                        <div>
+                            <div class="card-title">MESSAGE QUEUE</div>
+                            <div class="card-subtitle">RabbitMQ/Kafka</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical View -->
+                    <div class="tech-only">
+                        <div class="tech-tags">
+                            <span class="tech-tag">RabbitMQ/Kafka</span>
+                            <span class="tech-tag">AMQP</span>
+                            <span class="tech-tag">Spring Cloud Stream</span>
+                            <span class="tech-tag">5672</span>
+                        </div>
+                        <div class="desc-block tech-block">
+                            <span class="desc-label">CONFIGURATION</span>
+                            • 8 durable queues<br>
+                            • Dead letter queue<br>
+                            • 3 retry attempts<br>
+                            • 3 exchanges<br>
+                            • 10k msgs/sec
+                        </div>
+                    </div>
+
+                    <!-- Non-Technical View -->
+                    <div class="nontech-only" style="display: none;">
+                        <div class="simple-tags">
+                            <span class="simple-tag">Message Bus</span>
+                            <span class="simple-tag">Events</span>
+                            <span class="simple-tag">Async</span>
+                        </div>
+                        <div class="desc-block simple-block">
+                            <span class="desc-label">FUNCTIONS</span>
+                            • Service communication<br>
+                            • Background processing<br>
+                            • No message loss<br>
+                            • Automatic retries
+                        </div>
+                    </div>
+
+                    <div class="connections">
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>← From all portals</span>
+                        </div>
+                        <div class="connection-item">
+                            <span class="connection-dot"></span>
+                            <span>→ Integration Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-icon">👑</div>
+                <span class="legend-text">Administration</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">👥</div>
+                <span class="legend-text">User Portals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">🔌</div>
+                <span class="legend-text">Shared Services</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon">📊</div>
+                <span class="legend-text">Reporting (Admin)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-text">🖱️ Click = Details</span>
+            </div>
+        </div>
+
+        <!-- Click Hint -->
+        <div class="click-hint">
+            <span>CLICK</span> any component for detailed information
+            <span>RIGHT-CLICK</span> for infrastructure details
+        </div>
+    </div>
+
+    <script>
+        // Toggle between technical and non-technical views
+        function showTech(isTech) {
+            const techBtn = document.querySelectorAll('.toggle-btn')[0];
+            const nontechBtn = document.querySelectorAll('.toggle-btn')[1];
+            const techDesc = document.getElementById('techDesc');
+            const nontechDesc = document.getElementById('nontechDesc');
+            const techElements = document.querySelectorAll('.tech-only');
+            const nontechElements = document.querySelectorAll('.nontech-only');
+            
+            if (isTech) {
+                techBtn.classList.add('active');
+                nontechBtn.classList.remove('active');
+                techDesc.classList.add('active');
+                nontechDesc.classList.remove('active');
+                
+                techElements.forEach(el => el.style.display = 'block');
+                nontechElements.forEach(el => el.style.display = 'none');
+            } else {
+                nontechBtn.classList.add('active');
+                techBtn.classList.remove('active');
+                nontechDesc.classList.add('active');
+                techDesc.classList.remove('active');
+                
+                techElements.forEach(el => el.style.display = 'none');
+                nontechElements.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        // Show component details
+        function showDetails(component) {
+            const isTech = document.querySelector('.toggle-btn.active').textContent.includes('TECHNICAL');
+            
+            const details = {
+                gateway: {
+                    tech: 'API GATEWAY - TECHNICAL\n\nSpring Cloud Gateway · JWT · Redis\n\n• JWT Authentication (RS256)\n• Rate Limiting: 100 req/min\n• Routes: 8 microservices\n• SSL/TLS (TLS 1.3)\n• Load Balancing: Round-robin\n• Request Logging\n• Response Caching\n\nPort: 8080',
+                    nontech: 'API GATEWAY - OVERVIEW\n\nThe front door to the system. All requests enter here.\n\n• Security: Checks IDs (JWT tokens)\n• Traffic Control: Prevents overload\n• Routing: Directs to right service\n• Encryption: Secure tunnel (SSL)\n\nBenefits: Single control point, protects against attacks, stable during peak times'
+                },
+                admin: {
+                    tech: 'ADMIN PORTAL - TECHNICAL\n\nSpring Boot 3 · Spring Security · JPA\n\n• User CRUD operations\n• RBAC with 5 role types\n• Permission management\n• Audit logging (AOP)\n• Redis session cache\n\nAPI: /api/admin/*\nPort: 8083',
+                    nontech: 'ADMIN PORTAL - OVERVIEW\n\nControl room for system administrators.\n\n• User Management: Add/remove users\n• Permissions: Set access levels\n• Audit Trail: Track all actions\n• Settings: Configure system\n\nBusiness Value: Security control, compliance, quick onboarding'
+                },
+                serviceLevel: {
+                    tech: 'SERVICE LEVEL ADMIN - TECHNICAL\n\nMicrometer · Prometheus · Grafana\n\n• SLA monitoring (99.9%)\n• 8 service tiers\n• 1,000 req/s per tenant\n• Real-time alerts\n• Performance metrics\n\nPort: 8084',
+                    nontech: 'SERVICE LEVEL ADMIN - OVERVIEW\n\nManages service performance and limits.\n\n• Performance Tracking: System health\n• Service Tiers: Different packages\n• Quotas: Usage limits\n• Alerts: Notify on issues\n\nBusiness Value: Ensure reliability, manage customer tiers'
+                },
+                reporting: {
+                    tech: 'REPORTING & AUDIT - TECHNICAL\n\nELK Stack · Elasticsearch · Kibana\n\n• Centralized audit logging\n• Compliance reporting\n• Business analytics\n• 30-day retention\n• Export: CSV, PDF\n\nPort: 8086 (API)',
+                    nontech: 'REPORTING & AUDIT - OVERVIEW\n\nSystem memory and analytics department.\n\n• Reports: Business insights\n• Audit Trail: Complete history\n• Compliance: Ready for auditors\n• Export: Use in Excel\n\nBusiness Value: Data-driven decisions, compliance, security monitoring'
+                },
+                client: {
+                    tech: 'CLIENT PORTAL - TECHNICAL\n\nSpring MVC · JPA · WebSocket\n\n• Customer CRUD\n• Real-time dashboard\n• Billing integration\n• → Integration Service\n• → Message Queue\n\nPort: 8081',
+                    nontech: 'CLIENT PORTAL - OVERVIEW\n\nCustomer-facing dashboard.\n\n• Profile: Update information\n• Dashboard: View metrics\n• Billing: Invoices/payments\n• Support: Contact help\n\nBusiness Value: Self-service, better experience, reduced support calls'
+                },
+                applicant: {
+                    tech: 'APPLICANT PORTAL - TECHNICAL\n\nSpring Data REST · JPA · File Storage\n\n• Application workflow\n• Document upload\n• Status tracking\n• Email triggers\n• → Integration Service\n\nPort: 8082',
+                    nontech: 'APPLICANT PORTAL - OVERVIEW\n\nApplication submission and tracking.\n\n• Apply: Submit applications\n• Documents: Upload files\n• Status: Track progress\n• Updates: Email notifications\n\nBusiness Value: Streamlined process, better experience, faster processing'
+                },
+                integration: {
+                    tech: 'INTEGRATION SERVICE - TECHNICAL\n\nSpring Integration · Resilience4j · WebClient\n\n• Xero API (accounting)\n• SMTP/SendGrid (email)\n• Twilio (SMS)\n• Webhooks\n• Circuit breakers\n• Retry: 3 attempts\n\nPort: 8085',
+                    nontech: 'INTEGRATION SERVICE - OVERVIEW\n\nConnects to external systems.\n\n• Xero: Accounting software\n• Email: Notifications\n• SMS: Text alerts\n• Webhooks: External apps\n\nReliability: Retries on failure, doesn\'t block other services'
+                },
+                queue: {
+                    tech: 'MESSAGE QUEUE - TECHNICAL\n\RabbitMQ/Kafka · AMQP · Spring Cloud Stream\n\n• 8 durable queues\n• Dead letter queue\n• 3 retry attempts\n• 3 exchanges\n• 10,000 msgs/sec\n\nPort: 5672',
+                    nontech: 'MESSAGE QUEUE - OVERVIEW\n\nPostal system for data between services.\n\n• Async: No waiting\n• Reliability: Messages never lost\n• Retry: Failed messages retry\n• Scale: Handles high volume\n\nBusiness Value: Responsive system, no data loss, easy to add features'
+                }
+            };
+            
+            const detail = details[component];
+            if (detail) {
+                alert(isTech ? detail.tech : detail.nontech);
+            }
+        }
+
+        // Right-click for infrastructure info
+        document.querySelectorAll('.gateway, .card').forEach(el => {
+            el.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                
+                alert('INFRASTRUCTURE DETAILS\n\n' +
+                      'KUBERNETES:\n' +
+                      '• 3 replicas per service\n' +
+                      '• Rolling updates\n' +
+                      '• Auto-scaling (CPU > 70%)\n' +
+                      '• Self-healing\n\n' +
+                      'RESOURCES:\n' +
+                      '• CPU: 500m\n' +
+                      '• Memory: 512Mi\n\n' +
+                      'HEALTH CHECKS:\n' +
+                      '• Liveness: /actuator/health/liveness\n' +
+                      '• Readiness: /actuator/health/readiness\n\n' +
+                      'CI/CD:\n' +
+                      '• GitHub Actions\n' +
+                      '• Auto-deploy\n' +
+                      '• Rollback on failure');
+            });
+        });
+
+        // Initialize with technical view
+        showTech(true);
+    </script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KConsulting – IT & Marketing Solutions | Built on Excellence</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="We combine strategic vision (The Architect) with technical execution (The Engineer) to build robust digital systems and campaigns that scale your business.">
+    <meta name="keywords" content="Website development for business growth, CMS optimization and automation, System integration services, API integration for business systems, Website performance improvement, Scalable business systems, IT consulting, marketing agency, digital transformation, cloud solutions, software development, SEO, content marketing, Business growth consultation, Website and marketing support,  Improve website conversions, Ecommerce website optimization, Lead generation strategies, System integration for business growth">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/">
+    <meta property="og:title" content="KConsulting – IT & Marketing Solutions | Built on Excellence">
+    <meta property="og:description" content="We combine strategic vision with technical execution to build digital systems and campaigns that scale your business.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/">
+    <meta property="twitter:title" content="KConsulting – IT & Marketing Solutions | Built on Excellence">
+    <meta property="twitter:description" content="We combine strategic vision with technical execution to build digital systems and campaigns that scale your business.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL (important for SEO) -->
+    <link rel="canonical" href="https://www.thekconsult.co.za/">
+    
+    <!-- Geo Tags (for local SEO) -->
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+    
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+        "@type": "ProfessionalService",
+        "@id": "https://www.thekconsult.co.za",
+        "name": "KConsulting Firm (Pty) Ltd",
+        "url": "https://www.thekconsult.co.za",
+        "logo": "https://www.thekconsult.co.za/img/KConsultingLogo1.png",
+        "image": "https://www.thekconsult.co.za/img/KConsultingLogo1.png",
+        "description": "An ICT and digital marketing agency utilizing an Architect & Engineer dual-minded model to design marketing ecosystems and engineer technical IT structures.",
+        "sameAs": [
+            "https://www.linkedin.com/company/kconsulting-pty-ltd"      ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cape Town",
+            "addressRegion": "Western Cape",
+            "postalCode": "8001",
+            "addressCountry": "ZA"      },
+        "telephone": "+27645190549",
+        "email": "info@thekconsult.co.za"    },
+        {
+        "@type": "LocalBusiness",
+        "name": "KConsulting Firm - Johannesburg Office",
+        "parentOrganization": { "@id": "https://www.thekconsult.co.za" },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Johannesburg",
+            "postalCode": "2125",
+            "addressCountry": "ZA"      }
+        },
+        {
+        "@type": "LocalBusiness",
+        "name": "KConsulting Firm - Durban Office",
+        "parentOrganization": { "@id": "https://www.thekconsult.co.za" },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Durban",
+            "addressCountry": "ZA"      }
+        }
+    ]
+    }
+    </script>
+    
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-bullhorn"></i>
+            <span><strong>Free Website Audit</strong> Discover what’s limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="it.html">IT Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="video/mixkit-stars-in-space-background-1610-hd-ready1.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Floating Tech Elements -->
+        <div class="floating-tech-elements">
+            <!-- Tech Words -->
+            <div class="floating-item" style="top: 5%; left: 2%;">Java</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">SQL</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">Testing</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">Python</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">JavaScript</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">AWS</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">Docker</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">Kubernetes</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">React</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">Node.js</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">API</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">Cloud</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">Data</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">DevOps</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Agile</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">Scrum</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">Analytics</div>
+            
+            <!-- Diamond Shapes -->
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-diamond" style="bottom: 55%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="floating-diamond" style="top: 70%; right: 60%; width: 60px; height: 60px;"></div>
+            <div class="floating-diamond" style="bottom: 25%; right: 75%; width: 40px; height: 40px;"></div>
+            
+            <!-- Circles -->
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-circle" style="top: 60%; left: 55%; width: 30px; height: 30px; border: 2px solid var(--accent-blue);"></div>
+            
+            <!-- Lines -->
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="bottom: 60%; left: 40%; width: 120px; height: 2px; background: var(--accent-blue);"></div>
+            <div class="floating-line vertical" style="bottom: 20%; right: 65%; width: 2px; height: 100px; background: var(--accent-teal);"></div>
+        </div>
+                
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-crown"></i> For growing businesses ready to scale
+                </div>
+                <h1 class="hero-title">Turn more visitors<br>into paying customers</h1>
+                <p class="hero-subtitle">We help businesses improve their websites, systems, and digital customer journeys to generate more leads, improve conversions, and support long-term growth.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn-secondary">Free Website Audit<i class="fas fa-arrow-right"></i></a>
+                    <a href="consultation.html" class="btn-secondary">Free Strategy Session<i class="fas fa-play-circle"></i></a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-dashboard">
+                    <div class="dashboard-header">
+                        <span class="dashboard-title">Performance Overview</span>
+                        <span class="dashboard-live">Live</span>
+                    </div>
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value">4.2%</div>
+                            <div class="metric-change">↑ 1.8%</div>
+                            <div class="metric-label">Conv. Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">12.5K</div>
+                            <div class="metric-change">↑ 23%</div>
+                            <div class="metric-label">Visitors</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">+34%</div>
+                            <div class="metric-change">↑ Growth</div>
+                            <div class="metric-label">Revenue</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-bar-section">
+                        <div class="bar-label">
+                            <span>Lead Generation</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="dashboard-bar">
+                            <div class="bar-fill" style="width: 78%;"></div>
+                        </div>
+                        <div class="bar-label">
+                            <span>Conversion Rate</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="dashboard-bar">
+                            <div class="bar-fill" style="width: 65%;"></div>
+                        </div>
+                        <div class="bar-label">
+                            <span>System Uptime</span>
+                            <span>99%</span>
+                        </div>
+                        <div class="dashboard-bar">
+                            <div class="bar-fill" style="width: 99%;"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-footer">
+                        <span class="dashboard-cta-text">Results from our clients</span>
+                        <span class="dashboard-badge">Real Data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section class="client-logos-section">
+        <div class="container">
+            <p class="logos-tagline">Trusted by growing businesses</p>
+            <div class="client-logos-grid">
+                <div class="client-logo-slot">
+                    <img src="img/clients/client-1.png" alt="Trisab">
+                </div>
+                <div class="client-logo-slot">
+                    <img src="img/clients/client-2.png" alt="Stubs Consulting">
+                </div>
+                <div class="client-logo-slot">
+                    <img src="img/clients/client-3.png" alt="African Cannabis Team">
+                </div>
+                <div class="client-logo-slot">
+                    <img src="img/clients/client-4.png" alt="Client">
+                </div>
+                <div class="client-logo-slot">
+                    <img src="img/clients/client-5.png" alt="Client">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge-section">
+        <div class="container">
+            <div class="challenge-grid">
+                <div class="challenge-text fade-in">
+                    <span class="section-label">The Real Challenge</span>
+                    <h2>Your business needs more than just a website</h2>
+                    <p>Most businesses have websites — but not the systems, strategy, or optimization that actually drives growth. That’s the gap we close.</p>
+                    <ul class="challenge-list">
+                        <li><i class="fas fa-check-circle"></i> Your website is hard to update or manage</li>
+                        <li><i class="fas fa-check-circle"></i> Your tools don’t talk to each other</li>
+                        <li><i class="fas fa-check-circle"></i> You’re getting traffic but not enough conversions</li>
+                        <li><i class="fas fa-check-circle"></i> You’re losing growth opportunities at every stage</li>
+                        <li><i class="fas fa-check-circle"></i> You don’t have clear visibility into what’s working</li>
+                    </ul>
+                    <a href="consultation.html" class="btn-gold">Get a Free Strategy Session <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="challenge-visual fade-in">
+                    <div class="browser-mockup">
+                        <div class="browser-header-bar">
+                            <div class="browser-dots">
+                                <div class="browser-dot red"></div>
+                                <div class="browser-dot yellow"></div>
+                                <div class="browser-dot green"></div>
+                            </div>
+                            <div class="browser-url-bar"></div>
+                        </div>
+                        <div class="browser-body">
+                            <div class="mock-conversion">
+                                <div class="mock-card">
+                                    <div class="mock-card-label">Conversion Rate</div>
+                                    <div class="mock-card-value">4.2%</div>
+                                    <div class="mock-card-change">↑ +1.8% this month</div>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-label">Leads Generated</div>
+                                    <div class="mock-card-value">347</div>
+                                    <div class="mock-card-change">↑ +23% vs last month</div>
+                                </div>
+                            </div>
+                            <div class="mock-funnel">
+                                <div class="funnel-row">
+                                    <span class="funnel-label">Visitors</span>
+                                    <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width: 100%;"></div></div>
+                                    <span class="funnel-pct">100%</span>
+                                </div>
+                                <div class="funnel-row">
+                                    <span class="funnel-label">Engaged</span>
+                                    <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width: 62%;"></div></div>
+                                    <span class="funnel-pct">62%</span>
+                                </div>
+                                <div class="funnel-row">
+                                    <span class="funnel-label">Leads</span>
+                                    <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width: 28%;"></div></div>
+                                    <span class="funnel-pct">28%</span>
+                                </div>
+                                <div class="funnel-row">
+                                    <span class="funnel-label">Converted</span>
+                                    <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width: 14%;"></div></div>
+                                    <span class="funnel-pct">14%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Dark Section -->
+    <section class="solutions-dark">
+        <div class="container">
+            <div class="solutions-header">
+                <span class="section-label">Our Solutions</span>
+                <h2>Your growth doesn't stop after launch</h2>
+                <p>Most agencies stop at delivery — we don't. We continue working with you to optimize, improve, and scale through integrated systems built for performance.</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-icon"><i class="fas fa-magnet"></i></div>
+                    <h3>Lead Generation</h3>
+                    <p>Attract and capture high-quality leads with optimized funnels and targeting strategies.</p>
+                    <a href="lead-generation.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Conversion Optimization</h3>
+                    <p>Turn more visitors into customers with data-driven CRO improvements across your site.</p>
+                    <a href="conversion-optimization.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Ecommerce Growth</h3>
+                    <p>Optimize your online store for better performance, user experience, and revenue.</p>
+                    <a href="ecommerce-optimization.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Systems Integration</h3>
+                    <p>Connect your tools and automate workflows so everything works together seamlessly.</p>
+                    <a href="system-integration.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Automation & Workflows</h3>
+                    <p>Save time and scale faster with smart business automation and process design.</p>
+                    <a href="it.html" class="solution-link" >Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="solutions-cta">
+                <a href="consultation.html" class="btn-gold">Explore All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow Section -->
+    <section class="process-flow-section">
+        <div class="container">
+            <div class="process-flow-header fade-in">
+                <span class="section-label">Our Process</span>
+                <h2>How We Build Your Success</h2>
+                <p>A clear 5-step process that turns your goals into real, measurable results</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number-circle">
+                        <i class="fas fa-search step-icon"></i>
+                        <span class="step-num">01</span>
+                    </div>
+                    <h3>Discover</h3>
+                    <p>We learn about your business, goals, and the challenges holding you back.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number-circle">
+                        <i class="fas fa-chart-bar step-icon"></i>
+                        <span class="step-num">02</span>
+                    </div>
+                    <h3>Analyze</h3>
+                    <p>We audit your current setup — website, systems, and conversion gaps.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number-circle">
+                        <i class="fas fa-compass step-icon"></i>
+                        <span class="step-num">03</span>
+                    </div>
+                    <h3>Strategize</h3>
+                    <p>We build a clear action plan tailored to your specific growth stage.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number-circle">
+                        <i class="fas fa-hammer step-icon"></i>
+                        <span class="step-num">04</span>
+                    </div>
+                    <h3>Implement</h3>
+                    <p>We build and deploy improvements fast, with minimal disruption to your business.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number-circle">
+                        <i class="fas fa-rocket step-icon"></i>
+                        <span class="step-num">05</span>
+                    </div>
+                    <h3>Optimize</h3>
+                    <p>We continuously monitor, test, and improve so your results keep growing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="section-label">Client Feedback</span>
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it</p>
+            </div>
+
+            <div class="swiper testimonials-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-slide">
+                            <div class="star-rating">★★★★★</div>
+                            <i class="fas fa-quote-left" style="font-size: 1.6rem; color: var(--accent-grey); opacity: 0.25; margin-bottom: 14px; display: block;"></i>
+                            <div class="testimonial-text">"Working with KConsulting has been a truly transformative experience for Trisab. As Group CEO, I've seen firsthand how their strategic insights, particularly their expertise in IT solutions and digital transformation, have helped us navigate complex market challenges and identify new opportunities for growth. Their team's dedication, professionalism, and deep understanding of our industry have been invaluable in shaping our long-term vision. Kconsult is more than just a consulting firm; they are a trusted partner committed to our success. I wholeheartedly recommend them to any organization seeking to achieve sustainable and meaningful results."</div>
+                            <button class="testimonial-read-more" onclick="toggleTestimonial(this)">Read more <i class="fas fa-chevron-down"></i></button>
+                            <div class="testimonial-author">
+                                <div class="author-image"></div>
+                                <div>
+                                    <h4>Thokozani Shongwe</h4>
+                                    <p style="color: var(--accent-grey); font-size: 0.9rem;">CEO, Trisab</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-slide">
+                            <div class="star-rating">★★★★★</div>
+                            <i class="fas fa-quote-left" style="font-size: 1.6rem; color: var(--accent-grey); opacity: 0.25; margin-bottom: 14px; display: block;"></i>
+                            <div class="testimonial-text">"Working with KConsulting has been a game-changer for us. Their team expertise in empowering businesses with innovative solutions and strategic insights is second to none. They didn't just provide a service; they became a true partner, helping us navigate complex challenges. Thanks to KConsult, our operations are more efficient, our team is more motivated, and our business is on a stronger growth trajectory. I highly recommend them to any organization looking to thrive in today's competitive landscape. KConsult truly empowers businesses to reach their full potential."</div>
+                            <button class="testimonial-read-more" onclick="toggleTestimonial(this)">Read more <i class="fas fa-chevron-down"></i></button>
+                            <div class="testimonial-author">
+                                <div class="author-image"></div>
+                                <div>
+                                    <h4>Clement Miya</h4>
+                                    <p style="color: var(--accent-grey); font-size: 0.9rem;">Director, Stubs Consulting</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-slide">
+                            <div class="star-rating">★★★★★</div>
+                            <i class="fas fa-quote-left" style="font-size: 1.6rem; color: var(--accent-grey); opacity: 0.25; margin-bottom: 14px; display: block;"></i>
+                            <div class="testimonial-text">"The work is clean and professionally organised. I love it. Overall, I am super happy and pleased. Thank you KConsulting — you delivered exactly what we needed and more. The quality and attention to detail exceeded our expectations."</div>
+                            <button class="testimonial-read-more" onclick="toggleTestimonial(this)">Read more <i class="fas fa-chevron-down"></i></button>
+                            <div class="testimonial-author">
+                                <div class="author-image"></div>
+                                <div>
+                                    <h4>African Cannabis Team</h4>
+                                    <p style="color: var(--accent-grey); font-size: 0.9rem;">Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Insights Preview -->
+    <!-- <section style="background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Latest Insights</h2>
+                <p>Thought leadership from our team</p>
+            </div>
+
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Mar 15, 2026</span>
+                            <span><i class="far fa-folder"></i> IT Strategy</span>
+                        </div>
+                        <h3>10 Cloud Migration Mistakes to Avoid</h3>
+                        <p>Learn from our experience helping businesses move to the cloud successfully.</p>
+                        <a href="#" class="case-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Mar 10, 2026</span>
+                            <span><i class="far fa-folder"></i> Marketing</span>
+                        </div>
+                        <h3>The Architect & Engineer Approach to SEO</h3>
+                        <p>Why combining strategy with technical execution delivers better rankings.</p>
+                        <a href="#" class="case-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Quick Contact CTA -->
+    <!-- <section class="quick-contact">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Build Something Amazing?</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px;">Get a free 30-minute strategy session with our duo.</p>
+            
+            <form class="quick-contact-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Get Started <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p style="margin-top: 20px; opacity: 0.8;"><i class="fas fa-shield-alt"></i> No spam, just useful insights and offers.</p>
+        </div>
+    </section> -->
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/27645190549" class="social-link whatsapp" target="_blank">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="social-link instagram" target="_blank">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="social-link linkedin" target="_blank">
+                    <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation & Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoHeight: false,
+            autoplay: {
+                delay: 6000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        function toggleTestimonial(btn) {
+            const text = btn.previousElementSibling;
+            const expanded = text.classList.toggle('expanded');
+            btn.innerHTML = expanded
+                ? 'Read less <i class="fas fa-chevron-up"></i>'
+                : 'Read more <i class="fas fa-chevron-down"></i>';
+        }
+    </script>
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script> 
+    <script src="js/google-analytics.js"></script>
+</body>
+</html>

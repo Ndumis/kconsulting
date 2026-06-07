@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architect & Engineer: Marketing & IT Duo | KConsulting</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="We blend visionary marketing with precision IT to build scalable, lasting success. Play our interactive games to discover your own style.">
+    <meta name="keywords" content="Website development for business growth, CMS optimization and automation, System integration services, API integration for business systems, Website performance improvement, Scalable business systems, IT consulting, marketing agency, digital transformation, cloud solutions, software development, SEO, content marketing, Business growth consultation, Website and marketing support,  Improve website conversions, Ecommerce website optimization, Lead generation strategies, System integration for business growth">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/about.html">
+    <meta property="og:title" content="The Architect & Engineer | KConsulting Firm">
+    <meta property="og:description" content="We blend visionary marketing strategy with precision IT execution to build scalable, lasting business success.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/about.html">
+    <meta property="twitter:title" content="The Architect & Engineer | KConsulting Firm">
+    <meta property="twitter:description" content="We blend visionary marketing strategy with precision IT execution to build scalable, lasting business success.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL (important for SEO) -->
+    <link rel="canonical" href="https://www.thekconsult.co.za/about.html">
+    
+    <!-- Geo Tags (for local SEO) -->
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+    
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Khayelihle Simelane",
+            "jobTitle": "Architect, Co-founder",
+            "worksFor": { "@type": "Organization", "name": "KConsulting" }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Christobel Ndlovu",
+            "jobTitle": "Engineer, Co-founder",
+            "worksFor": { "@type": "Organization", "name": "KConsulting" }
+        }
+    ]
+    </script>
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-bullhorn"></i>
+            <span><strong>Free Website Audit</strong> Discover what’s limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="it.html">IT Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Hero -->
+    <section class="video-hero">
+        <!-- Floating Tech Elements -->
+        <div class="floating-tech-elements">
+            <!-- Tech Words -->
+            <div class="floating-item" style="top: 5%; left: 2%;">Java</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">SQL</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">Testing</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">Python</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">JavaScript</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">AWS</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">Docker</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">Kubernetes</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">React</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">Node.js</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">API</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">Cloud</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">Data</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">DevOps</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Agile</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">Scrum</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">Analytics</div>
+            
+            <!-- Diamond Shapes -->
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-diamond" style="bottom: 55%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="floating-diamond" style="top: 70%; right: 60%; width: 60px; height: 60px;"></div>
+            <div class="floating-diamond" style="bottom: 25%; right: 75%; width: 40px; height: 40px;"></div>
+            
+            <!-- Circles -->
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-circle" style="top: 60%; left: 55%; width: 30px; height: 30px; border: 2px solid var(--accent-blue);"></div>
+            
+            <!-- Lines -->
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="bottom: 60%; left: 40%; width: 120px; height: 2px; background: var(--accent-blue);"></div>
+            <div class="floating-line vertical" style="bottom: 20%; right: 65%; width: 2px; height: 100px; background: var(--accent-teal);"></div>
+        </div>
+
+        <video autoplay muted loop class="video-background">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-architect-working-on-3d-models-43306-large.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i>  For growing businesses ready to scale
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 class="hero-title">Built to grow your business, not just your website or systems</h1>
+            <p class="hero-subtitle">We combine strategy and technology to build and improve the systems your business depends on, so you can attract more customers, convert better, and scale with confidence.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn-secondary">Free Website Audit<i class="fas fa-arrow-right"></i></a>
+                <a href="consultation.html" class="btn-secondary">Free Strategy Session<i class="fas fa-play-circle"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Showcase -->
+    <section class="profile-showcase">
+        <div class="container">
+            <div class="profile-selector">
+                <button class="profile-tab active" data-tab="joint">About Us</button>
+                <button class="profile-tab" data-tab="architect">The Growth Architect</button>
+                <button class="profile-tab" data-tab="engineer">The System Engineer</button>
+            </div>
+            
+            <!-- Joint Tab -->
+            <div class="profile-content active" id="joint-tab">
+                <div class="joint-story fade-in">
+                    <h2>About Us</h2>
+                    <p>KConsulting Firm (Pty) Ltd is a leading ICT company established in 2023, dedicated to empowering organizations with tailored and innovative IT and telecommunications solutions.We built The KConsulting on the synergy of two complementary minds: the Architect, who designs the bold vision and strategic roadmap, and the Engineer, who builds the robust systems and ensures every detail is executed to perfection.</p>
+                    <div class="complementary-skills">
+                        <div class="architect-skills">
+                            <h4><i class="fas fa-drafting-compass"></i> Mission statement</h4>
+                            <p>To equip businesses with the strategic clarity and operational discipline to scale sustainably and navigate complex markets.</p>
+                            <!--<ul>
+                                <li>Strategic vision and roadmap design</li>
+                                <li>Market opportunity analysis</li>
+                                <li>Brand storytelling</li>
+                                <li>Customer journey mapping</li>
+                                <li>Campaign architecture</li>
+                            </ul>-->
+                        </div>
+                        <div class="engineer-skills">
+                            <h4><i class="fas fa-cogs"></i> Our Vision</h4>
+                            <p>To redefine the consulting model in Africa as the most trusted partner for founders who value both visionary strategy and flawless execution.</p>
+                            <!--<ul>
+                                <li>System architecture & implementation</li>
+                                <li>Cloud infrastructure</li>
+                                <li>Data analytics pipelines</li>
+                                <li>Performance optimization</li>
+                            </ul>-->
+                        </div>
+                        <div class="engineer-skills">
+                            <h4><i class="fas fa-cogs"></i> Why businesses choose us</h4>
+                            <!-- <p>To redefine the consulting model in Africa as the most trusted partner for founders who value both visionary strategy and flawless execution.</p> -->
+                            <ul>
+                                <li>We focus on business results, not just delivering projects</li>
+                                <li>We combine strategy and execution in one team</li>
+                                <li>We build systems that support long, term growth</li>
+                                <li>We help you improve, scale, and evolve over time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Architect Tab (Marketing) -->
+            <div class="profile-content" id="architect-tab">
+                <div class="individual-profile fade-in">
+                    <div class="profile-header">
+                        <div class="profile-img-container architect-img">
+                            <img src="img/img-2.png" alt="Christobel Ndlovu">
+                        </div>
+                        <div class="profile-title">
+                            <h3>Christobel Ndlovu</h3>
+                            <p class="tagline">"Every growing business needs two things: <br> A clear plan to attract and convert customers and <br> Systems that can support growth and scale. <br> That’s why we work as one team. "</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h4>Strategy meets execution by design</h4>
+                        <p>Marketing should tell a story, not just broadcast a message. Every strategy I craft aligns with your core values and market opportunities, creating a blueprint that drives real engagement. I blend creative vision with strategic foresight to ensure campaigns are not only impactful but also scalable</p>
+                        <div class="quirks">
+                            <h4>Focus:</h4>
+                            <p>Designs how your business attracts customers, converts them into sales, and grows over time.</p>
+                        </div>
+                        <div class="quirks">
+                            <h4>What this means for you:</h4>
+                            <ul>
+                                <li>Clear direction</li>
+                                <li>Better marketing decisions</li>
+                                <li>Stronger growth strategy</li>
+                            </ul>
+                        </div>
+                        <!-- Marketing Games -->
+                        <!-- <h4 style="margin-top:2rem;">🎯 Play & Learn</h4>
+                        <div class="games-grid">
+                            <!-- Game 1: Brand Personality -->
+                            <!-- <div class="game-card">
+                                <h5><i class="fas fa-smile"></i> Brand Personality Match</h5>
+                                <p>Which brand archetype fits you?</p>
+                                <div>
+                                    <button class="option-btn" onclick="selectBrand(this, 'hero')">Hero</button>
+                                    <button class="option-btn" onclick="selectBrand(this, 'caregiver')">Caregiver</button>
+                                    <button class="option-btn" onclick="selectBrand(this, 'rebel')">Rebel</button>
+                                    <button class="option-btn" onclick="selectBrand(this, 'creator')">Creator</button>
+                                </div>
+                                <div id="brandResult" style="margin-top:1rem; font-weight:600;"></div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div>
+                            <!-- Game 2: ROI Calculator -->
+                            <!-- <div class="game-card">
+                                <h5><i class="fas fa-calculator"></i> ROI Estimator</h5>
+                                <p>Slide to estimate monthly visitors:</p>
+                                <input type="range" min="0" max="10000" value="1000" step="100" id="roiSlider">
+                                <div class="calc-result">Visitors: <span id="visitorCount">1000</span></div>
+                                <div class="calc-result">Est. conversions (2%): <span id="conversions">20</span></div>
+                                <div class="calc-result">Revenue (R100/value): R<span id="revenue">2000</span></div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div>
+                            <!-- Game 3: Channel Picker -->
+                            <!-- <div class="game-card">
+                                <h5><i class="fas fa-chart-pie"></i> Which Channel Wins?</h5>
+                                <p>For a B2B software launch, your best bet is:</p>
+                                <button class="option-btn" onclick="checkChannel(this, 'linkedin')">LinkedIn</button>
+                                <button class="option-btn" onclick="checkChannel(this, 'tiktok')">TikTok</button>
+                                <button class="option-btn" onclick="checkChannel(this, 'billboard')">Billboard</button>
+                                <button class="option-btn" onclick="checkChannel(this, 'radio')">Radio</button>
+                                <div id="channelResult" style="margin-top:1rem;"></div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div> -->
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Engineer Tab (IT) -->
+            <div class="profile-content" id="engineer-tab">
+                <div class="individual-profile fade-in">
+                    <div class="profile-header">
+                        <div class="profile-img-container engineer-img">
+                            <img src="img/img-1.png" alt="Khayelihle Simelane">
+                        </div>
+                        <div class="profile-title">
+                            <h3>Khayelihle Simelane</h3>
+                            <p class="tagline">"Elegant systems are invisible – until you need them."</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h4>Engineering Philosophy</h4>
+                        <p>True engineering excellence is invisible. It's the quiet confidence in a system, the seamless integration, <br> the anticipation of future needs. My work is the silent guardian of every business vision.</p>
+                        <div class="quirks">
+                            <h4>Focus:</h4>
+                            <p>Builds and improves the systems behind your business from your website to integrations and infrastructure.</p>
+                        </div>
+                        <div class="quirks">
+                            <h4>What this means for you:</h4>
+                            <ul>
+                                <li>Reliable performance</li>
+                                <li>Scalable systems</li>
+                                <li>Technology that supports growth</li>
+                            </ul>
+                        </div>
+                        <!-- Coding Challenges 
+                        <h4 style="margin-top:2rem;">💻 Java Challenges</h4>
+                        <div class="games-grid">
+                            <div class="game-card">
+                                <h5><i class="fas fa-bug"></i> Fix the Bug</h5>
+                                <pre>public int sum(int a, int b) {
+    return a - b; // oops!
+}</pre>
+                                <button class="reveal-btn" onclick="revealAnswer('ans1')">Reveal fix</button>
+                                <div id="ans1" class="answer">Should be: <code>return a + b;</code></div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div>
+                            <div class="game-card">
+                                <h5><i class="fas fa-question-circle"></i> What's the output?</h5>
+                                <pre>String s1 = "Java";
+String s2 = new String("Java");
+System.out.println(s1 == s2);</pre>
+                                <button class="reveal-btn" onclick="revealAnswer('ans2')">Reveal</button>
+                                <div id="ans2" class="answer"><code>false</code> – because == compares references, not content.</div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div>
+                            <div class="game-card">
+                                <h5><i class="fas fa-tachometer-alt"></i> Optimise This</h5>
+                                <pre>for(int i=0; i&lt;list.size(); i++) {
+    System.out.println(list.get(i));
+}</pre>
+                                <button class="reveal-btn" onclick="revealAnswer('ans3')">Optimised</button>
+                                <div id="ans3" class="answer">Use enhanced for: <code>for(String s : list) {...}</code> or streams.</div>
+                                <a href="consultation.html" class="cta-small">Free Strategy Session</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Quiz Section (mindset) -->
+    <!--<section class="interactive-quiz">
+        <div class="container">
+            <div class="quiz-container fade-in">
+                <h2>Whose Mindset Matches Yours?</h2>
+                <div class="question">
+                    <p>When approaching a new project, do you...</p>
+                    <div class="options">
+                        <button class="option" data-value="architect">Start with how it should feel emotionally</button>
+                        <button class="option" data-value="engineer">Calculate load‑bearing requirements first</button>
+                        <button class="option" data-value="both">Sketch wildly, then verify the math</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Your ideal building material is...</p>
+                    <div class="options">
+                        <button class="option" data-value="architect">Weathered brass that tells a story</button>
+                        <button class="option" data-value="engineer">Carbon fiber composites with precise tolerances</button>
+                        <button class="option" data-value="both">Glass that seems to float without support</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>When faced with an "impossible" design challenge...</p>
+                    <div class="options">
+                        <button class="option" data-value="architect">See it as an opportunity for breakthrough creativity</button>
+                        <button class="option" data-value="engineer">Break it down into solvable physics problems</button>
+                        <button class="option" data-value="both">Get excited about proving everyone wrong</button>
+                    </div>
+                </div>
+                <button id="calculate-result">See Your Result</button>
+                <div class="result" id="quiz-result">
+                    <h3 id="result-name"></h3>
+                    <p id="result-description"></p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="container">
+            <h2 class="fade-in">Our Story Through Time</h2>
+            <div class="timeline-container">
+                <div class="timeline-event left fade-in">
+                    <div class="event-content">
+                        <h4>How it started</h4>
+                        <p>We started by solving real business problems where marketing needed better systems, and technology needed clearer strategy. </p>
+                        <!--<span class="event-role">Architect: "I wanted a campaign that felt personal."<br>Engineer: "I built the automation that made it scalable."</span> -->
+                    </div>
+                </div>
+                <div class="timeline-event right fade-in">
+                    <div class="event-content">
+                        <h4>Over time, we saw the same issue again and again:</h4>
+                        <p>Businesses had websites and tools but they weren’t connected, scalable, or built for growth.</p>
+                        <!-- <span class="resolution">Resolution: "They're married – data informs creativity, creativity humanises data."</span> -->
+                    </div>
+                </div>
+                <div class="timeline-event left fade-in">
+                    <div class="event-content">
+                        <h4>The Architect & Engineer</h4>
+                        <p>This "Architect & Engineer" approach is our core because it delivers what others can't. The Architect designs the bold vision and strategic blueprint, ensuring every tactic has purpose. The Engineer then builds the robust, functional systems that bring that vision to life with precision. </p>
+                        <p>It's this duality that consistently leads to outcomes so seamless they feel like perfection-a quality that first drew our peers to us for personal projects and is now the foundation of every client partnership we build.</p>
+                    </div>
+                </div>
+                <div class="timeline-event right fade-in">
+                    <div class="event-content">
+                        <h4>That’s why we built KConsulting:</h4>
+                        <p>Not as separate services, but as one integrated approach focused on helping businesses grow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <!-- <section class="behind-scenes">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Process, Unfiltered</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Sketch next to calculations">
+                    <p>How ideas travel from napkin sketches to precise calculations</p>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Both on site">
+                    <p>The moment we see our design becoming reality</p>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1168&q=80" alt="Debating over models">
+                    <p>Our 327th discussion about the perfect balance</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Dueling Philosophies with Faith -->
+    <section class="dueling-philosophies">
+        <div class="container">
+            <div class="debate-topic fade-in">
+                <h3>How we work</h3>
+                <div class="engineer-position">
+                    <p>We don’t just follow instructions—we focus on what will actually grow your business.</p>
+                    <p>We ask the right questions, challenge assumptions, and build solutions that are designed to perform not just look good.</p>
+                </div>
+                <div class="faith-statement">
+                    <i class="fas fa-cross"></i> Above all, we do everything for the Lord's glory, striving for excellence in every detail. Our faith reminds us to stay grounded and serve with integrity.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" style="padding: 100px 0; background: var(--neutral-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to grow your business?</h2>
+                <p>Let’s improve your website, systems, and overall setup so your business can generate more leads, convert better, and scale with confidence.</p>
+                <a href="consultation.html" class="btn-primary" style="margin-top: 30px; display: inline-block;">Free Strategy Session</a>
+                <a href="contact.html" class="btn-primary" style="margin-top: 30px; display: inline-block;">Free Growth Audit </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/27645190549" class="social-link whatsapp" target="_blank">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="social-link instagram" target="_blank">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="social-link linkedin" target="_blank">
+                    <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation &amp; Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script> 
+    <script src="js/google-analytics.js"></script>
+    <script>
+        // Page-specific JavaScript
+        (function() {
+            // Profile tabs
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.profile-tab, .profile-content').forEach(el => el.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab + '-tab').classList.add('active');
+                });
+            });
+
+            // Original quiz
+            let userAnswers = [];
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.addEventListener('click', function() {
+                    let parent = this.closest('.question');
+                    parent.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    let qIndex = Array.from(document.querySelectorAll('.question')).indexOf(parent);
+                    userAnswers[qIndex] = this.dataset.value;
+                });
+            });
+            
+            document.getElementById('calculate-result').addEventListener('click', function() {
+                if (userAnswers.length < 3) { alert('Please answer all questions.'); return; }
+                let scores = { architect:0, engineer:0, both:0 };
+                userAnswers.forEach(a => scores[a]++);
+                let result = 'both';
+                if (scores.architect > scores.engineer && scores.architect > scores.both) result = 'architect';
+                else if (scores.engineer > scores.architect && scores.engineer > scores.both) result = 'engineer';
+                let resDiv = document.getElementById('quiz-result');
+                resDiv.style.display = 'block';
+                let nameSpan = document.getElementById('result-name');
+                let descP = document.getElementById('result-description');
+                if (result === 'architect') {
+                    nameSpan.textContent = 'The Architect';
+                    descP.textContent = 'You see the world in terms of emotion and experience. You believe how a brand feels is as important as how it functions.';
+                } else if (result === 'engineer') {
+                    nameSpan.textContent = 'The Engineer';
+                    descP.textContent = 'You approach problems with precision and logic. You find beauty in elegant solutions.';
+                } else {
+                    nameSpan.textContent = 'Both of Us';
+                    descP.textContent = 'You balance creativity and precision – the magic when vision meets practicality.';
+                }
+            });
+
+            // Marketing games
+            window.selectBrand = function(btn, type) {
+                document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                let msg = '';
+                if (type === 'hero') msg = 'Hero – you lead with courage!';
+                else if (type === 'caregiver') msg = 'Caregiver – you nurture relationships.';
+                else if (type === 'rebel') msg = 'Rebel – you challenge the status quo.';
+                else if (type === 'creator') msg = 'Creator – you innovate constantly.';
+                document.getElementById('brandResult').innerText = msg;
+            };
+            
+            const slider = document.getElementById('roiSlider');
+            if (slider) {
+                slider.addEventListener('input', function() {
+                    let visitors = parseInt(this.value);
+                    document.getElementById('visitorCount').innerText = visitors;
+                    let conv = Math.round(visitors * 0.02);
+                    document.getElementById('conversions').innerText = conv;
+                    document.getElementById('revenue').innerText = conv * 100;
+                });
+            }
+            
+            window.checkChannel = function(btn, ch) {
+                let parent = btn.closest('.game-card');
+                let resultDiv = parent.querySelector('#channelResult') || document.createElement('div');
+                if (!resultDiv.id) {
+                    resultDiv.id = 'channelResult';
+                    resultDiv.style.marginTop = '1rem';
+                    parent.appendChild(resultDiv);
+                }
+                if (ch === 'linkedin') {
+                    resultDiv.innerHTML = '<span style="color:green;">✓ Correct! B2B thrives on LinkedIn.</span>';
+                } else {
+                    resultDiv.innerHTML = '<span style="color:red;">✗ Not ideal for B2B. Try LinkedIn.</span>';
+                }
+            };
+
+            // Coding challenge reveals
+            window.revealAnswer = function(id) {
+                let el = document.getElementById(id);
+                el.style.display = el.style.display === 'block' ? 'none' : 'block';
+            };
+        })();
+    </script>
+</body>
+</html>
