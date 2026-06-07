@@ -4545,9 +4545,30 @@ footer {
     .contact-info {
         padding: 30px 20px;
     }
-    .process-grid,
-    .pricing-grid {
+    .process-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .pricing-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        padding-bottom: 12px;
+    }
+    .pricing-card {
+        flex: 0 0 72vw;
+        max-width: 280px;
+        scroll-snap-align: start;
+        padding: 22px 18px;
+    }
+    .pricing-card h3 {
+        font-size: 1rem;
+    }
+    .pricing-card .price-amount {
+        font-size: 1.5rem;
     }
     .pricing-card.featured {
         transform: scale(1);
@@ -4589,14 +4610,36 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .hero-title { 
-        font-size: 2rem; 
+    .hero-title {
+        font-size: 2rem;
     }
-    .section-title h2 { 
-        font-size: 2rem; 
+    .section-title h2 {
+        font-size: 2rem;
     }
-    .container { 
-        padding: 0 15px; 
+    .container {
+        padding: 0 15px;
+    }
+
+    .pricing-card {
+        flex: 0 0 82vw;
+        padding: 18px 14px;
+    }
+    .pricing-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+    .pricing-card .price-amount {
+        font-size: 1.3rem;
+    }
+    .pricing-card .price-label {
+        font-size: 0.78rem;
+    }
+    .pricing-card li {
+        font-size: 0.85rem;
+        padding: 5px 0;
+    }
+    .pricing-section .section-title h2 {
+        font-size: 1.4rem;
     }
     
     .integration-showcase {
@@ -4792,17 +4835,26 @@ footer {
     padding: 60px 0;
 }
 
+.pricing-section .section-title {
+    margin-bottom: 40px;
+}
+
+.pricing-section .section-title h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 700;
+}
+
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
+    gap: 24px;
+    margin-top: 32px;
 }
 
 .pricing-card {
     background: var(--card-bg);
-    border-radius: 20px;
-    padding: 40px 30px;
+    border-radius: 16px;
+    padding: 32px 24px;
     border: 1px solid var(--border-light);
     transition: var(--transition);
     text-align: center;
@@ -4824,10 +4876,23 @@ footer {
 }
 
 .pricing-card .price {
-    font-size: 2.5rem;
+    margin: 16px 0;
+}
+
+.pricing-card .price-amount {
+    display: block;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--primary-dark);
-    margin: 20px 0;
+    line-height: 1.1;
+}
+
+.pricing-card .price-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-grey);
+    margin-top: 5px;
 }
 
 .pricing-card ul {
