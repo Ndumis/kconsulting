@@ -4264,7 +4264,7 @@ footer {
     }
     .hero-inner .hero-subtitle { margin-left: auto; margin-right: auto; }
     .hero-inner .hero-buttons { justify-content: center; }
-    .hero-right { width: 100%; max-width: 500px; margin: 0 auto; }
+    .hero-right { display: none; }
     .solutions-grid { grid-template-columns: repeat(3, 1fr); }
     .solutions-grid--4 { grid-template-columns: repeat(2, 1fr); }
     .process-steps { grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -4515,7 +4515,6 @@ footer {
     .solutions-grid--3,
     .solutions-grid--4 { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
-    .hero-right { display: none; }
 }
 
 /* ===== DARK MODE SUPPORT ===== */

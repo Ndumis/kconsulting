@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | KConsulting – Architect & Engineer</title>
+    <meta name="description" content="Explore KConsulting's portfolio of web design, ecommerce, marketing, system integration, and IT projects delivered for South African businesses.">
+    <meta name="keywords" content="KConsulting portfolio, web design projects, ecommerce development, marketing campaigns, system integration, IT solutions South Africa">
+    <meta name="author" content="KConsulting Firm (Pty) Ltd">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thekconsult.co.za/portfolio.html">
+    <meta property="og:title" content="Portfolio | KConsulting Firm">
+    <meta property="og:description" content="Projects that drive real business results — web, ecommerce, marketing, systems, and IT.">
+    <meta property="og:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+    <meta property="og:site_name" content="KConsulting">
+    <meta property="og:locale" content="en_ZA">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.thekconsult.co.za/portfolio.html">
+    <meta property="twitter:title" content="Portfolio | KConsulting Firm">
+    <meta property="twitter:description" content="Projects that drive real business results — web, ecommerce, marketing, systems, and IT.">
+    <meta property="twitter:image" content="https://www.thekconsult.co.za/img/KConsultingLogo1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/KConsultingLogo1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/KConsultingLogo1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/KConsultingLogo1.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="canonical" href="https://www.thekconsult.co.za/portfolio.html">
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="Cape Town, South Africa">
+    <meta name="geo.position" content="-33.9249;18.4241">
+
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ── Filter bar ── */
+        .portfolio-filters-section {
+            background: #f4f5f7;
+            padding: 32px 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky;
+            top: 72px;
+            z-index: 90;
+        }
+        .portfolio-filters-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .portfolio-filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 18px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(0,0,0,0.12);
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .portfolio-filter-btn i { font-size: 0.78rem; }
+        .portfolio-filter-btn:hover {
+            border-color: var(--primary-dark);
+            color: var(--primary-dark);
+            background: rgba(0,0,0,0.03);
+        }
+        .portfolio-filter-btn.active {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: white;
+        }
+        .portfolio-filter-count {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .portfolio-filter-count strong { color: var(--primary-dark); }
+
+        /* ── Portfolio grid ── */
+        .portfolio-grid-section {
+            padding: 60px 24px 80px;
+            background: #fff;
+        }
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* ── Portfolio card ── */
+        .portfolio-card {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.07);
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: opacity 0.28s ease, transform 0.28s ease, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .portfolio-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Card visual area — replace background with a real image later */
+        .portfolio-card-visual {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        /* category colours */
+        .portfolio-card-visual.cat-web        { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); }
+        .portfolio-card-visual.cat-ecommerce  { background: linear-gradient(135deg, #1a2a1a 0%, #1e3a1e 60%, #2d5a2d 100%); }
+        .portfolio-card-visual.cat-marketing  { background: linear-gradient(135deg, #2a1a1a 0%, #3a1e1e 60%, #5a2d2d 100%); }
+        .portfolio-card-visual.cat-systems    { background: linear-gradient(135deg, #1a1a2a 0%, #1e1e3a 60%, #2d2d5a 100%); }
+        .portfolio-card-visual.cat-it         { background: linear-gradient(135deg, #1a2a2a 0%, #1e3a3a 60%, #2d5a5a 100%); }
+
+        .portfolio-card-visual-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .portfolio-card-visual-icon i { font-size: 1.6rem; color: rgba(255,255,255,0.7); }
+
+        /* "Replace me" overlay — remove when adding real screenshots */
+        .portfolio-placeholder-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-card-cat-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Card content */
+        .portfolio-card-content {
+            padding: 22px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .portfolio-card-content h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .portfolio-card-content p {
+            font-size: 0.82rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .portfolio-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .portfolio-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #4b5563;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 3px 10px;
+        }
+        .portfolio-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 14px;
+            margin-top: auto;
+            transition: gap 0.2s;
+        }
+        .portfolio-card-link:hover { gap: 12px; }
+        .portfolio-card-link i { font-size: 0.75rem; }
+
+        /* Empty state */
+        .portfolio-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 24px;
+            display: none;
+        }
+        .portfolio-empty i { font-size: 2.5rem; color: #d1d5db; margin-bottom: 16px; display: block; }
+        .portfolio-empty p { font-size: 0.9rem; color: #9ca3af; }
+
+        /* CTA strip */
+        .portfolio-cta-strip {
+            background: var(--primary-dark);
+            padding: 72px 24px;
+            text-align: center;
+        }
+        .portfolio-cta-strip h2 { font-size: 1.9rem; font-weight: 800; color: white; margin-bottom: 12px; }
+        .portfolio-cta-strip p { font-size: 0.95rem; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+        .portfolio-cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-filters-section { top: 64px; }
+            .portfolio-card-visual { height: 170px; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KConsulting (Pty) Ltd",
+        "url": "https://www.thekconsult.co.za",
+        "logo": "https://www.thekconsult.co.za/img/KConsultingLogo1.png"
+    }
+    </script>
+</head>
+<body>
+    <!-- Campaign Pop-up -->
+    <div class="campaign-popup" id="campaignPopup">
+        <div class="message">
+            <i class="fas fa-bullhorn"></i>
+            <span><strong>Free Website Audit</strong> Discover what's limiting your business growth online.</span>
+        </div>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-text">
+                    <span class="logo-main">KConsulting Firm</span>
+                    <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
+                </span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="it.html">IT Services</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="contact.html">Contact</a>
+                <a href="consultation.html" class="cta-button">Free Strategy Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Quiz Button -->
+    <div class="quiz-float-btn" id="quizFloatBtn">
+        <i class="fas fa-gamepad"></i>
+        <span>Discover Your Style</span>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-content">
+            <span class="quiz-close">&times;</span>
+            <div class="quiz-modal-header">
+                <h2>Architect or Engineer?</h2>
+                <p>Discover which mindset drives you – 60‑second challenge</p>
+            </div>
+            <div class="quiz-modal-body"></div>
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="page-header">
+        <div class="floating-tech-elements">
+            <div class="floating-item" style="top: 5%; left: 2%;">HTML</div>
+            <div class="floating-item" style="top: 15%; right: 5%;">CSS</div>
+            <div class="floating-item" style="bottom: 10%; left: 8%;">React</div>
+            <div class="floating-item" style="bottom: 20%; right: 12%;">PHP</div>
+            <div class="floating-item" style="top: 30%; left: 15%;">WordPress</div>
+            <div class="floating-item" style="top: 45%; right: 20%;">MySQL</div>
+            <div class="floating-item" style="bottom: 35%; left: 25%;">WooCommerce</div>
+            <div class="floating-item" style="top: 60%; right: 25%;">SEO</div>
+            <div class="floating-item" style="top: 70%; left: 35%;">APIs</div>
+            <div class="floating-item" style="bottom: 50%; right: 35%;">CRM</div>
+            <div class="floating-item" style="top: 80%; left: 45%;">Zapier</div>
+            <div class="floating-item" style="bottom: 65%; right: 45%;">n8n</div>
+            <div class="floating-item" style="top: 25%; left: 65%;">AWS</div>
+            <div class="floating-item" style="bottom: 40%; right: 60%;">GEO</div>
+            <div class="floating-item" style="top: 55%; left: 75%;">Email</div>
+            <div class="floating-item" style="bottom: 70%; right: 70%;">UX</div>
+            <div class="floating-item" style="top: 85%; left: 85%;">CRO</div>
+            <div class="floating-diamond" style="top: 8%; right: 10%;"></div>
+            <div class="floating-diamond" style="bottom: 15%; left: 20%; width: 30px; height: 30px;"></div>
+            <div class="floating-diamond" style="top: 40%; right: 30%; width: 80px; height: 80px;"></div>
+            <div class="floating-circle" style="top: 20%; left: 30%; width: 50px; height: 50px; border: 2px solid var(--accent-blue);"></div>
+            <div class="floating-circle" style="bottom: 30%; right: 40%; width: 100px; height: 100px; border: 2px solid var(--accent-teal);"></div>
+            <div class="floating-line horizontal" style="top: 35%; left: 5%; width: 150px; height: 2px; background: var(--accent-blue); transform: rotate(30deg);"></div>
+            <div class="floating-line vertical" style="bottom: 45%; right: 15%; width: 2px; height: 150px; background: var(--accent-teal);"></div>
+        </div>
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline preload="none" class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-team-working-in-a-modern-office-4821-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-briefcase"></i> OUR WORK
+                </div>
+                <h1 class="hero-title">Projects That Drive Real Results.</h1>
+                <p class="hero-subtitle">From websites to full growth systems — here's what we've built for businesses like yours.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio-grid" class="btn-primary">Browse Projects <i class="fas fa-arrow-down"></i></a>
+                    <a href="free-website-audit.html" class="btn-secondary">Get a Free Audit <i class="fas fa-search"></i></a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-dashboard">
+                    <span class="mini-dash-label">Portfolio Overview</span>
+                    <div class="mini-dash-item">
+                        <div class="mini-dash-item-icon"><i class="fas fa-laptop-code"></i></div>
+                        <span>Web Design &amp; Development</span>
+                        <span class="mini-dash-status neutral">Active</span>
+                    </div>
+                    <div class="mini-dash-item">
+                        <div class="mini-dash-item-icon"><i class="fas fa-shopping-bag"></i></div>
+                        <span>Ecommerce</span>
+                        <span class="mini-dash-status neutral">Active</span>
+                    </div>
+                    <div class="mini-dash-item">
+                        <div class="mini-dash-item-icon"><i class="fas fa-bullhorn"></i></div>
+                        <span>Marketing &amp; Lead Generation</span>
+                        <span class="mini-dash-status neutral">Active</span>
+                    </div>
+                    <div class="mini-dash-item">
+                        <div class="mini-dash-item-icon"><i class="fas fa-plug"></i></div>
+                        <span>Systems &amp; Integration</span>
+                        <span class="mini-dash-status neutral">Active</span>
+                    </div>
+                    <div class="mini-dash-item">
+                        <div class="mini-dash-item-icon"><i class="fas fa-server"></i></div>
+                        <span>IT Solutions</span>
+                        <span class="mini-dash-status neutral">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="portfolio-filters-section">
+        <div class="portfolio-filters-inner">
+            <button class="portfolio-filter-btn active" data-filter="all">
+                <i class="fas fa-th"></i> All Projects
+            </button>
+            <button class="portfolio-filter-btn" data-filter="web">
+                <i class="fas fa-laptop-code"></i> Web Design
+            </button>
+            <button class="portfolio-filter-btn" data-filter="ecommerce">
+                <i class="fas fa-shopping-bag"></i> Ecommerce
+            </button>
+            <button class="portfolio-filter-btn" data-filter="marketing">
+                <i class="fas fa-bullhorn"></i> Marketing
+            </button>
+            <button class="portfolio-filter-btn" data-filter="systems">
+                <i class="fas fa-plug"></i> Systems
+            </button>
+            <button class="portfolio-filter-btn" data-filter="it">
+                <i class="fas fa-server"></i> IT Solutions
+            </button>
+            <span class="portfolio-filter-count">Showing <strong id="portfolioCount">9</strong> projects</span>
+        </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <!-- ============================================================
+         HOW TO ADD A REAL PROJECT:
+         1. Copy a .portfolio-card block below
+         2. Set data-category to one of: web | ecommerce | marketing | systems | it
+         3. Replace .portfolio-card-visual with an <img> or keep the gradient + update the class
+         4. Update the h3, p, tags, and href on the card link
+         5. Remove the .portfolio-placeholder-badge span when using a real screenshot
+         ============================================================ -->
+    <section class="portfolio-grid-section" id="portfolio-grid">
+        <div class="portfolio-grid" id="portfolioGrid">
+
+            <!-- ── WEB DESIGN ── -->
+            <div class="portfolio-card" data-category="web">
+                <div class="portfolio-card-visual cat-web">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-laptop-code"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Web Design</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Business Website Redesign</h3>
+                    <p>Full redesign of a professional services website focused on lead generation, clarity of offer, and mobile experience.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">HTML / CSS</span>
+                        <span class="portfolio-tag">WordPress</span>
+                        <span class="portfolio-tag">CRO</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="web">
+                <div class="portfolio-card-visual cat-web">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-paint-brush"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Web Design</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>High-Converting Landing Page</h3>
+                    <p>Single-page lead capture site built for a marketing campaign, optimised for speed and conversion from day one.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">HTML / CSS</span>
+                        <span class="portfolio-tag">JS</span>
+                        <span class="portfolio-tag">SEO</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="web">
+                <div class="portfolio-card-visual cat-web">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Web Design</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Mobile-First Service Website</h3>
+                    <p>Rebuilt a slow, outdated site for a local service business, improving mobile experience and search engine visibility.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">WordPress</span>
+                        <span class="portfolio-tag">Mobile UX</span>
+                        <span class="portfolio-tag">Speed</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- ── ECOMMERCE ── -->
+            <div class="portfolio-card" data-category="ecommerce">
+                <div class="portfolio-card-visual cat-ecommerce">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Ecommerce</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Online Store Development</h3>
+                    <p>End-to-end ecommerce build including product catalogue, payment gateway integration, and checkout optimisation.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">WooCommerce</span>
+                        <span class="portfolio-tag">PayGate</span>
+                        <span class="portfolio-tag">UX</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="ecommerce">
+                <div class="portfolio-card-visual cat-ecommerce">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-store"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Ecommerce</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Ecommerce Platform Migration</h3>
+                    <p>Migrated an established store from an outdated platform to WooCommerce, improving speed and reducing cart abandonment.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">WooCommerce</span>
+                        <span class="portfolio-tag">Migration</span>
+                        <span class="portfolio-tag">CRO</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- ── MARKETING ── -->
+            <div class="portfolio-card" data-category="marketing">
+                <div class="portfolio-card-visual cat-marketing">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-funnel-dollar"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Marketing</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Lead Generation Funnel</h3>
+                    <p>Multi-step lead capture funnel with email automation for a professional services firm, generating consistent monthly enquiries.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">Landing Page</span>
+                        <span class="portfolio-tag">Email</span>
+                        <span class="portfolio-tag">Automation</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="marketing">
+                <div class="portfolio-card-visual cat-marketing">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Marketing</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Email Marketing System</h3>
+                    <p>Designed and built an automated email nurture sequence for a coaching business, turning cold leads into paying clients.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">Email</span>
+                        <span class="portfolio-tag">Automation</span>
+                        <span class="portfolio-tag">Copywriting</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- ── SYSTEMS ── -->
+            <div class="portfolio-card" data-category="systems">
+                <div class="portfolio-card-visual cat-systems">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-project-diagram"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">Systems</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>CRM &amp; Website Integration</h3>
+                    <p>Connected a business website to a CRM, WhatsApp, and email so every new enquiry flows automatically without manual input.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">CRM</span>
+                        <span class="portfolio-tag">API</span>
+                        <span class="portfolio-tag">WhatsApp</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- ── IT SOLUTIONS ── -->
+            <div class="portfolio-card" data-category="it">
+                <div class="portfolio-card-visual cat-it">
+                    <div class="portfolio-card-visual-icon"><i class="fas fa-cogs"></i></div>
+                    <span class="portfolio-placeholder-badge">Placeholder</span>
+                    <span class="portfolio-card-cat-badge">IT Solutions</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>Business Workflow Automation</h3>
+                    <p>Replaced a manual, spreadsheet-driven process with an automated workflow, cutting admin time significantly each week.</p>
+                    <div class="portfolio-card-tags">
+                        <span class="portfolio-tag">n8n</span>
+                        <span class="portfolio-tag">Zapier</span>
+                        <span class="portfolio-tag">Automation</span>
+                    </div>
+                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Empty state (shown when no cards match a filter) -->
+            <div class="portfolio-empty" id="portfolioEmpty">
+                <i class="fas fa-folder-open"></i>
+                <p>No projects in this category yet.<br>Check back soon or <a href="contact.html">get in touch</a>.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <div class="portfolio-cta-strip">
+        <div class="container">
+            <h2>Have a Project in Mind?</h2>
+            <p>Tell us what you're trying to achieve and we'll put together a clear plan to get there.</p>
+            <div class="portfolio-cta-btns">
+                <a href="consultation.html" class="btn-primary">Book a Free Strategy Session <i class="fas fa-arrow-right"></i></a>
+                <a href="free-website-audit.html" class="btn-secondary">Get a Free Website Audit <i class="fas fa-search"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-text">
+                            <span class="logo-main">KConsulting Firm</span>
+                            <span class="logo-sub">(Pty) Ltd</span>
+                        </span>
+                    </a>
+                    <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
+                    <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Growth Services</h4>
+                    <a href="conversion-optimization.html">Conversion Optimization</a>
+                    <a href="lead-generation.html">Lead Generation</a>
+                    <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
+                    <a href="system-integration.html">Systems Integration</a>
+                    <a href="marketing.html">Marketing Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <a href="it.html">IT Solutions Overview</a>
+                    <a href="system-integration.html">System Integration</a>
+                    <a href="it.html">Automation &amp; Workflows</a>
+                    <a href="it.html">Website Development</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
+                    <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                    <a href="consultation.html" class="btn-gold" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">Book a Free Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2023 - <span id="currentYear"></span> KConsulting Firm (Pty) Ltd. All rights reserved.</span>
+                <span class="copyright-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Settings</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/campaign.js"></script>
+    <script src="js/google-analytics.js"></script>
+
+    <script>
+    (function () {
+        const filterBtns  = document.querySelectorAll('.portfolio-filter-btn');
+        const cards       = document.querySelectorAll('.portfolio-card[data-category]');
+        const countEl     = document.getElementById('portfolioCount');
+        const emptyEl     = document.getElementById('portfolioEmpty');
+
+        function applyFilter(filter) {
+            let visible = 0;
+
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+
+                if (match) {
+                    // Show: restore display first so transition runs
+                    card.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        card.style.opacity  = '1';
+                        card.style.transform = 'scale(1)';
+                    });
+                    visible++;
+                } else {
+                    // Hide: fade out, then remove from flow
+                    card.style.opacity  = '0';
+                    card.style.transform = 'scale(0.96)';
+                    const ref = card;
+                    setTimeout(() => {
+                        if (ref.style.opacity === '0') ref.style.display = 'none';
+                    }, 280);
+                }
+            });
+
+            countEl.textContent = visible;
+            emptyEl.style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilter(btn.dataset.filter);
+            });
+        });
+
+        // Smooth scroll to grid when hero button clicked
+        document.querySelector('a[href="#portfolio-grid"]')?.addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('portfolio-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    })();
+    </script>
+</body>
+</html>
