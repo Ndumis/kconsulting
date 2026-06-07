@@ -31,8 +31,9 @@ if (!$data) {
     exit;
 }
 
+// Trim only — htmlspecialchars is applied once inside email templates
 function sanitize($value) {
-    return htmlspecialchars(trim($value ?? ''), ENT_QUOTES, 'UTF-8');
+    return trim($value ?? '');
 }
 
 $name        = sanitize($data['name'] ?? '');

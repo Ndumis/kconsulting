@@ -31,10 +31,10 @@ try {
         throw new Exception('Please enter a valid email address.');
     }
 
-    // Sanitize all string inputs
+    // Trim only — htmlspecialchars is applied once inside email templates
     foreach ($input as $key => $value) {
         if (is_string($value)) {
-            $input[$key] = htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
+            $input[$key] = trim($value);
         }
     }
 

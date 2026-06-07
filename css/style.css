@@ -268,6 +268,8 @@ body {
     border: 2px solid var(--accent-grey);
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 99999;
     mix-blend-mode: difference;
@@ -282,6 +284,8 @@ body {
     background: var(--accent-grey);
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 99998;
     transition: transform 0.4s var(--ease-out);
@@ -1130,6 +1134,116 @@ body.cookie-banner-active .quiz-float-btn {
     transform: translateY(-3px);
 }
 
+/* Quiz 2-column grid for 4-option questions */
+.quiz-options-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.quiz-options-grid .quiz-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 12px;
+    gap: 10px;
+}
+
+.quiz-options-grid .quiz-option:hover {
+    transform: translateY(-3px);
+}
+
+.quiz-options-grid .quiz-option i {
+    font-size: 1.6rem;
+    color: var(--primary-dark);
+}
+
+.quiz-options-grid .quiz-option span {
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+/* Quiz nav row (used instead of .quiz-navigation) */
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 12px;
+}
+
+.quiz-nav .btn-primary,
+.quiz-nav .btn-secondary {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+}
+
+.quiz-nav .btn-primary { margin-left: auto; }
+
+/* Quiz contact capture step */
+.quiz-contact-intro {
+    text-align: center;
+    color: var(--accent-grey);
+    font-size: 1rem;
+    margin-bottom: 22px;
+}
+
+.quiz-contact-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.quiz-input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--neutral-light);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.quiz-input:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    background: white;
+}
+
+.quiz-error {
+    color: #e74c3c;
+    font-size: 0.88rem;
+    margin: 6px 0;
+}
+
+.quiz-privacy {
+    text-align: center;
+    color: var(--accent-grey);
+    font-size: 0.78rem;
+    margin-top: 10px;
+}
+
+.quiz-restart-btn {
+    display: block;
+    margin: 16px auto 0;
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    padding: 8px 22px;
+    cursor: pointer;
+    color: var(--accent-grey);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.quiz-restart-btn:hover {
+    border-color: var(--primary-dark);
+    color: var(--primary-dark);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .quiz-modal-content {
@@ -1156,6 +1270,24 @@ body.cookie-banner-active .quiz-float-btn {
     
     .quiz-nav-btn.next {
         margin-left: 0;
+    }
+
+    .quiz-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-options-grid .quiz-option {
+        flex-direction: row;
+        text-align: left;
+        padding: 14px 16px;
+    }
+
+    .quiz-options-grid .quiz-option:hover {
+        transform: translateX(5px);
+    }
+
+    .quiz-nav {
+        gap: 8px;
     }
 }
 
@@ -4264,7 +4396,7 @@ footer {
     }
     .hero-inner .hero-subtitle { margin-left: auto; margin-right: auto; }
     .hero-inner .hero-buttons { justify-content: center; }
-    .hero-right { display: none; }
+    .hero-right { width: 100%; max-width: 500px; margin: 0 auto; }
     .solutions-grid { grid-template-columns: repeat(3, 1fr); }
     .solutions-grid--4 { grid-template-columns: repeat(2, 1fr); }
     .process-steps { grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -4515,6 +4647,19 @@ footer {
     .solutions-grid--3,
     .solutions-grid--4 { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
+
+    /* Hero dashboard compact on mobile */
+    .hero-inner { gap: 24px; }
+    .hero-right { max-width: 100%; }
+    .hero-dashboard { padding: 20px 18px; }
+    .mini-dash-label { font-size: 0.68rem; margin-bottom: 12px; padding-bottom: 10px; }
+    .mini-dash-item { padding: 7px 0; font-size: 0.8rem; gap: 10px; }
+    .mini-dash-item-icon { width: 24px; height: 24px; border-radius: 6px; }
+    .mini-dash-item-icon i { font-size: 0.68rem; }
+    .mini-dash-status { font-size: 0.64rem; padding: 2px 7px; }
+    .mini-dash-note { font-size: 0.7rem; padding: 8px 10px; }
+    .audit-cta-btn, .audit-card-title { font-size: 0.88rem; }
+    .audit-checklist li { font-size: 0.8rem; padding: 7px 0; }
 }
 
 /* ===== DARK MODE SUPPORT ===== */

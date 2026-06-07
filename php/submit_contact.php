@@ -4,93 +4,93 @@ error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 
-require_once __DIR__ . '/mailer.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/contact_email_functions.php';
 
-$response = ['success' => false, 'message' => ''];
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+    exit;
+}
+
+$raw   = file_get_contents('php://input');
+$input = json_decode($raw, true);
+
+if (!$input) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'No data received']);
+    exit;
+}
+
+// Validate required fields
+if (empty(trim($input['name'] ?? ''))) {
+    echo json_encode(['success' => false, 'message' => 'Please enter your name.']);
+    exit;
+}
+if (empty(trim($input['email'] ?? ''))) {
+    echo json_encode(['success' => false, 'message' => 'Please enter your email address.']);
+    exit;
+}
+if (!filter_var(trim($input['email']), FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['success' => false, 'message' => 'Please enter a valid email address.']);
+    exit;
+}
+if (empty(trim($input['message'] ?? ''))) {
+    echo json_encode(['success' => false, 'message' => 'Please enter your message.']);
+    exit;
+}
+
+// Trim only — htmlspecialchars is applied once inside email templates
+$name    = trim($input['name']);
+$email   = filter_var(trim($input['email']), FILTER_SANITIZE_EMAIL);
+$company = trim($input['company'] ?? '');
+$service = trim($input['service'] ?? '');
+$message = trim($input['message']);
+
+$submission_id = 0;
 
 try {
-    $input = json_decode(file_get_contents('php://input'), true);
+    $conn = getDbConnection();
 
-    if (!$input) {
-        throw new Exception('No data received');
+    $conn->query("CREATE TABLE IF NOT EXISTS contact_enquiries (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        company VARCHAR(255),
+        service VARCHAR(255),
+        message TEXT,
+        submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+    $stmt = $conn->prepare(
+        "INSERT INTO contact_enquiries (name, email, company, service, message) VALUES (?, ?, ?, ?, ?)"
+    );
+
+    if (!$stmt) {
+        throw new Exception('Database prepare error: ' . $conn->error);
     }
 
-    if (empty($input['name']) || trim($input['name']) === '') {
-        throw new Exception('Please enter your name.');
+    $stmt->bind_param('sssss', $name, $email, $company, $service, $message);
+
+    if (!$stmt->execute()) {
+        throw new Exception('Failed to save your message.');
     }
 
-    if (empty($input['email']) || trim($input['email']) === '') {
-        throw new Exception('Please enter your email address.');
-    }
-
-    if (empty($input['message']) || trim($input['message']) === '') {
-        throw new Exception('Please enter your message.');
-    }
-
-    if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
-        throw new Exception('Please enter a valid email address.');
-    }
-
-    $name    = htmlspecialchars(trim($input['name']),    ENT_QUOTES, 'UTF-8');
-    $email   = filter_var(trim($input['email']),         FILTER_SANITIZE_EMAIL);
-    $company = isset($input['company']) ? htmlspecialchars(trim($input['company']), ENT_QUOTES, 'UTF-8') : '';
-    $service = isset($input['service']) ? htmlspecialchars(trim($input['service']), ENT_QUOTES, 'UTF-8') : '';
-    $message = htmlspecialchars(trim($input['message']), ENT_QUOTES, 'UTF-8');
-
-    // Log the enquiry
-    $logData = ['name' => $name, 'email' => $email, 'company' => $company, 'service' => $service, 'timestamp' => date('Y-m-d H:i:s')];
-    file_put_contents(__DIR__ . '/contact_enquiries.log', json_encode($logData) . PHP_EOL, FILE_APPEND);
-
-    sendContactAdminEmail($name, $email, $company, $service, $message);
-    sendContactClientEmail($name, $email, $company, $service, $message);
-
-    $response['success'] = true;
-    $response['message'] = 'Thank you for your message! We will get back to you within 24 hours.';
+    $submission_id = $stmt->insert_id;
+    $stmt->close();
+    $conn->close();
 
 } catch (Exception $e) {
-    $response['message'] = $e->getMessage();
-    error_log('Contact form error: ' . $e->getMessage());
+    error_log('Contact form DB error: ' . $e->getMessage());
+    // Fall back to log file so no enquiry is lost
+    $log = ['name' => $name, 'email' => $email, 'company' => $company, 'service' => $service, 'timestamp' => date('Y-m-d H:i:s')];
+    file_put_contents(__DIR__ . '/contact_enquiries.log', json_encode($log) . PHP_EOL, FILE_APPEND | LOCK_EX);
 }
 
-echo json_encode($response);
+$emailData = compact('name', 'email', 'company', 'service', 'message');
 
-function sendContactAdminEmail($name, $email, $company, $service, $message) {
-    try {
-        $mail = createMailer();
-        $mail->setFrom(MAIL_FROM, 'KConsulting Contact Form');
-        $mail->addAddress(MAIL_ADMIN_ADDR, MAIL_ADMIN_NAME . ' Admin');
-        $mail->addReplyTo($email, $name);
-        $mail->isHTML(true);
-        $mail->Subject = 'New Contact Form Message from ' . $name;
-        ob_start();
-        include __DIR__ . '/contact_admin_email_template.php';
-        $body = ob_get_clean();
-        $mail->Body    = $body;
-        $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '</p>'], "\n", $body));
-        $mail->send();
-        return true;
-    } catch (Exception $e) {
-        error_log('Contact admin email failed: ' . $mail->ErrorInfo);
-        return false;
-    }
-}
+sendContactAdminEmail($emailData, $submission_id);
+sendContactClientEmail($emailData, $submission_id);
 
-function sendContactClientEmail($name, $email, $company, $service, $message) {
-    try {
-        $mail = createMailer();
-        $mail->setFrom(MAIL_FROM, 'KConsulting Firm');
-        $mail->addAddress($email, $name);
-        $mail->isHTML(true);
-        $mail->Subject = 'Thank you for contacting KConsulting';
-        ob_start();
-        include __DIR__ . '/contact_client_email_template.php';
-        $body = ob_get_clean();
-        $mail->Body    = $body;
-        $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '</p>'], "\n", $body));
-        $mail->send();
-        return true;
-    } catch (Exception $e) {
-        error_log('Contact client email failed: ' . $mail->ErrorInfo);
-        return false;
-    }
-}
+echo json_encode(['success' => true, 'message' => 'Thank you for your message! We will get back to you within 24 hours.']);

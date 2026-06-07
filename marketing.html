@@ -614,6 +614,27 @@
                 </div>
             </div>
 
+            <!-- Contact Capture Step -->
+            <div class="quiz-step" id="stepContact">
+                <div class="quiz-question" style="margin-bottom:6px;">Almost there!</div>
+                <p style="color:var(--accent-grey);margin:0 0 24px;font-size:1rem;">Where should we send your personalised growth plan?</p>
+                <div class="quiz-contact-fields">
+                    <input type="text"  id="diagName"  class="quiz-input" placeholder="Your name (optional)"    autocomplete="name">
+                    <input type="email" id="diagEmail" class="quiz-input" placeholder="Email address *" required autocomplete="email">
+                    <input type="tel"   id="diagPhone" class="quiz-input" placeholder="Phone number (optional)"  autocomplete="tel">
+                </div>
+                <p class="quiz-error" id="diagContactErr" style="display:none;"></p>
+                <div style="display:flex;justify-content:space-between;gap:12px;margin-top:20px;">
+                    <button onclick="goBackFromContact()" style="background:transparent;color:var(--primary-dark);border:1px solid var(--primary-dark);padding:12px 28px;border-radius:8px;cursor:pointer;font-size:0.95rem;">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button id="diagSubmitBtn" onclick="submitDiagnostic()" style="background:var(--primary-dark);color:white;border:none;padding:12px 28px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.95rem;">
+                        See My Results <i class="fas fa-chart-line"></i>
+                    </button>
+                </div>
+                <p class="quiz-privacy"><i class="fas fa-lock"></i> We respect your privacy. No spam, ever.</p>
+            </div>
+
             <!-- Quiz Progress -->
             <div class="quiz-progress">
                 <div class="quiz-progress-bar" id="quizProgress" style="width: 20%;"></div>
@@ -796,91 +817,148 @@
     <script src="js/campaign.js"></script> 
     <script src="js/google-analytics.js"></script>
     <script>
-        // Quiz logic
         let currentStep = 1;
         const totalSteps = 5;
-        const userAnswers = {};
+        const userAnswers = {}; // { value, label } per step
 
-        window.selectOption = function(step, element) {
-            const value = element.getAttribute('data-value') || element.querySelector('h4').textContent;
-            userAnswers[step] = value;
-            const options = element.parentElement.querySelectorAll('.quiz-option');
-            options.forEach(opt => opt.classList.remove('selected'));
-            element.classList.add('selected');
-        };
-
-        document.querySelectorAll('.quiz-option').forEach(opt => {
-            opt.addEventListener('click', function() {
-                const stepDiv = this.closest('.quiz-step');
-                const stepId = stepDiv.id;
-                const stepNum = parseInt(stepId.replace('step', ''));
-                selectOption(stepNum, this);
+        // Wire up option clicks for numbered steps only
+        document.querySelectorAll('.quiz-step[id^="step"]').forEach(stepDiv => {
+            const stepNum = parseInt(stepDiv.id.replace('step', ''));
+            if (isNaN(stepNum)) return;
+            stepDiv.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.addEventListener('click', function () {
+                    stepDiv.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    userAnswers[stepNum] = {
+                        value: this.getAttribute('data-value') || '',
+                        label: this.querySelector('h4')?.textContent || this.getAttribute('data-value') || ''
+                    };
+                });
             });
         });
 
-        window.nextStep = function() {
-            const currentStepDiv = document.getElementById(`step${currentStep}`);
-            const selected = currentStepDiv.querySelector('.quiz-option.selected');
-            if (!selected) {
+        window.nextStep = function () {
+            const currentStepDiv = document.getElementById('step' + currentStep);
+            if (!currentStepDiv.querySelector('.quiz-option.selected')) {
                 alert('Please select an answer before proceeding.');
                 return;
             }
-
             if (currentStep < totalSteps) {
-                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStepDiv.classList.remove('active');
                 currentStep++;
-                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById('step' + currentStep).classList.add('active');
                 updateProgress();
                 updateNavigation();
             } else {
-                showResults();
+                showContactStep();
             }
         };
 
-        window.previousStep = function() {
+        window.previousStep = function () {
             if (currentStep > 1) {
-                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById('step' + currentStep).classList.remove('active');
                 currentStep--;
-                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById('step' + currentStep).classList.add('active');
                 updateProgress();
                 updateNavigation();
             }
         };
 
+        function showContactStep() {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('stepContact').classList.add('active');
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('quizProgress').style.width = '90%';
+        }
+
+        window.goBackFromContact = function () {
+            document.getElementById('stepContact').classList.remove('active');
+            document.getElementById('step' + currentStep).classList.add('active');
+            document.getElementById('prevBtn').style.display = currentStep > 1 ? 'inline-block' : 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+            document.getElementById('nextBtn').innerHTML = 'Get My Plan <i class="fas fa-chart-line"></i>';
+            document.getElementById('quizProgress').style.width = ((currentStep / totalSteps) * 100) + '%';
+        };
+
+        window.submitDiagnostic = async function () {
+            const nameEl   = document.getElementById('diagName');
+            const emailEl  = document.getElementById('diagEmail');
+            const phoneEl  = document.getElementById('diagPhone');
+            const errEl    = document.getElementById('diagContactErr');
+            const submitBtn = document.getElementById('diagSubmitBtn');
+
+            const email = emailEl ? emailEl.value.trim() : '';
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errEl.textContent = 'Please enter a valid email address.';
+                errEl.style.display = 'block';
+                return;
+            }
+            errEl.style.display = 'none';
+
+            const recommendation = getRecommendation();
+            const payload = {
+                name:           nameEl  ? nameEl.value.trim()  : '',
+                email,
+                phone:          phoneEl ? phoneEl.value.trim() : '',
+                challenge:      userAnswers[1]?.label || '',
+                goal:           userAnswers[2]?.label || '',
+                budget:         userAnswers[3]?.label || '',
+                team_size:      userAnswers[4]?.label || '',
+                timeline:       userAnswers[5]?.label || '',
+                recommendation
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Saving… <i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                await fetch('php/submit_diagnostic.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (_) { /* show result regardless of network error */ }
+
+            showFinalResult(recommendation, payload.name);
+        };
+
+        function getRecommendation() {
+            const v = userAnswers[1]?.value || '';
+            const g = userAnswers[2]?.value || '';
+            if (v === 'strategy') {
+                return g === 'leads'
+                    ? "You need our Marketing Strategy Blueprint paired with a Lead Generation System. We'll build a clear roadmap and a reliable pipeline of qualified enquiries."
+                    : "You need our Marketing Strategy Blueprint. We'll architect a clear plan aligned to your goals and build the systems to execute it.";
+            }
+            if (v === 'content') {
+                return "You need our Content Marketing Engine. We'll create a content framework that attracts the right audience and drives consistent enquiries to your business.";
+            }
+            if (v === 'social') {
+                return "You need our Social Media Growth System. We'll build a targeted strategy that grows real engagement and converts your audience into leads.";
+            }
+            return "You need our Complete Marketing Transformation. We'll architect a comprehensive strategy and engineer all your marketing systems — lead generation, content, SEO, and conversion — for maximum impact.";
+        }
+
+        function showFinalResult(recommendation, name) {
+            document.getElementById('stepContact').classList.remove('active');
+            document.getElementById('quizResult').style.display = 'block';
+            document.getElementById('quizProgress').style.width = '100%';
+            const greeting = name ? 'Hi ' + name + '! ' : '';
+            document.getElementById('resultText').textContent = greeting + recommendation;
+        }
+
         function updateProgress() {
-            const progress = (currentStep / totalSteps) * 100;
-            document.getElementById('quizProgress').style.width = `${progress}%`;
+            document.getElementById('quizProgress').style.width = ((currentStep / totalSteps) * 100) + '%';
         }
 
         function updateNavigation() {
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             prevBtn.style.display = currentStep > 1 ? 'inline-block' : 'none';
-            if (currentStep === totalSteps) {
-                nextBtn.innerHTML = 'See Results <i class="fas fa-chart-bar"></i>';
-            } else {
-                nextBtn.innerHTML = 'Next Question <i class="fas fa-arrow-right"></i>';
-            }
-        }
-
-        function showResults() {
-            document.querySelectorAll('.quiz-step').forEach(step => step.style.display = 'none');
-            document.getElementById('prevBtn').style.display = 'none';
-            document.getElementById('nextBtn').style.display = 'none';
-            document.getElementById('quizResult').style.display = 'block';
-            document.getElementById('quizProgress').style.width = '100%';
-
-            let recommendation = '';
-            if (userAnswers[1] === 'strategy' || userAnswers[1]?.includes('No Clear Strategy')) {
-                recommendation = 'You need our Marketing Strategy Blueprint. We\'ll architect a clear roadmap aligned with your business goals.';
-            } else if (userAnswers[1] === 'content' || userAnswers[1]?.includes('Poor Content')) {
-                recommendation = 'You need our Content Marketing Engine. We\'ll create a content framework and engineer high-performing assets.';
-            } else if (userAnswers[1] === 'social' || userAnswers[1]?.includes('Social Media')) {
-                recommendation = 'You need our Social Media Growth System. We\'ll build an engaged community and drive conversions.';
-            } else {
-                recommendation = 'You need our Complete Marketing Transformation package. We\'ll architect a comprehensive strategy and engineer all systems for maximum impact.';
-            }
-            document.getElementById('resultText').textContent = recommendation;
+            nextBtn.innerHTML = currentStep === totalSteps
+                ? 'Get My Plan <i class="fas fa-chart-line"></i>'
+                : 'Next Question <i class="fas fa-arrow-right"></i>';
         }
     </script>
 </body>

@@ -685,122 +685,241 @@
 
     // ===== QUIZ MODAL =====
     function initQuizModal() {
-        const modal = document.getElementById('quizModal');
+        const modal    = document.getElementById('quizModal');
         const floatBtn = document.getElementById('quizFloatBtn');
-        
         if (!modal || !floatBtn) return;
-        
-        const closeBtn = modal.querySelector('.quiz-close');
-        const modalBody = modal.querySelector('.quiz-modal-body');
+
+        // Update static text in the floating button and modal header
+        const floatSpan = floatBtn.querySelector('span');
+        if (floatSpan) floatSpan.textContent = 'Growth Check';
+        const floatIcon = floatBtn.querySelector('i');
+        if (floatIcon) floatIcon.className = 'fas fa-chart-line';
+
+        const modalH2 = modal.querySelector('.quiz-modal-header h2');
+        const modalSub = modal.querySelector('.quiz-modal-header p');
+        if (modalH2) modalH2.textContent = "What's holding your growth back?";
+        if (modalSub) modalSub.textContent = 'Answer 3 quick questions and get a personalised recommendation';
+
+        const closeBtn   = modal.querySelector('.quiz-close');
+        const modalBody  = modal.querySelector('.quiz-modal-body');
         const progressBar = document.getElementById('quizProgressBar');
 
-        const quizQuestions = [
-            { question: "When starting a new project, you're most excited about:", options: ["The big vision", "The technical details", "Both equally"] },
-            { question: "Your favourite tool is:", options: ["Whiteboard", "Code editor", "A blend"] },
-            { question: "How do you solve problems?", options: ["Creative exploration", "Data analysis", "Combine both"] }
+        const questions = [
+            {
+                q: "What's your biggest online challenge right now?",
+                opts: [
+                    { text: 'Not getting enough website visitors',  icon: 'fa-eye-slash',      cat: 'seo' },
+                    { text: 'Visitors arrive but never enquire',    icon: 'fa-filter',          cat: 'conversion' },
+                    { text: 'Poor Google / search rankings',        icon: 'fa-search-minus',    cat: 'seo' },
+                    { text: 'My business systems are disconnected', icon: 'fa-unlink',          cat: 'systems' }
+                ]
+            },
+            {
+                q: 'How would you describe your current website?',
+                opts: [
+                    { text: 'Outdated – needs a full redesign',           icon: 'fa-paint-brush',    cat: 'conversion' },
+                    { text: 'Looks fine but generates no leads',          icon: 'fa-chart-bar',      cat: 'leads' },
+                    { text: "Good-looking but I'm unsure what's wrong",   icon: 'fa-question-circle', cat: 'leads' },
+                    { text: "I don't have a proper website yet",          icon: 'fa-globe',           cat: 'leads' }
+                ]
+            },
+            {
+                q: 'What result matters most to you in the next 90 days?',
+                opts: [
+                    { text: 'More qualified leads coming in consistently', icon: 'fa-users',     cat: 'leads' },
+                    { text: 'Turn more visitors into paying customers',    icon: 'fa-handshake', cat: 'conversion' },
+                    { text: 'Rank higher on Google and get found',         icon: 'fa-trophy',    cat: 'seo' },
+                    { text: 'Automate and connect my business tools',      icon: 'fa-cogs',      cat: 'systems' }
+                ]
+            }
         ];
-        let step = 0, ans = [];
 
-        function renderModalStep() {
-            if (step < quizQuestions.length) {
-                let q = quizQuestions[step];
-                let html = `<div class="quiz-question">${q.question}</div><div class="quiz-options">`;
-                q.options.forEach((opt, idx) => {
-                    let selected = ans[step] === idx ? 'selected' : '';
-                    html += `<div class="quiz-option ${selected}" data-opt="${idx}"><i class="fas ${idx===0?'fa-eye':idx===1?'fa-cogs':'fa-balance-scale'}"></i>${opt}</div>`;
-                });
-                html += '</div><div class="quiz-nav" style="display: flex; justify-content: space-between; margin-top: 20px;">';
-                html += step>0 ? '<button id="prevBtn" class="btn-secondary" style="padding: 10px 20px;"><i class="fas fa-arrow-left"></i> Previous</button>' : '<div></div>';
-                html += `<button id="nextBtn" class="btn-primary" style="padding: 10px 20px;">${step===quizQuestions.length-1?'See Result':'Next'} <i class="fas fa-arrow-right"></i></button>`;
-                html += '</div>';
-                modalBody.innerHTML = html;
-
-                document.querySelectorAll('.quiz-option').forEach(opt => {
-                    opt.addEventListener('click', function() {
-                        document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-                        this.classList.add('selected');
-                        ans[step] = parseInt(this.dataset.opt);
-                    });
-                });
-                
-                if (step>0) {
-                    document.getElementById('prevBtn').addEventListener('click', () => { 
-                        step--; 
-                        renderModalStep(); 
-                        updateModalProgress(); 
-                    });
-                }
-                
-                document.getElementById('nextBtn').addEventListener('click', () => {
-                    if (ans[step] === undefined) { 
-                        alert('Please select an option'); 
-                        return; 
-                    }
-                    if (step < quizQuestions.length-1) { 
-                        step++; 
-                        renderModalStep(); 
-                        updateModalProgress(); 
-                    } else {
-                        showModalResult();
-                    }
-                });
-                updateModalProgress();
+        const resultMap = {
+            seo: {
+                icon: 'fa-search',
+                title: 'You need stronger SEO & online visibility',
+                desc: "Your website isn't being found. We'll help you rank for the searches your ideal clients are already making.",
+                cta: 'Get a Free Website Audit',
+                link: 'free-website-audit.html'
+            },
+            conversion: {
+                icon: 'fa-filter',
+                title: 'Your site needs Conversion Optimisation',
+                desc: "You're getting traffic but losing sales. We'll pinpoint exactly where visitors drop off and fix it.",
+                cta: 'Book a Free Strategy Session',
+                link: 'consultation.html'
+            },
+            leads: {
+                icon: 'fa-users',
+                title: 'You need a Lead Generation system',
+                desc: "A great-looking site alone won't grow your business. Let's build a system that pulls in qualified enquiries every month.",
+                cta: 'Get a Free Website Audit',
+                link: 'free-website-audit.html'
+            },
+            systems: {
+                icon: 'fa-cogs',
+                title: 'Your business needs Systems Integration',
+                desc: "Disconnected tools are costing you time and money. We'll connect your stack and automate the grind.",
+                cta: 'Book a Free Strategy Session',
+                link: 'consultation.html'
             }
+        };
+
+        let step = 0;
+        let answers = []; // { idx, cat } per question
+
+        function setProgress(fraction) {
+            if (progressBar) progressBar.style.width = (Math.min(fraction, 1) * 100) + '%';
         }
 
-        function updateModalProgress() {
-            let percent = ((step+1)/quizQuestions.length)*100;
-            if (progressBar) progressBar.style.width = percent+'%';
-        }
+        function renderStep() {
+            const q = questions[step];
+            let optHtml = '';
+            q.opts.forEach((opt, idx) => {
+                const sel = (answers[step] && answers[step].idx === idx) ? 'selected' : '';
+                optHtml += `<div class="quiz-option ${sel}" data-idx="${idx}" data-cat="${opt.cat}">
+                    <i class="fas ${opt.icon}"></i>
+                    <span>${opt.text}</span>
+                </div>`;
+            });
 
-        function showModalResult() {
-            let arch = ans.filter(v => v===0).length;
-            let eng = ans.filter(v => v===1).length;
-            let both = ans.filter(v => v===2).length;
-            let type = arch>eng && arch>both ? 'architect' : (eng>arch && eng>both ? 'engineer' : 'balanced');
-            let title, desc, icon;
-            if (type==='architect') { 
-                title='The Architect'; 
-                desc='You\'re a visionary – you love strategy and big ideas.'; 
-                icon='fa-drafting-compass'; 
-            } else if (type==='engineer') { 
-                title='The Engineer'; 
-                desc='You\'re a builder – precision and execution drive you.'; 
-                icon='fa-microchip'; 
-            } else { 
-                title='The Architect‑Engineer'; 
-                desc='You balance vision with execution.'; 
-                icon='fa-balance-scale'; 
-            }
+            const isLast = step === questions.length - 1;
             modalBody.innerHTML = `
-                <div class="quiz-result" style="text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 20px; color: var(--primary-dark);"><i class="fas ${icon}"></i></div>
-                    <h2 style="font-size: 2rem; margin-bottom: 15px; color: var(--primary-dark);">${title}</h2>
-                    <p style="font-size: 1.1rem; color: var(--accent-grey); margin-bottom: 30px;">${desc}</p>
-                    <button class="quiz-result-cta" onclick="document.getElementById('quizModal').style.display='none'; window.location.href='consultation.html'" style="padding: 15px 30px; margin-bottom: 20px;">Book Free Consultation <i class="fas fa-calendar-check"></i></button>
-                    <div style="display: flex; gap: 15px; justify-content: center;">
-                        <!-- <button onclick="alert('Share on LinkedIn!')" style="padding: 10px 20px; background: transparent; border: 1px solid var(--border-light); border-radius: 30px; cursor: pointer;"><i class="fab fa-linkedin"></i> Share</button>
-                        <button onclick="alert('Share on Twitter!')" style="padding: 10px 20px; background: transparent; border: 1px solid var(--border-light); border-radius: 30px; cursor: pointer;"><i class="fab fa-twitter"></i> Tweet</button> -->
-                    </div>
+                <div class="quiz-question">${q.q}</div>
+                <div class="quiz-options quiz-options-grid">${optHtml}</div>
+                <p class="quiz-error quiz-inline-error" style="display:none;"></p>
+                <div class="quiz-nav">
+                    ${step > 0 ? '<button class="btn-secondary quiz-prev"><i class="fas fa-arrow-left"></i> Back</button>' : '<div></div>'}
+                    <button class="btn-primary quiz-next">${isLast ? 'Almost done' : 'Next'} <i class="fas fa-arrow-right"></i></button>
                 </div>
             `;
-            if (progressBar) progressBar.style.width = '100%';
+            setProgress((step + 1) / (questions.length + 1));
+
+            modalBody.querySelectorAll('.quiz-option').forEach(el => {
+                el.addEventListener('click', function () {
+                    modalBody.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    answers[step] = { idx: parseInt(this.dataset.idx), cat: this.dataset.cat };
+                    modalBody.querySelector('.quiz-inline-error').style.display = 'none';
+                });
+            });
+
+            const prevBtn = modalBody.querySelector('.quiz-prev');
+            if (prevBtn) prevBtn.addEventListener('click', () => { step--; renderStep(); });
+
+            modalBody.querySelector('.quiz-next').addEventListener('click', () => {
+                if (!answers[step]) {
+                    const err = modalBody.querySelector('.quiz-inline-error');
+                    err.textContent = 'Please select an option to continue.';
+                    err.style.display = 'block';
+                    return;
+                }
+                if (step < questions.length - 1) { step++; renderStep(); }
+                else { renderContactStep(); }
+            });
         }
 
-        floatBtn.onclick = () => { 
-            modal.style.display = 'flex'; 
-            step = 0; 
-            ans = []; 
-            renderModalStep(); 
-        };
-        
-        if (closeBtn) {
-            closeBtn.onclick = () => modal.style.display = 'none';
+        function renderContactStep() {
+            setProgress(questions.length / (questions.length + 1));
+            modalBody.innerHTML = `
+                <p class="quiz-contact-intro">Almost there! Where should we send your personalised growth plan?</p>
+                <div class="quiz-contact-fields">
+                    <input type="text"  id="quizName"  class="quiz-input" placeholder="Your name (optional)"      autocomplete="name">
+                    <input type="email" id="quizEmail" class="quiz-input" placeholder="Email address *" required  autocomplete="email">
+                    <input type="tel"   id="quizPhone" class="quiz-input" placeholder="Phone number (optional)"   autocomplete="tel">
+                </div>
+                <p class="quiz-error" id="quizContactErr" style="display:none;"></p>
+                <div class="quiz-nav">
+                    <button class="btn-secondary quiz-prev"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="btn-primary quiz-submit-btn">See My Results <i class="fas fa-chart-line"></i></button>
+                </div>
+                <p class="quiz-privacy"><i class="fas fa-lock"></i> We respect your privacy. No spam, ever.</p>
+            `;
+
+            modalBody.querySelector('.quiz-prev').addEventListener('click', () => { step = questions.length - 1; renderStep(); });
+            modalBody.querySelector('.quiz-submit-btn').addEventListener('click', submitQuiz);
         }
-        
-        window.onclick = (e) => { 
-            if (e.target === modal) modal.style.display = 'none'; 
-        };
+
+        async function submitQuiz() {
+            const emailEl  = document.getElementById('quizEmail');
+            const nameEl   = document.getElementById('quizName');
+            const phoneEl  = document.getElementById('quizPhone');
+            const errEl    = document.getElementById('quizContactErr');
+            const submitBtn = modalBody.querySelector('.quiz-submit-btn');
+
+            const email = emailEl ? emailEl.value.trim() : '';
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errEl.textContent = 'Please enter a valid email address.';
+                errEl.style.display = 'block';
+                return;
+            }
+            errEl.style.display = 'none';
+
+            const resultType = computeResult();
+            const payload = {
+                name:        nameEl  ? nameEl.value.trim()  : '',
+                email,
+                phone:       phoneEl ? phoneEl.value.trim() : '',
+                result_type: resultType,
+                answers:     answers.map((a, i) => ({
+                    question: i + 1,
+                    selected: questions[i].opts[a.idx].text,
+                    category: a.cat
+                }))
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Saving… <i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                await fetch('php/submit_quiz.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (_) { /* graceful — show result regardless */ }
+
+            showResult(resultType, payload.name);
+        }
+
+        function computeResult() {
+            const counts = {};
+            answers.forEach(a => { counts[a.cat] = (counts[a.cat] || 0) + 1; });
+            return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+        }
+
+        function showResult(type, name) {
+            const r = resultMap[type] || resultMap.leads;
+            const greeting = name
+                ? `<p style="color:var(--accent-grey);margin-bottom:8px;">Hi ${escapeHtml(name)},</p>`
+                : '';
+            setProgress(1);
+            modalBody.innerHTML = `
+                <div class="quiz-result">
+                    <div class="quiz-result-icon"><i class="fas ${r.icon}"></i></div>
+                    ${greeting}
+                    <h3>${r.title}</h3>
+                    <p>${r.desc}</p>
+                    <a href="${r.link}" class="quiz-result-cta">${r.cta} <i class="fas fa-arrow-right"></i></a>
+                    <button class="quiz-restart-btn">Retake Quiz</button>
+                </div>
+            `;
+            modalBody.querySelector('.quiz-restart-btn').addEventListener('click', () => {
+                step = 0; answers = []; renderStep();
+            });
+        }
+
+        floatBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            step = 0; answers = [];
+            renderStep();
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+
+        window.addEventListener('click', e => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
     }
 
     // ===== RANDOM BUBBLE GENERATOR =====
