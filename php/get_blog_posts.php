@@ -11,19 +11,19 @@ try {
 
     $conn->query("CREATE TABLE IF NOT EXISTS blog_posts (
         id             INT AUTO_INCREMENT PRIMARY KEY,
-        title          VARCHAR(255) NOT NULL                    COMMENT 'Post title shown on cards and the post page',
-        slug           VARCHAR(255) NOT NULL UNIQUE             COMMENT 'URL-friendly identifier used in the page link (e.g. how-to-grow-business)',
-        excerpt        TEXT                                     COMMENT 'Short summary shown on listing cards and previews',
-        content        LONGTEXT                                 COMMENT 'Full post content — paragraphs separated by a blank line',
-        featured_image VARCHAR(500) DEFAULT NULL                COMMENT 'URL or relative path to the cover image',
-        author         VARCHAR(100) DEFAULT 'KConsulting Team' COMMENT 'Author name displayed on the post',
-        category       VARCHAR(100) DEFAULT NULL                COMMENT 'Main category: Marketing, IT, Growth, Systems',
-        tags           VARCHAR(500) DEFAULT NULL                COMMENT 'Comma-separated tags (e.g. SEO, Leads, Strategy)',
-        read_time      INT          DEFAULT 5                   COMMENT 'Estimated reading time in minutes',
-        is_featured    TINYINT(1)   DEFAULT 0                   COMMENT '1 = shown as a featured or highlighted post',
-        status         VARCHAR(20)  DEFAULT 'published'         COMMENT 'Post visibility: published or draft',
-        views          INT          DEFAULT 0                   COMMENT 'Total view count',
-        published_at   DATETIME     DEFAULT CURRENT_TIMESTAMP   COMMENT 'Date the post went live',
+        title          VARCHAR(255) NOT NULL ,
+        slug           VARCHAR(255) NOT NULL UNIQUE,
+        excerpt        TEXT,
+        content        LONGTEXT,
+        featured_image VARCHAR(500) DEFAULT NULL,
+        author         VARCHAR(100) DEFAULT,
+        category       VARCHAR(100) DEFAULT NULL,
+        tags           VARCHAR(500) DEFAULT NULL,
+        read_time      INT          DEFAULT 5,
+        is_featured    TINYINT(1)   DEFAULT 0,
+        status         VARCHAR(20)  DEFAULT 'published',
+        views          INT          DEFAULT 0,
+        published_at   DATETIME     DEFAULT CURRENT_TIMESTAMP,
         created_at     DATETIME     DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
