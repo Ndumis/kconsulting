@@ -65,36 +65,37 @@ function createCookieBanner() {
 
     const banner = document.createElement('div');
     banner.id = 'cookie-consent-banner';
-    banner.style.cssText = `
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: #1a1a1a;
-        border-top: 1px solid rgba(212,175,55,0.3);
-        color: white;
-        padding: 20px;
-        box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
-        z-index: 9999;
-        display: none;
-        font-family: 'Inter', sans-serif;
-    `;
+    banner.style.cssText = [
+        'position:fixed', 'bottom:0', 'left:0', 'right:0',
+        'background:#1a1a1a',
+        'border-top:1px solid rgba(212,175,55,0.3)',
+        'color:#fff',
+        'padding:16px 20px',
+        'box-shadow:0 -4px 24px rgba(0,0,0,0.4)',
+        'z-index:100000',
+        'display:none',
+        'font-family:Inter,sans-serif'
+    ].join(';');
 
     banner.innerHTML = `
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
-            <div style="flex: 1; min-width: 260px;">
-                <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8);">
-                    We use cookies to enhance your experience and analyse site traffic.
-                    <a href="cookie.html" style="color: #D4AF37; text-decoration: none; font-weight: 600;">Cookie Settings</a>
-                </p>
-            </div>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                <button id="reject-all-cookies" style="padding: 10px 20px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; cursor: pointer;
-                    font-weight: 600; background: transparent; color: rgba(255,255,255,0.7); font-family: 'Inter', sans-serif; font-size: 0.875rem; transition: all 0.2s;">Reject</button>
-                <button id="cookie-settings-btn" style="padding: 10px 20px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;
-                    cursor: pointer; font-weight: 600; background: transparent; color: rgba(255,255,255,0.7); font-family: 'Inter', sans-serif; font-size: 0.875rem; transition: all 0.2s;">Settings</button>
-                <button id="accept-all-cookies" style="padding: 10px 24px; border: none; border-radius: 4px; cursor: pointer;
-                    font-weight: 700; background: #D4AF37; color: #0a0a0a; font-family: 'Inter', sans-serif; font-size: 0.875rem; transition: all 0.2s;">Accept All</button>
+        <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
+            <p style="margin:0;font-size:0.88rem;line-height:1.6;color:rgba(255,255,255,0.85);">
+                <strong style="color:#fff;">We use cookies</strong> to enhance your experience and analyse site traffic.
+                <a href="cookie.html" style="color:#D4AF37;text-decoration:none;font-weight:600;white-space:nowrap;">Learn more</a>
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button id="reject-all-cookies"
+                    style="flex:1;min-width:90px;padding:11px 16px;border:1px solid rgba(255,255,255,0.25);border-radius:8px;
+                    cursor:pointer;font-weight:600;background:transparent;color:rgba(255,255,255,0.75);
+                    font-family:Inter,sans-serif;font-size:0.85rem;transition:all 0.2s;">Reject</button>
+                <button id="cookie-settings-btn"
+                    style="flex:1;min-width:90px;padding:11px 16px;border:1px solid rgba(255,255,255,0.25);border-radius:8px;
+                    cursor:pointer;font-weight:600;background:transparent;color:rgba(255,255,255,0.75);
+                    font-family:Inter,sans-serif;font-size:0.85rem;transition:all 0.2s;">Settings</button>
+                <button id="accept-all-cookies"
+                    style="flex:2;min-width:120px;padding:11px 20px;border:none;border-radius:8px;cursor:pointer;
+                    font-weight:700;background:#D4AF37;color:#0a0a0a;
+                    font-family:Inter,sans-serif;font-size:0.85rem;transition:all 0.2s;">Accept All</button>
             </div>
         </div>
     `;

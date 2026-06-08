@@ -20,14 +20,14 @@
         
         init() {
             if (!this.popup) return;
-            
+
             // Check if popup should be hidden
             if (this.shouldBeHidden()) {
-                this.hidePopup(true); // true = skip animation
+                this.hidePopup(true);
             } else {
-                this.showPopup(true); // true = skip animation
+                this.showPopup(true);
             }
-            
+
             // Add close button listener
             if (this.closeBtn) {
                 this.closeBtn.addEventListener('click', (e) => {
@@ -35,13 +35,27 @@
                     this.hidePopup();
                 });
             }
-            
-            // Handle page visibility change (for when user comes back to tab)
+
+            // Recompute height on resize (popup wraps on narrow screens)
+            window.addEventListener('resize', () => {
+                if (!this.shouldBeHidden()) this.syncPopupHeight();
+            });
+
+            // Handle page visibility change
             document.addEventListener('visibilitychange', () => {
                 if (!document.hidden && !this.shouldBeHidden()) {
                     this.showPopup(true);
                 }
             });
+        }
+
+        syncPopupHeight() {
+            if (this.popup && this.popup.style.display !== 'none') {
+                const h = this.popup.getBoundingClientRect().height;
+                document.documentElement.style.setProperty('--popup-height', h + 'px');
+            } else {
+                document.documentElement.style.setProperty('--popup-height', '0px');
+            }
         }
         
         shouldBeHidden() {
@@ -50,74 +64,44 @@
         }
         
         hidePopup(skipAnimation = false) {
-            // Save to localStorage
             localStorage.setItem(CAMPAIGN_STORAGE_KEY, CAMPAIGN_VERSION);
-            
-            // Apply hidden classes
+
             if (this.popup) {
                 if (skipAnimation) {
                     this.popup.style.display = 'none';
                 } else {
                     this.popup.classList.add('hidden');
-                    // Actually hide after animation
-                    setTimeout(() => {
-                        this.popup.style.display = 'none';
-                    }, 300);
+                    setTimeout(() => { this.popup.style.display = 'none'; }, 300);
                 }
             }
-            
-            // Adjust header position
-            if (this.header) {
-                this.header.classList.add('popup-hidden');
-            }
-            
-            // Adjust main content
-            if (this.main) {
-                this.main.classList.add('popup-hidden');
-            }
-            
-            // Adjust hero sections
-            if (this.hero) {
-                this.hero.classList.add('popup-hidden');
-            }
-            
-            // Dispatch event for other scripts to react
+
+            if (this.header) this.header.classList.add('popup-hidden');
+            if (this.main)   this.main.classList.add('popup-hidden');
+            if (this.hero)   this.hero.classList.add('popup-hidden');
+
+            document.documentElement.style.setProperty('--popup-height', '0px');
             document.dispatchEvent(new CustomEvent('campaign:closed'));
         }
-        
+
         showPopup(skipAnimation = false) {
-            // Remove hidden flag from localStorage
             localStorage.removeItem(CAMPAIGN_STORAGE_KEY);
-            
-            // Show popup
+
             if (this.popup) {
-                if (skipAnimation) {
-                    this.popup.style.display = 'flex';
-                    this.popup.classList.remove('hidden');
+                this.popup.style.display = 'flex';
+                if (!skipAnimation) {
+                    setTimeout(() => { this.popup.classList.remove('hidden'); }, 10);
                 } else {
-                    this.popup.style.display = 'flex';
-                    setTimeout(() => {
-                        this.popup.classList.remove('hidden');
-                    }, 10);
+                    this.popup.classList.remove('hidden');
                 }
             }
-            
-            // Reset header position
-            if (this.header) {
-                this.header.classList.remove('popup-hidden');
-            }
-            
-            // Reset main content
-            if (this.main) {
-                this.main.classList.remove('popup-hidden');
-            }
-            
-            // Reset hero sections
-            if (this.hero) {
-                this.hero.classList.remove('popup-hidden');
-            }
-            
-            // Dispatch event
+
+            if (this.header) this.header.classList.remove('popup-hidden');
+            if (this.main)   this.main.classList.remove('popup-hidden');
+            if (this.hero)   this.hero.classList.remove('popup-hidden');
+
+            // Measure actual height after render and update the CSS variable
+            requestAnimationFrame(() => { this.syncPopupHeight(); });
+
             document.dispatchEvent(new CustomEvent('campaign:opened'));
         }
         
