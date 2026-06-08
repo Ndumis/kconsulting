@@ -268,6 +268,164 @@
             .portfolio-filters-section { top: 64px; }
             .portfolio-card-visual { height: 170px; }
         }
+
+        /* ── Project badge (top-right corner of card) ── */
+        .portfolio-card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .badge-gold  { background: #c9a84c; color: #1a1a1a; }
+        .badge-green { background: #22c55e; color: white; }
+        .badge-blue  { background: #3b82f6; color: white; }
+        .badge-red   { background: #ef4444; color: white; }
+        .badge-grey  { background: #6b7280; color: white; }
+
+        /* ── View Case Study as button ── */
+        button.portfolio-card-link {
+            background: none;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        /* ── Loading state ── */
+        .portfolio-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 24px;
+        }
+        .portfolio-loading i { font-size: 2rem; color: var(--primary-dark); margin-bottom: 14px; display: block; }
+        .portfolio-loading p { font-size: 0.9rem; color: #9ca3af; }
+
+        /* ── Case Study Modal ── */
+        .cs-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.55);
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            backdrop-filter: blur(4px);
+        }
+        .cs-modal.open { display: flex; }
+        .cs-modal-inner {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+            scrollbar-width: thin;
+        }
+        .cs-modal-close {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 14px 0 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,0.07);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            color: #374151;
+            flex-shrink: 0;
+        }
+        .cs-modal-close:hover { background: rgba(0,0,0,0.14); }
+        .cs-modal-hero {
+            height: 230px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            gap: 8px;
+        }
+        .cs-modal-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cs-hero-overlay {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .cs-modal-content { padding: 28px 30px 34px; }
+        .cs-modal-content h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+        .cs-section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .cs-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .cs-section h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--primary-dark);
+            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .cs-section h4 i { color: #c9a84c; }
+        .cs-section p { font-size: 0.9rem; color: #4b5563; line-height: 1.75; white-space: pre-line; }
+        .cs-results {
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+        .cs-results h4 i { color: #22c55e; }
+        .cs-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        @media (max-width: 640px) {
+            .cs-modal { padding: 12px; }
+            .cs-modal-inner { border-radius: 14px; }
+            .cs-modal-content { padding: 20px 18px 26px; }
+            .cs-modal-hero { height: 180px; }
+            .cs-modal-content h2 { font-size: 1.2rem; }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -447,185 +605,16 @@
     </div>
 
     <!-- Portfolio Grid -->
-    <!-- ============================================================
-         HOW TO ADD A REAL PROJECT:
-         1. Copy a .portfolio-card block below
-         2. Set data-category to one of: web | ecommerce | marketing | systems | it
-         3. Replace .portfolio-card-visual with an <img> or keep the gradient + update the class
-         4. Update the h3, p, tags, and href on the card link
-         5. Remove the .portfolio-placeholder-badge span when using a real screenshot
-         ============================================================ -->
     <section class="portfolio-grid-section" id="portfolio-grid">
         <div class="portfolio-grid" id="portfolioGrid">
 
-            <!-- ── WEB DESIGN ── -->
-            <div class="portfolio-card" data-category="web">
-                <div class="portfolio-card-visual cat-web">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-laptop-code"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Web Design</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Business Website Redesign</h3>
-                    <p>Full redesign of a professional services website focused on lead generation, clarity of offer, and mobile experience.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">HTML / CSS</span>
-                        <span class="portfolio-tag">WordPress</span>
-                        <span class="portfolio-tag">CRO</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
+            <!-- Loading state (replaced by JS once data arrives) -->
+            <div class="portfolio-loading" id="portfolioLoading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading projects...</p>
             </div>
 
-            <div class="portfolio-card" data-category="web">
-                <div class="portfolio-card-visual cat-web">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-paint-brush"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Web Design</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>High-Converting Landing Page</h3>
-                    <p>Single-page lead capture site built for a marketing campaign, optimised for speed and conversion from day one.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">HTML / CSS</span>
-                        <span class="portfolio-tag">JS</span>
-                        <span class="portfolio-tag">SEO</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-card" data-category="web">
-                <div class="portfolio-card-visual cat-web">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Web Design</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Mobile-First Service Website</h3>
-                    <p>Rebuilt a slow, outdated site for a local service business, improving mobile experience and search engine visibility.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">WordPress</span>
-                        <span class="portfolio-tag">Mobile UX</span>
-                        <span class="portfolio-tag">Speed</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- ── ECOMMERCE ── -->
-            <div class="portfolio-card" data-category="ecommerce">
-                <div class="portfolio-card-visual cat-ecommerce">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Ecommerce</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Online Store Development</h3>
-                    <p>End-to-end ecommerce build including product catalogue, payment gateway integration, and checkout optimisation.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">WooCommerce</span>
-                        <span class="portfolio-tag">PayGate</span>
-                        <span class="portfolio-tag">UX</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-card" data-category="ecommerce">
-                <div class="portfolio-card-visual cat-ecommerce">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-store"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Ecommerce</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Ecommerce Platform Migration</h3>
-                    <p>Migrated an established store from an outdated platform to WooCommerce, improving speed and reducing cart abandonment.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">WooCommerce</span>
-                        <span class="portfolio-tag">Migration</span>
-                        <span class="portfolio-tag">CRO</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- ── MARKETING ── -->
-            <div class="portfolio-card" data-category="marketing">
-                <div class="portfolio-card-visual cat-marketing">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-funnel-dollar"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Marketing</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Lead Generation Funnel</h3>
-                    <p>Multi-step lead capture funnel with email automation for a professional services firm, generating consistent monthly enquiries.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">Landing Page</span>
-                        <span class="portfolio-tag">Email</span>
-                        <span class="portfolio-tag">Automation</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-card" data-category="marketing">
-                <div class="portfolio-card-visual cat-marketing">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-envelope-open-text"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Marketing</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Email Marketing System</h3>
-                    <p>Designed and built an automated email nurture sequence for a coaching business, turning cold leads into paying clients.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">Email</span>
-                        <span class="portfolio-tag">Automation</span>
-                        <span class="portfolio-tag">Copywriting</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- ── SYSTEMS ── -->
-            <div class="portfolio-card" data-category="systems">
-                <div class="portfolio-card-visual cat-systems">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-project-diagram"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">Systems</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>CRM &amp; Website Integration</h3>
-                    <p>Connected a business website to a CRM, WhatsApp, and email so every new enquiry flows automatically without manual input.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">CRM</span>
-                        <span class="portfolio-tag">API</span>
-                        <span class="portfolio-tag">WhatsApp</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- ── IT SOLUTIONS ── -->
-            <div class="portfolio-card" data-category="it">
-                <div class="portfolio-card-visual cat-it">
-                    <div class="portfolio-card-visual-icon"><i class="fas fa-cogs"></i></div>
-                    <span class="portfolio-placeholder-badge">Placeholder</span>
-                    <span class="portfolio-card-cat-badge">IT Solutions</span>
-                </div>
-                <div class="portfolio-card-content">
-                    <h3>Business Workflow Automation</h3>
-                    <p>Replaced a manual, spreadsheet-driven process with an automated workflow, cutting admin time significantly each week.</p>
-                    <div class="portfolio-card-tags">
-                        <span class="portfolio-tag">n8n</span>
-                        <span class="portfolio-tag">Zapier</span>
-                        <span class="portfolio-tag">Automation</span>
-                    </div>
-                    <a href="#" class="portfolio-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Empty state (shown when no cards match a filter) -->
+            <!-- Empty state (shown when filter returns no results) -->
             <div class="portfolio-empty" id="portfolioEmpty">
                 <i class="fas fa-folder-open"></i>
                 <p>No projects in this category yet.<br>Check back soon or <a href="contact.html">get in touch</a>.</p>
@@ -643,6 +632,14 @@
                 <a href="consultation.html" class="btn-primary">Book a Free Strategy Session <i class="fas fa-arrow-right"></i></a>
                 <a href="free-website-audit.html" class="btn-secondary">Get a Free Website Audit <i class="fas fa-search"></i></a>
             </div>
+        </div>
+    </div>
+
+    <!-- Case Study Modal -->
+    <div class="cs-modal" id="caseStudyModal" role="dialog" aria-modal="true" aria-labelledby="csModalTitle">
+        <div class="cs-modal-inner">
+            <button class="cs-modal-close" aria-label="Close case study">&times;</button>
+            <div id="caseStudyModalBody"></div>
         </div>
     </div>
 
@@ -707,49 +704,162 @@
 
     <script>
     (function () {
-        const filterBtns  = document.querySelectorAll('.portfolio-filter-btn');
-        const cards       = document.querySelectorAll('.portfolio-card[data-category]');
-        const countEl     = document.getElementById('portfolioCount');
-        const emptyEl     = document.getElementById('portfolioEmpty');
+        let allProjects   = [];
+        let currentFilter = 'all';
 
-        function applyFilter(filter) {
-            let visible = 0;
+        const grid      = document.getElementById('portfolioGrid');
+        const countEl   = document.getElementById('portfolioCount');
+        const emptyEl   = document.getElementById('portfolioEmpty');
+        const loadingEl = document.getElementById('portfolioLoading');
 
-            cards.forEach(card => {
-                const match = filter === 'all' || card.dataset.category === filter;
+        const catMeta = {
+            web:       { label: 'Web Design',   icon: 'fa-laptop-code' },
+            ecommerce: { label: 'Ecommerce',    icon: 'fa-shopping-bag' },
+            marketing: { label: 'Marketing',    icon: 'fa-bullhorn'     },
+            systems:   { label: 'Systems',      icon: 'fa-plug'         },
+            it:        { label: 'IT Solutions', icon: 'fa-server'       }
+        };
 
-                if (match) {
-                    // Show: restore display first so transition runs
-                    card.style.display = 'flex';
-                    requestAnimationFrame(() => {
-                        card.style.opacity  = '1';
-                        card.style.transform = 'scale(1)';
-                    });
-                    visible++;
-                } else {
-                    // Hide: fade out, then remove from flow
-                    card.style.opacity  = '0';
-                    card.style.transform = 'scale(0.96)';
-                    const ref = card;
-                    setTimeout(() => {
-                        if (ref.style.opacity === '0') ref.style.display = 'none';
-                    }, 280);
-                }
-            });
-
-            countEl.textContent = visible;
-            emptyEl.style.display = visible === 0 ? 'block' : 'none';
+        function esc(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
         }
 
-        filterBtns.forEach(btn => {
+        function buildCard(p) {
+            const cat    = catMeta[p.category] || { label: p.category, icon: 'fa-folder' };
+            const tags   = (p.tags_array || []).map(t => `<span class="portfolio-tag">${esc(t)}</span>`).join('');
+            const badge  = p.badge_label
+                ? `<span class="portfolio-card-badge badge-${esc(p.badge_colour || 'gold')}">${esc(p.badge_label)}</span>`
+                : '';
+            const visual = p.image_url
+                ? `<img src="${esc(p.image_url)}" alt="${esc(p.project_name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">`
+                : `<div class="portfolio-card-visual-icon"><i class="fas ${cat.icon}"></i></div>`;
+
+            return `<div class="portfolio-card" data-category="${esc(p.category)}" data-id="${p.id}">
+                <div class="portfolio-card-visual cat-${esc(p.category)}">
+                    ${visual}${badge}
+                    <span class="portfolio-card-cat-badge">${esc(cat.label)}</span>
+                </div>
+                <div class="portfolio-card-content">
+                    <h3>${esc(p.project_name)}</h3>
+                    <p>${esc(p.short_description)}</p>
+                    <div class="portfolio-card-tags">${tags}</div>
+                    <button class="portfolio-card-link" onclick="openCaseStudy(${p.id})">
+                        View Case Study <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>`;
+        }
+
+        function renderCards(filter) {
+            currentFilter = filter;
+            const filtered = filter === 'all'
+                ? allProjects
+                : allProjects.filter(p => p.category === filter);
+
+            grid.querySelectorAll('.portfolio-card').forEach(c => c.remove());
+            filtered.forEach(p => {
+                const wrap = document.createElement('div');
+                wrap.innerHTML = buildCard(p).trim();
+                grid.insertBefore(wrap.firstElementChild, emptyEl);
+            });
+
+            countEl.textContent = filtered.length;
+            emptyEl.style.display = filtered.length === 0 ? 'block' : 'none';
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.portfolio-filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                applyFilter(btn.dataset.filter);
+                renderCards(btn.dataset.filter);
             });
         });
 
-        // Smooth scroll to grid when hero button clicked
+        // Fetch projects from PHP API
+        fetch('php/get_portfolio.php')
+            .then(r => r.json())
+            .then(data => {
+                loadingEl.style.display = 'none';
+                if (data.success && data.projects.length > 0) {
+                    allProjects = data.projects;
+                    renderCards('all');
+                } else {
+                    emptyEl.style.display = 'block';
+                    countEl.textContent = '0';
+                }
+            })
+            .catch(() => {
+                loadingEl.style.display = 'none';
+                emptyEl.style.display = 'block';
+                countEl.textContent = '0';
+            });
+
+        // ── Case Study Modal ──
+        window.openCaseStudy = function (id) {
+            const p = allProjects.find(x => x.id == id);
+            if (!p) return;
+
+            const cat    = catMeta[p.category] || { label: p.category };
+            const tags   = (p.tags_array || []).map(t => `<span class="portfolio-tag">${esc(t)}</span>`).join('');
+            const badge  = p.badge_label
+                ? `<span class="portfolio-card-badge badge-${esc(p.badge_colour || 'gold')}" style="position:relative;top:auto;right:auto;">${esc(p.badge_label)}</span>`
+                : '';
+
+            let sections = '';
+            if (p.case_study_overview)
+                sections += `<div class="cs-section"><h4><i class="fas fa-info-circle"></i> Overview</h4><p>${esc(p.case_study_overview)}</p></div>`;
+            if (p.case_study_challenge)
+                sections += `<div class="cs-section"><h4><i class="fas fa-exclamation-circle"></i> The Challenge</h4><p>${esc(p.case_study_challenge)}</p></div>`;
+            if (p.case_study_solution)
+                sections += `<div class="cs-section"><h4><i class="fas fa-lightbulb"></i> Our Solution</h4><p>${esc(p.case_study_solution)}</p></div>`;
+            if (p.case_study_results)
+                sections += `<div class="cs-section cs-results"><h4><i class="fas fa-chart-line"></i> Results</h4><p>${esc(p.case_study_results)}</p></div>`;
+
+            const liveBtn = p.project_live_url
+                ? `<a href="${esc(p.project_live_url)}" target="_blank" rel="noopener noreferrer" class="btn-primary cs-cta">View Live Project <i class="fas fa-external-link-alt"></i></a>`
+                : '';
+
+            document.getElementById('caseStudyModalBody').innerHTML = `
+                <div class="cs-modal-hero cat-${esc(p.category)}">
+                    ${p.image_url ? `<img src="${esc(p.image_url)}" alt="${esc(p.project_name)}">` : ''}
+                    <div class="cs-hero-overlay">
+                        <span class="portfolio-card-cat-badge" style="position:relative;bottom:auto;left:auto;">${esc(cat.label)}</span>
+                        ${badge}
+                    </div>
+                </div>
+                <div class="cs-modal-content">
+                    <h2 id="csModalTitle">${esc(p.case_study_title || p.project_name)}</h2>
+                    <div class="cs-tags">${tags}</div>
+                    ${sections}
+                    ${liveBtn}
+                </div>`;
+
+            const modal = document.getElementById('caseStudyModal');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // Close modal
+        document.getElementById('caseStudyModal').addEventListener('click', function (e) {
+            if (e.target === this || e.target.classList.contains('cs-modal-close')) {
+                this.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('caseStudyModal').classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Smooth scroll from hero button
         document.querySelector('a[href="#portfolio-grid"]')?.addEventListener('click', e => {
             e.preventDefault();
             document.getElementById('portfolio-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
