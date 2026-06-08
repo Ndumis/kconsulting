@@ -119,47 +119,91 @@
     function initMobileNavigation() {
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-links, .nav-menu');
-        
+
         if (!mobileToggle || !navMenu) return;
+
+        // Inject overlay backdrop once
+        let overlay = document.querySelector('.mobile-nav-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'mobile-nav-overlay';
+            document.body.appendChild(overlay);
+        }
+
+        // Inject branded header inside drawer once
+        if (!navMenu.querySelector('.mobile-nav-header')) {
+            const header = document.createElement('div');
+            header.className = 'mobile-nav-header';
+            header.innerHTML =
+                '<a href="index.html" class="mobile-nav-brand">' +
+                    '<img src="img/KConsultingLogo1.png" alt="KConsulting">' +
+                    '<div class="mobile-nav-brand-text">' +
+                        '<span class="mobile-nav-brand-main">KConsulting Firm</span>' +
+                        '<span class="mobile-nav-brand-sub">IT &amp; Marketing Solutions</span>' +
+                    '</div>' +
+                '</a>' +
+                '<button class="mobile-nav-close" aria-label="Close menu"><i class="fas fa-times"></i></button>';
+            navMenu.prepend(header);
+
+            header.querySelector('.mobile-nav-close').addEventListener('click', closeMenu);
+        }
+
+        // Add icons to nav links
+        const iconMap = {
+            'index.html':        'fa-house',
+            'about.html':        'fa-circle-info',
+            'marketing.html':    'fa-bullhorn',
+            'it.html':           'fa-microchip',
+            'blog.html':         'fa-newspaper',
+            'portfolio.html':    'fa-briefcase',
+            'contact.html':      'fa-envelope',
+            'consultation.html': 'fa-calendar-check',
+        };
+        const links = navMenu.querySelectorAll('a');
+        links.forEach(function(link) {
+            if (link.classList.contains('mobile-nav-brand') || link.classList.contains('cta-button')) return;
+            const href = (link.getAttribute('href') || '').split('?')[0].split('/').pop();
+            const icon = iconMap[href];
+            if (icon && !link.querySelector('i.nav-link-icon')) {
+                const el = document.createElement('i');
+                el.className = 'fas ' + icon + ' nav-link-icon';
+                el.style.cssText = 'font-size:0.78rem;opacity:0.55;flex-shrink:0;color:var(--accent-gold);';
+                link.prepend(el);
+            }
+        });
+
+        function openMenu() {
+            mobileToggle.setAttribute('aria-expanded', 'true');
+            mobileToggle.classList.add('active');
+            navMenu.classList.add('active');
+            overlay.style.display = 'block';
+            requestAnimationFrame(function() { overlay.classList.add('visible'); });
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('visible');
+            setTimeout(function() { overlay.style.display = 'none'; }, 300);
+            document.body.style.overflow = '';
+        }
 
         mobileToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            const isOpen = mobileToggle.getAttribute('aria-expanded') !== 'true';
-            
-            mobileToggle.setAttribute('aria-expanded', isOpen);
-            mobileToggle.classList.toggle('active', isOpen);
-            navMenu.classList.toggle('active', isOpen);
-            
-            document.body.style.overflow = isOpen ? 'hidden' : '';
+            mobileToggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
         });
 
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
+        overlay.addEventListener('click', closeMenu);
+
+        navMenu.querySelectorAll('a:not(.mobile-nav-brand)').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
         });
 
-        document.addEventListener('click', (e) => {
-            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                mobileToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                mobileToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) closeMenu();
         });
     }
 
