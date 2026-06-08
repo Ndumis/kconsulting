@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -335,6 +335,23 @@
         </div>
     </section>
 
+    <!-- Blog Preview Section -->
+    <section class="blog-preview-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-header-text">
+                    <span class="section-label">Latest Insights</span>
+                    <h2>Straight-talking advice for growing businesses</h2>
+                    <p>Practical guides on marketing, IT, and business growth, no fluff.</p>
+                </div>
+                <a href="blog.html" class="view-all-link">View all posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="blog-preview-grid fade-in" id="blogPreviewGrid">
+                <div class="blog-loading"><i class="fas fa-spinner fa-spin"></i>Loading posts...</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Solutions Dark Section -->
     <section class="solutions-dark">
         <div class="container">
@@ -583,11 +600,6 @@
                     </a>
                     <p class="footer-tagline">IT & Marketing Solutions | Built on Excellence</p>
                     <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
-                    <div class="footer-social">
-                        <a href="https://wa.me/27645190549" class="footer-social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/kconsulting_firm?igsh=N3JhZ25nbHJnaHU4" class="footer-social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/kconsulting-pty-ltd" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Growth Services</h4>
@@ -658,7 +670,65 @@
     </script>
     <script src="js/script.js"></script>
     <script src="js/cookie.js"></script>
-    <script src="js/campaign.js"></script> 
+    <script src="js/campaign.js"></script>
     <script src="js/google-analytics.js"></script>
+    <script>
+    (function () {
+        const grid = document.getElementById('blogPreviewGrid');
+        if (!grid) return;
+
+        function catClass(cat) {
+            const map = { marketing: 'marketing', it: 'it', growth: 'growth', systems: 'systems' };
+            return map[(cat || '').toLowerCase()] || 'default';
+        }
+
+        function catIcon(cat) {
+            const map = { marketing: 'fa-bullhorn', it: 'fa-server', growth: 'fa-chart-line', systems: 'fa-plug' };
+            return map[(cat || '').toLowerCase()] || 'fa-newspaper';
+        }
+
+        function fmtDate(str) {
+            if (!str) return '';
+            const d = new Date(str);
+            return d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        function buildCard(p) {
+            const cc = catClass(p.category);
+            const icon = catIcon(p.category);
+            const imgEl = p.featured_image
+                ? '<img src="' + p.featured_image + '" alt="' + p.title + '">'
+                : '<i class="fas ' + icon + ' blog-card-image-icon"></i>';
+            return '<article class="blog-card">' +
+                '<div class="blog-card-image cat-' + cc + '">' +
+                    imgEl +
+                    '<span class="blog-card-cat-badge blog-cat-' + cc + '">' + (p.category || 'Blog') + '</span>' +
+                '</div>' +
+                '<div class="blog-card-body">' +
+                    '<div class="blog-card-meta">' +
+                        '<span><i class="far fa-calendar"></i> ' + fmtDate(p.published_at) + '</span>' +
+                        '<span><i class="far fa-clock"></i> ' + p.read_time + ' min read</span>' +
+                    '</div>' +
+                    '<h3 class="blog-card-title">' + p.title + '</h3>' +
+                    '<p class="blog-card-excerpt">' + (p.excerpt || '') + '</p>' +
+                    '<a href="blog-post.html?slug=' + encodeURIComponent(p.slug) + '" class="blog-card-link">Read article <i class="fas fa-arrow-right"></i></a>' +
+                '</div>' +
+            '</article>';
+        }
+
+        fetch('php/get_blog_posts.php?limit=3')
+            .then(function(r){ return r.json(); })
+            .then(function(data) {
+                if (!data.posts || !data.posts.length) {
+                    grid.innerHTML = '<p class="blog-empty">No posts yet.</p>';
+                    return;
+                }
+                grid.innerHTML = data.posts.map(buildCard).join('');
+            })
+            .catch(function() {
+                grid.innerHTML = '<p class="blog-empty">Could not load posts.</p>';
+            });
+    })();
+    </script>
 </body>
 </html>
