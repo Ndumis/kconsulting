@@ -54,7 +54,7 @@ try {
          INNER JOIN portfolio_extras pe ON pe.project_id = p.id
          WHERE pe.show_in_portfolio = 1
            AND p.status = 'completed'
-         ORDER BY pe.sort_order ASC, p.id DESC"
+         ORDER BY p.id DESC"
     );
 
     $stmt->execute();

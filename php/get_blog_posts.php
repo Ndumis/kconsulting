@@ -79,7 +79,7 @@ try {
                     category, tags, read_time, is_featured, views, published_at
              FROM blog_posts
              WHERE " . implode(' AND ', $where) . "
-             ORDER BY is_featured DESC, published_at DESC
+             ORDER BY id DESC
              LIMIT ?";
 
     $stmt = $conn->prepare($sql);
