@@ -62,7 +62,7 @@ body {
     position: absolute;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    opacity: 0.35 !important;
+    opacity: 0.18 !important;
     white-space: nowrap;
     user-select: none;
     pointer-events: none;
@@ -96,7 +96,7 @@ body {
     width: 50px;
     height: 50px;
     background: var(--primary-dark);
-    opacity: 0.35 !important;;
+    opacity: 0.18 !important;
     transform: rotate(45deg);
     animation: floatDiamond 20s infinite alternate ease-in-out;
     z-index: 1;
@@ -112,7 +112,7 @@ body {
 .floating-circle {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.35 !important;;
+    opacity: 0.18 !important;
     animation: floatCircle 20s infinite alternate ease-in-out;
     z-index: 1;
 }
@@ -123,7 +123,7 @@ body {
     width: 50px;
     height: 50px;
     border: 2px solid var(--accent-blue);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatAround 18s infinite alternate;
 }
 
@@ -133,7 +133,7 @@ body {
     width: 100px;
     height: 100px;
     border: 2px solid var(--accent-teal);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatDiamond 22s infinite alternate;
 }
 
@@ -143,13 +143,13 @@ body {
     width: 30px;
     height: 30px;
     border: 2px solid var(--accent-blue);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatAround 15s infinite alternate;
 }
 
 .floating-line {
     position: absolute;
-    opacity: 0.35 !important;;
+    opacity: 0.18 !important;
     z-index: 1;
 }
 
@@ -169,7 +169,7 @@ body {
     width: 150px;
     height: 2px;
     background: var(--accent-blue);
-    opacity: 0.35;
+    opacity: 0.18;
     transform: rotate(30deg);
     animation: floatHorizontal 12s infinite alternate;
 }
@@ -180,7 +180,7 @@ body {
     width: 2px;
     height: 150px;
     background: var(--accent-teal);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatVertical 14s infinite alternate;
 }
 
@@ -190,7 +190,7 @@ body {
     width: 120px;
     height: 2px;
     background: var(--accent-blue);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatHorizontal 16s infinite alternate;
 }
 
@@ -200,7 +200,7 @@ body {
     width: 2px;
     height: 100px;
     background: var(--accent-teal);
-    opacity: 0.35;
+    opacity: 0.18;
     animation: floatVertical 18s infinite alternate;
 }
 
