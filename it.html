@@ -53,10 +53,28 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ContactPoint",
-        "telephone": "+27645190549",
-        "contactType": "customer service",
-        "availableLanguage": "English"
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "IT Solutions & Systems Integration",
+                "serviceType": "IT Services",
+                "provider": {
+                    "@type": "Organization",
+                    "@id": "https://www.thekconsult.co.za",
+                    "name": "KConsulting Firm (Pty) Ltd",
+                    "url": "https://www.thekconsult.co.za"
+                },
+                "areaServed": {"@type": "Country", "name": "South Africa"},
+                "description": "Enterprise IT services including website development, system integration, automation and workflows, CRM setup, and cloud and hosting management, engineered to run reliably behind your business as it scales.",
+                "url": "https://www.thekconsult.co.za/it.html"
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+27645190549",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+            }
+        ]
     }
     </script>
 </head>

@@ -53,22 +53,41 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "KConsulting (Pty) Ltd",
-        "url": "https://www.thekconsult.co.za",
-        "logo": "https://www.thekconsult.co.za/img/KConsultingLogo1.png",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Cape Town",
-            "addressRegion": "Western Cape",
-            "postalCode": "8001",
-            "addressCountry": "ZA"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+27645190549",
-            "contactType": "customer service"
-        }
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "Free Strategy Session",
+                "serviceType": "Business Consultation",
+                "provider": {
+                    "@type": "Organization",
+                    "@id": "https://www.thekconsult.co.za",
+                    "name": "KConsulting Firm (Pty) Ltd",
+                    "url": "https://www.thekconsult.co.za"
+                },
+                "areaServed": {"@type": "Country", "name": "South Africa"},
+                "description": "A free strategy session where our Architect and Engineer assess your business challenges and recommend the best IT and marketing path forward.",
+                "url": "https://www.thekconsult.co.za/consultation.html"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://www.thekconsult.co.za",
+                "name": "KConsulting Firm (Pty) Ltd",
+                "url": "https://www.thekconsult.co.za",
+                "logo": "https://www.thekconsult.co.za/img/KConsultingLogo1.png",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Cape Town",
+                    "addressRegion": "Western Cape",
+                    "postalCode": "8001",
+                    "addressCountry": "ZA"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+27645190549",
+                    "contactType": "customer service"
+                }
+            }
+        ]
     }
     </script>
 

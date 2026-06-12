@@ -873,7 +873,7 @@ body.cookie-banner-active .quiz-float-btn {
 
 .quiz-float-btn:hover {
     transform: scale(1.05);
-    background: var(--accent-blue);
+    background: #2d2d2d;
 }
 
 @media (max-width: 768px) {
