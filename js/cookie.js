@@ -81,7 +81,7 @@ function createCookieBanner() {
         <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
             <p style="margin:0;font-size:0.88rem;line-height:1.6;color:rgba(255,255,255,0.85);">
                 <strong style="color:#fff;">We use cookies</strong> to enhance your experience and analyse site traffic.
-                <a href="cookie.html" style="color:#D4AF37;text-decoration:none;font-weight:600;white-space:nowrap;">Learn more</a>
+                <a href="cookie.html" style="color:#9ca3af;text-decoration:none;font-weight:600;white-space:nowrap;">Learn more</a>
             </p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
                 <button id="reject-all-cookies"

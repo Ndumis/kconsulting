@@ -686,12 +686,20 @@
         if (!grid) return;
 
         function catClass(cat) {
-            const map = { marketing: 'marketing', it: 'it', growth: 'growth', systems: 'systems' };
+            const map = {
+                technology: 'technology', business: 'business', marketing: 'marketing',
+                'industry insights': 'industry-insights', 'case study': 'case-study',
+                tutorial: 'tutorial', news: 'news', 'company update': 'company-update'
+            };
             return map[(cat || '').toLowerCase()] || 'default';
         }
 
         function catIcon(cat) {
-            const map = { marketing: 'fa-bullhorn', it: 'fa-server', growth: 'fa-chart-line', systems: 'fa-plug' };
+            const map = {
+                technology: 'fa-laptop-code', business: 'fa-briefcase', marketing: 'fa-bullhorn',
+                'industry insights': 'fa-chart-pie', 'case study': 'fa-file-alt',
+                tutorial: 'fa-graduation-cap', news: 'fa-newspaper', 'company update': 'fa-building'
+            };
             return map[(cat || '').toLowerCase()] || 'fa-newspaper';
         }
 

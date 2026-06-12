@@ -198,17 +198,29 @@
             <button class="blog-filter-btn active" data-cat="all">
                 <i class="fas fa-th"></i> All Posts
             </button>
+            <button class="blog-filter-btn" data-cat="Technology">
+                <i class="fas fa-laptop-code"></i> Technology
+            </button>
+            <button class="blog-filter-btn" data-cat="Business">
+                <i class="fas fa-briefcase"></i> Business
+            </button>
             <button class="blog-filter-btn" data-cat="Marketing">
                 <i class="fas fa-bullhorn"></i> Marketing
             </button>
-            <button class="blog-filter-btn" data-cat="IT">
-                <i class="fas fa-server"></i> IT
+            <button class="blog-filter-btn" data-cat="Industry Insights">
+                <i class="fas fa-chart-pie"></i> Industry Insights
             </button>
-            <button class="blog-filter-btn" data-cat="Growth">
-                <i class="fas fa-chart-line"></i> Growth
+            <button class="blog-filter-btn" data-cat="Case Study">
+                <i class="fas fa-file-alt"></i> Case Study
             </button>
-            <button class="blog-filter-btn" data-cat="Systems">
-                <i class="fas fa-plug"></i> Systems
+            <button class="blog-filter-btn" data-cat="Tutorial">
+                <i class="fas fa-graduation-cap"></i> Tutorial
+            </button>
+            <button class="blog-filter-btn" data-cat="News">
+                <i class="fas fa-newspaper"></i> News
+            </button>
+            <button class="blog-filter-btn" data-cat="Company Update">
+                <i class="fas fa-building"></i> Company Update
             </button>
             <span class="blog-filter-count">Showing <strong id="blogPostCount">0</strong> posts</span>
         </div>
@@ -284,12 +296,20 @@
         let activecat = 'all';
 
         function catClass(cat) {
-            const map = { marketing: 'marketing', it: 'it', growth: 'growth', systems: 'systems' };
+            const map = {
+                technology: 'technology', business: 'business', marketing: 'marketing',
+                'industry insights': 'industry-insights', 'case study': 'case-study',
+                tutorial: 'tutorial', news: 'news', 'company update': 'company-update'
+            };
             return map[(cat || '').toLowerCase()] || 'default';
         }
 
         function catIcon(cat) {
-            const map = { marketing: 'fa-bullhorn', it: 'fa-server', growth: 'fa-chart-line', systems: 'fa-plug' };
+            const map = {
+                technology: 'fa-laptop-code', business: 'fa-briefcase', marketing: 'fa-bullhorn',
+                'industry insights': 'fa-chart-pie', 'case study': 'fa-file-alt',
+                tutorial: 'fa-graduation-cap', news: 'fa-newspaper', 'company update': 'fa-building'
+            };
             return map[(cat || '').toLowerCase()] || 'fa-newspaper';
         }
 

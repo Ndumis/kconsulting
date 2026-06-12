@@ -279,6 +279,9 @@
     <section class="post-body-section" id="postBodySection" style="display:none;">
         <div class="container">
             <a href="blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to all posts</a>
+            <div class="post-featured-image" id="postFeaturedImage" style="display:none;">
+                <img id="postFeaturedImg" src="" alt="">
+            </div>
             <div class="post-layout">
                 <div>
                     <article class="post-content" id="postContent"></article>
@@ -361,7 +364,11 @@
         }
 
         function catClass(cat) {
-            const map = { marketing: 'marketing', it: 'it', growth: 'growth', systems: 'systems' };
+            const map = {
+                technology: 'technology', business: 'business', marketing: 'marketing',
+                'industry insights': 'industry-insights', 'case study': 'case-study',
+                tutorial: 'tutorial', news: 'news', 'company update': 'company-update'
+            };
             return map[(cat || '').toLowerCase()] || 'default';
         }
 
@@ -399,11 +406,15 @@
 
         // ── Floating bg tags ─────────────────────────────────────────────────
         var catTags = {
-            marketing: ['SEO','Content','Social','Email','PPC','Leads','Brand','Funnel','CTA'],
-            it:        ['Cloud','AWS','Linux','Docker','API','Security','DevOps','Server'],
-            growth:    ['Leads','Revenue','Strategy','ROI','Scale','Goals','Analytics','KPIs'],
-            systems:   ['API','Zapier','n8n','CRM','Sync','Automate','Workflow','REST'],
-            default:   ['Insights','Strategy','Growth','Marketing','IT','Systems','Guides','Data']
+            technology:         ['Cloud','AWS','Linux','Docker','API','Security','DevOps','Server'],
+            business:           ['Strategy','ROI','Scale','Revenue','Operations','Planning','Goals','Growth'],
+            marketing:          ['SEO','Content','Social','Email','PPC','Leads','Brand','Funnel','CTA'],
+            'industry-insights':['Trends','Data','Analytics','Market','Research','Insights','Reports','Forecast'],
+            'case-study':       ['Results','ROI','Success','Client','Outcomes','Metrics','Growth','Proof'],
+            tutorial:           ['Guide','How-To','Steps','Tips','Learn','Tools','Setup','Walkthrough'],
+            news:               ['Update','Announce','Release','Industry','Trends','News','Press','Highlights'],
+            'company-update':   ['Team','News','Milestone','Launch','Update','Growth','Culture','Announcement'],
+            default:            ['Insights','Strategy','Growth','Marketing','IT','Systems','Guides','Data']
         };
 
         function buildHeroFloat(cat) {
@@ -537,6 +548,13 @@
 
                     // ── Floating background tags ───────────────────────────
                     document.getElementById('postHeroFloat').innerHTML = buildHeroFloat(cc);
+
+                    // ── Featured image ──────────────────────────────────────
+                    if (p.featured_image) {
+                        document.getElementById('postFeaturedImg').src = p.featured_image;
+                        document.getElementById('postFeaturedImg').alt = p.title;
+                        document.getElementById('postFeaturedImage').style.display = 'block';
+                    }
 
                     hero.style.display      = 'block';
                     postBodySection.style.display = 'block';

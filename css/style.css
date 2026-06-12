@@ -5534,17 +5534,25 @@ input:disabled + .slider {
 }
 
 /* Category colours */
-.blog-cat-marketing  { background: #c8960e; }
-.blog-cat-it         { background: #1e6fa3; }
-.blog-cat-growth     { background: #1e7a4f; }
-.blog-cat-systems    { background: #6d3dbf; }
-.blog-cat-default    { background: var(--primary-dark); }
+.blog-cat-technology       { background: #1e6fa3; }
+.blog-cat-business         { background: #6d3dbf; }
+.blog-cat-marketing        { background: #c8960e; }
+.blog-cat-industry-insights{ background: #1e7a4f; }
+.blog-cat-case-study       { background: #b2452c; }
+.blog-cat-tutorial         { background: #0e8a7a; }
+.blog-cat-news             { background: #555b6e; }
+.blog-cat-company-update   { background: #9c3d9e; }
+.blog-cat-default          { background: var(--primary-dark); }
 
 /* Image background tints per category */
-.blog-card-image.cat-marketing { background: linear-gradient(135deg, #3d2a00 0%, #7a5200 100%); }
-.blog-card-image.cat-it        { background: linear-gradient(135deg, #0a1e35 0%, #1a4870 100%); }
-.blog-card-image.cat-growth    { background: linear-gradient(135deg, #0a2818 0%, #0e5c34 100%); }
-.blog-card-image.cat-systems   { background: linear-gradient(135deg, #1a0d3d 0%, #3d1e7a 100%); }
+.blog-card-image.cat-technology        { background: linear-gradient(135deg, #0a1e35 0%, #1a4870 100%); }
+.blog-card-image.cat-business          { background: linear-gradient(135deg, #1a0d3d 0%, #3d1e7a 100%); }
+.blog-card-image.cat-marketing         { background: linear-gradient(135deg, #3d2a00 0%, #7a5200 100%); }
+.blog-card-image.cat-industry-insights { background: linear-gradient(135deg, #0a2818 0%, #0e5c34 100%); }
+.blog-card-image.cat-case-study        { background: linear-gradient(135deg, #3d1500 0%, #7a3318 100%); }
+.blog-card-image.cat-tutorial          { background: linear-gradient(135deg, #082a26 0%, #115c50 100%); }
+.blog-card-image.cat-news              { background: linear-gradient(135deg, #1c1f29 0%, #3a4156 100%); }
+.blog-card-image.cat-company-update    { background: linear-gradient(135deg, #2e0a35 0%, #5e1a6e 100%); }
 
 .blog-card-body {
     padding: 22px 24px 26px;
@@ -5755,6 +5763,20 @@ input:disabled + .slider {
     background: #fff;
 }
 
+.post-featured-image {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16 / 6;
+    margin-bottom: 40px;
+}
+
+.post-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .post-layout {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -5911,4 +5933,9 @@ input:disabled + .slider {
     }
 
     .post-sidebar { position: static; }
+
+    .post-featured-image {
+        aspect-ratio: 16 / 10;
+        margin-bottom: 28px;
+    }
 }
