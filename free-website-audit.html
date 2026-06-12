@@ -186,6 +186,13 @@
         }
         .why-k-list li i { color: rgba(255,255,255,0.45); font-size: 0.75rem; flex-shrink: 0; }
 
+        .why-kconsulting-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -345,6 +352,7 @@
             .audit-form-row { grid-template-columns: 1fr; gap: 0; }
             .who-for-list { grid-template-columns: 1fr; }
             .why-k-list { grid-template-columns: 1fr; }
+            .why-kconsulting-grid { grid-template-columns: 1fr; gap: 32px; }
             .reviews-grid { grid-template-columns: 1fr; }
             .final-cta-section h2 { font-size: 1.5rem; }
         }
@@ -626,7 +634,7 @@
                     <h3>AI Visibility Review (GEO)</h3>
                     <p>Can ChatGPT, Gemini, Copilot, and AI-powered search tools understand and recommend your business?</p>
                 </div>
-                <div class="audit-area-card fade-in" style="grid-column: 2;">
+                <div class="audit-area-card fade-in">
                     <div class="audit-area-icon"><i class="fas fa-clipboard-check"></i></div>
                     <h3>Actionable Recommendations</h3>
                     <p>Receive practical next steps that can be implemented immediately.</p>
@@ -694,7 +702,7 @@
     <!-- Why KConsulting -->
     <section style="padding: 80px 24px; background: var(--primary-dark);">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div class="why-kconsulting-grid">
                 <div class="fade-in">
                     <span class="section-label">WHY KCONSULTING</span>
                     <h2 style="color: white; font-size: 1.8rem; margin: 12px 0 20px;">More Than A Website Review.</h2>

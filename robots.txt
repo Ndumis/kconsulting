@@ -11,22 +11,20 @@ Disallow: /logs/
 # Sitemap location
 Sitemap: https://www.thekconsult.co.za/sitemap.php
 
-# Crawl delay for polite bots
-Crawl-delay: 1
-
-# Specific rules for different bots
+# Google — no delay (fastest indexing)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 5
 
+# Bing — no delay
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 5
 
-User-agent: Slurp  # Yahoo
+# Yahoo (Slurp) — optional delay if needed
+User-agent: Slurp
 Allow: /
-Crawl-delay: 10
+Crawl-delay: 2
 
+# AI bots — allowed (keep if you want)
 User-agent: GPTBot
 Allow: /
 
