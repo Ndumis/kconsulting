@@ -148,30 +148,6 @@
             header.querySelector('.mobile-nav-close').addEventListener('click', closeMenu);
         }
 
-        // Add icons to nav links
-        const iconMap = {
-            'index.html':        'fa-house',
-            'about.html':        'fa-circle-info',
-            'marketing.html':    'fa-bullhorn',
-            'it.html':           'fa-microchip',
-            'blog.html':         'fa-newspaper',
-            'portfolio.html':    'fa-briefcase',
-            'contact.html':      'fa-envelope',
-            'consultation.html': 'fa-calendar-check',
-        };
-        const links = navMenu.querySelectorAll('a');
-        links.forEach(function(link) {
-            if (link.classList.contains('mobile-nav-brand') || link.classList.contains('cta-button')) return;
-            const href = (link.getAttribute('href') || '').split('?')[0].split('/').pop();
-            const icon = iconMap[href];
-            if (icon && !link.querySelector('i.nav-link-icon')) {
-                const el = document.createElement('i');
-                el.className = 'fas ' + icon + ' nav-link-icon';
-                el.style.cssText = 'font-size:0.78rem;opacity:0.55;flex-shrink:0;color:var(--accent-gold);';
-                link.prepend(el);
-            }
-        });
-
         function openMenu() {
             mobileToggle.setAttribute('aria-expanded', 'true');
             mobileToggle.classList.add('active');

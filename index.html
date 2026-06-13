@@ -46,10 +46,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/modules/pagination.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/modules/pagination.min.css">
+    </noscript>
     
     <script type="application/ld+json">
     {
@@ -115,7 +122,7 @@
     <header class="main-header">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px;"></span>
+                <span class="logo-icon"><img src="img/KConsultingLogo1-sm.png" alt="KConsulting" width="100" height="97" style="height: 40px;"></span>
                 <span class="logo-text">
                     <span class="logo-main">KConsulting Firm</span>
                     <span class="logo-sub">IT & Marketing Solutions | Built on Excellence.</span>
@@ -138,6 +145,8 @@
                 </div>
         </div>
     </header>
+
+    <main>
 
     <!-- Floating Quiz Button -->
     <div class="quiz-float-btn" id="quizFloatBtn">
@@ -229,7 +238,7 @@
                         </div>
                         <span class="audit-label">Free Website Audit</span>
                     </div>
-                    <h3 class="audit-card-title">Discover what's holding your business back online</h3>
+                    <h2 class="audit-card-title">Discover what's holding your business back online</h2>
                     <ul class="audit-checklist">
                         <li><i class="fas fa-check-circle"></i><span>Conversion gaps costing you leads</span></li>
                         <li><i class="fas fa-check-circle"></i><span>Speed &amp; mobile experience issues</span></li>
@@ -252,22 +261,22 @@
             <p class="logos-tagline">Trusted by growing businesses</p>
             <div class="client-logos-grid">
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-1.png" alt="Sewelara Security and Cleaning">
+                    <img src="img/clients/client-1.png" alt="Sewelara Security and Cleaning" width="122" height="120" loading="lazy">
                 </div>
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-2.png" alt="Stubs Consulting">
+                    <img src="img/clients/client-2.png" alt="Stubs Consulting" width="237" height="120" loading="lazy">
                 </div>
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-3.png" alt="African Cannabis Team">
+                    <img src="img/clients/client-3.png" alt="African Cannabis Team" width="120" height="120" loading="lazy">
                 </div>
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-4.png" alt="eLithalomso">
+                    <img src="img/clients/client-4.png" alt="eLithalomso" width="120" height="120" loading="lazy">
                 </div>
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-5.png" alt="ErrandsCall">
+                    <img src="img/clients/client-5.png" alt="ErrandsCall" width="380" height="120" loading="lazy">
                 </div>
                 <div class="client-logo-slot">
-                    <img src="img/clients/client-6.png" alt="Sasim IT Solutions">
+                    <img src="img/clients/client-6.png" alt="Sasim IT Solutions" width="260" height="59" loading="lazy">
                 </div>
             </div>
         </div>
@@ -373,31 +382,31 @@
                     <div class="solution-icon"><i class="fas fa-magnet"></i></div>
                     <h3>Lead Generation</h3>
                     <p>Attract and capture high-quality leads with optimized funnels and targeting strategies.</p>
-                    <a href="lead-generation.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="lead-generation.html" class="solution-link" aria-label="Learn more about Lead Generation">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="solution-card fade-in">
                     <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Conversion Optimization</h3>
                     <p>Turn more visitors into customers with data-driven CRO improvements across your site.</p>
-                    <a href="conversion-optimization.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="conversion-optimization.html" class="solution-link" aria-label="Learn more about Conversion Optimization">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="solution-card fade-in">
                     <div class="solution-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Ecommerce Growth</h3>
                     <p>Optimize your online store for better performance, user experience, and revenue.</p>
-                    <a href="ecommerce-optimization.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="ecommerce-optimization.html" class="solution-link" aria-label="Learn more about Ecommerce Growth">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="solution-card fade-in">
                     <div class="solution-icon"><i class="fas fa-plug"></i></div>
                     <h3>Systems Integration</h3>
                     <p>Connect your tools and automate workflows so everything works together seamlessly.</p>
-                    <a href="system-integration.html" class="solution-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="system-integration.html" class="solution-link" aria-label="Learn more about Systems Integration">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="solution-card fade-in">
                     <div class="solution-icon"><i class="fas fa-cogs"></i></div>
                     <h3>Automation & Workflows</h3>
                     <p>Save time and scale faster with smart business automation and process design.</p>
-                    <a href="it.html" class="solution-link" >Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="it.html" class="solution-link" aria-label="Learn more about Automation &amp; Workflows">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="solutions-cta">
@@ -479,7 +488,7 @@
                             <div class="testimonial-author">
                                 <div class="author-image"></div>
                                 <div>
-                                    <h4>Thokozani Shongwe</h4>
+                                    <h3>Thokozani Shongwe</h3>
                                     <p style="color: var(--accent-grey); font-size: 0.9rem;">CEO, Trisab</p>
                                 </div>
                             </div>
@@ -494,7 +503,7 @@
                             <div class="testimonial-author">
                                 <div class="author-image"></div>
                                 <div>
-                                    <h4>Clement Miya</h4>
+                                    <h3>Clement Miya</h3>
                                     <p style="color: var(--accent-grey); font-size: 0.9rem;">Director, Stubs Consulting</p>
                                 </div>
                             </div>
@@ -509,7 +518,7 @@
                             <div class="testimonial-author">
                                 <div class="author-image"></div>
                                 <div>
-                                    <h4>African Cannabis Team</h4>
+                                    <h3>African Cannabis Team</h3>
                                     <p style="color: var(--accent-grey); font-size: 0.9rem;">Client</p>
                                 </div>
                             </div>
@@ -594,13 +603,15 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col footer-brand">
                     <a href="index.html" class="logo">
-                        <span class="logo-icon"><img src="img/KConsultingLogo1.png" alt="KConsulting" style="height: 40px; filter: brightness(0) invert(1);"></span>
+                        <span class="logo-icon"><img src="img/KConsultingLogo1-sm.png" alt="KConsulting" width="100" height="97" style="height: 40px; filter: brightness(0) invert(1);" loading="lazy"></span>
                         <span class="logo-text">
                             <span class="logo-main">KConsulting Firm</span>
                             <span class="logo-sub">(Pty) Ltd</span>
@@ -610,7 +621,7 @@
                     <p>We help businesses improve their websites, systems, and digital platforms so they generate more leads, convert better, and support long-term growth.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Growth Services</h4>
+                    <h3>Growth Services</h3>
                     <a href="conversion-optimization.html">Conversion Optimization</a>
                     <a href="lead-generation.html">Lead Generation</a>
                     <a href="ecommerce-optimization.html">Ecommerce Optimization</a>
@@ -618,14 +629,14 @@
                     <a href="marketing.html">Marketing Solutions</a>
                 </div>
                 <div class="footer-col">
-                    <h4>IT Services</h4>
+                    <h3>IT Services</h3>
                     <a href="it.html">IT Solutions Overview</a>
                     <a href="system-integration.html">System Integration</a>
                     <a href="it.html">Automation & Workflows</a>
                     <a href="it.html">Website Development</a>
                 </div>
                 <div class="footer-col footer-contact">
-                    <h4>Let's Talk</h4>
+                    <h3>Let's Talk</h3>
                     <p><i class="fas fa-envelope"></i> info@thekconsult.co.za</p>
                     <p><i class="fas fa-phone"></i> +27 64 519 0549</p>
                     <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
@@ -642,11 +653,15 @@
         </div>
     </footer>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+    <!-- Swiper JS (modular: core + pagination + autoplay only) -->
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper.min.mjs';
+        import Pagination from 'https://cdn.jsdelivr.net/npm/swiper@11.2.10/modules/pagination.min.mjs';
+        import Autoplay from 'https://cdn.jsdelivr.net/npm/swiper@11.2.10/modules/autoplay.min.mjs';
+
         // Initialize Swiper
         new Swiper('.testimonials-swiper', {
+            modules: [Pagination, Autoplay],
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
@@ -667,7 +682,8 @@
                 }
             }
         });
-
+    </script>
+    <script>
         function toggleTestimonial(btn) {
             const text = btn.previousElementSibling;
             const expanded = text.classList.toggle('expanded');
@@ -676,7 +692,7 @@
                 : 'Read more <i class="fas fa-chevron-down"></i>';
         }
     </script>
-    <script src="js/script.js"></script>
+    <script src="js/script.min.js"></script>
     <script src="js/cookie.js"></script>
     <script src="js/campaign.js"></script>
     <script src="js/google-analytics.js"></script>
