@@ -280,7 +280,7 @@
         <div class="container">
             <a href="blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to all posts</a>
             <div class="post-featured-image" id="postFeaturedImage" style="display:none;">
-                <img id="postFeaturedImg" src="" alt="">
+                <img id="postFeaturedImg" src="" alt="" loading="lazy">
             </div>
             <div class="post-layout">
                 <div>
@@ -378,6 +378,11 @@
                 var d = new Date(str);
                 return isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' });
             } catch(e) { return ''; }
+        }
+
+        function optimizeImg(url, width) {
+            if (!url) return url;
+            return 'https://images.weserv.nl/?url=' + encodeURIComponent(url) + '&w=' + width + '&q=75&output=webp';
         }
 
         function safeISODate(str) {
@@ -551,7 +556,7 @@
 
                     // ── Featured image ──────────────────────────────────────
                     if (p.featured_image) {
-                        document.getElementById('postFeaturedImg').src = p.featured_image;
+                        document.getElementById('postFeaturedImg').src = optimizeImg(p.featured_image, 1200);
                         document.getElementById('postFeaturedImg').alt = p.title;
                         document.getElementById('postFeaturedImage').style.display = 'block';
                     }

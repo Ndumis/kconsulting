@@ -709,11 +709,16 @@
             return d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
         }
 
+        function optimizeImg(url, width) {
+            if (!url) return url;
+            return 'https://images.weserv.nl/?url=' + encodeURIComponent(url) + '&w=' + width + '&q=75&output=webp';
+        }
+
         function buildCard(p) {
             const cc = catClass(p.category);
             const icon = catIcon(p.category);
             const imgEl = p.featured_image
-                ? '<img src="' + p.featured_image + '" alt="' + p.title + '">'
+                ? '<img src="' + optimizeImg(p.featured_image, 600) + '" alt="' + p.title + '" width="600" height="180" loading="lazy">'
                 : '<i class="fas ' + icon + ' blog-card-image-icon"></i>';
             return '<article class="blog-card">' +
                 '<div class="blog-card-image cat-' + cc + '">' +
