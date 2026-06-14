@@ -49,13 +49,29 @@
             });
         }
 
-        syncPopupHeight() {
-            if (this.popup && this.popup.style.display !== 'none') {
-                const h = this.popup.getBoundingClientRect().height;
-                document.documentElement.style.setProperty('--popup-height', h + 'px');
-            } else {
-                document.documentElement.style.setProperty('--popup-height', '0px');
+        // Apply a --popup-height change instantly (no transition) so it
+        // doesn't trigger a layout-shift animation on initial page load.
+        applyPopupHeightInstant(value) {
+            const els = [this.header, this.main, this.hero].filter(Boolean);
+            els.forEach(el => { el.style.transition = 'none'; });
+            document.documentElement.style.setProperty('--popup-height', value);
+            els.forEach(el => el.getBoundingClientRect()); // force reflow
+            requestAnimationFrame(() => {
+                els.forEach(el => { el.style.transition = ''; });
+            });
+        }
+
+        syncPopupHeight(animate = true) {
+            const value = (this.popup && this.popup.style.display !== 'none')
+                ? this.popup.getBoundingClientRect().height + 'px'
+                : '0px';
+
+            if (animate) {
+                document.documentElement.style.setProperty('--popup-height', value);
+                return;
             }
+
+            this.applyPopupHeightInstant(value);
         }
         
         shouldBeHidden() {
@@ -79,7 +95,11 @@
             if (this.main)   this.main.classList.add('popup-hidden');
             if (this.hero)   this.hero.classList.add('popup-hidden');
 
-            document.documentElement.style.setProperty('--popup-height', '0px');
+            if (skipAnimation) {
+                this.applyPopupHeightInstant('0px');
+            } else {
+                document.documentElement.style.setProperty('--popup-height', '0px');
+            }
             document.dispatchEvent(new CustomEvent('campaign:closed'));
         }
 
@@ -100,7 +120,7 @@
             if (this.hero)   this.hero.classList.remove('popup-hidden');
 
             // Measure actual height after render and update the CSS variable
-            requestAnimationFrame(() => { this.syncPopupHeight(); });
+            requestAnimationFrame(() => { this.syncPopupHeight(!skipAnimation); });
 
             document.dispatchEvent(new CustomEvent('campaign:opened'));
         }

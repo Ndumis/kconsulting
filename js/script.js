@@ -136,7 +136,7 @@
             header.className = 'mobile-nav-header';
             header.innerHTML =
                 '<a href="index.html" class="mobile-nav-brand">' +
-                    '<img src="img/KConsultingLogo1.png" alt="KConsulting">' +
+                    '<img src="img/KConsultingLogo1.png" alt="KConsulting" width="180" height="174">' +
                     '<div class="mobile-nav-brand-text">' +
                         '<span class="mobile-nav-brand-main">KConsulting Firm</span>' +
                         '<span class="mobile-nav-brand-sub">IT &amp; Marketing Solutions</span>' +
