@@ -34,7 +34,7 @@ function sendQuizAdminEmail(array $d, int $submission_id): bool {
         }
         $mail->isHTML(true);
         $displayName = $d['name'] ?: $d['email'];
-        $mail->Subject = 'New Growth Quiz Lead #' . $submission_id . ',' . $displayName . ',' . $resultInfo['label'];
+        $mail->Subject = 'New Growth Quiz Lead #' . $submission_id . ' — ' . $displayName . ' — ' . $resultInfo['label'];
         ob_start();
         include __DIR__ . '/quiz_admin_email_template.php';
         $body = ob_get_clean();

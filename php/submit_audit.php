@@ -31,7 +31,7 @@ if (!$data) {
     exit;
 }
 
-// Trim only,htmlspecialchars is applied once inside email templates
+// Trim only, htmlspecialchars is applied once inside email templates
 function sanitize($value) {
     return trim($value ?? '');
 }

@@ -31,7 +31,7 @@ try {
         throw new Exception('Please enter a valid email address.');
     }
 
-    // Trim only,htmlspecialchars is applied once inside email templates
+    // Trim only, htmlspecialchars is applied once inside email templates
     foreach ($input as $key => $value) {
         if (is_string($value)) {
             $input[$key] = trim($value);

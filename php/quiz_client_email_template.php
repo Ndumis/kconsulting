@@ -63,7 +63,7 @@ $answers   = is_array($d['answers']) ? $d['answers'] : (json_decode($d['answers'
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.93rem;">We reach out within 1 business day</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">Expect a quick message from us,no pressure, just a conversation about where you want to go.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">Expect a quick message from us, no pressure, just a conversation about where you want to go.</p>
               </td>
             </tr>
             <tr>
@@ -72,7 +72,7 @@ $answers   = is_array($d['answers']) ? $d['answers'] : (json_decode($d['answers'
               </td>
               <td style="padding:0 0 0 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.93rem;">We build your growth plan together</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">A specific, actionable plan built around your goals,not a generic proposal.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">A specific, actionable plan built around your goals, not a generic proposal.</p>
               </td>
             </tr>
           </table>
@@ -101,7 +101,7 @@ $answers   = is_array($d['answers']) ? $d['answers'] : (json_decode($d['answers'
         <td style="padding:0 40px 40px;text-align:center;">
           <p style="color:#555;font-size:0.95rem;margin:0 0 18px;">Want to skip the wait? Book your free 30-minute strategy session and let's map out the fastest path forward.</p>
           <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#0a0a0a;color:#ffffff;text-decoration:none;padding:15px 34px;border-radius:8px;font-weight:700;font-size:0.9rem;">Book Free Strategy Session &rarr;</a>
-          <p style="margin:16px 0 0;color:#999;font-size:0.83rem;">Or simply reply to this email,we read every one.</p>
+          <p style="margin:16px 0 0;color:#999;font-size:0.83rem;">Or simply reply to this email, we read every one.</p>
         </td>
       </tr>
 

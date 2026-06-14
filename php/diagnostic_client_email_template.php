@@ -60,7 +60,8 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.95rem;">We reach out within 1 business day</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.88rem;">Expect a call or email from our team,no pressure, just a conversation about your goals.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.88rem;">Expect a call or email from our team, no pressure, just a conversation about your goals.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.88rem;">Expect a call or email from our team, no pressure, just a conversation about your goals.</p>
               </td>
             </tr>
             <tr>
@@ -81,7 +82,7 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
         <td style="padding:0 40px 40px;text-align:center;">
           <p style="color:#555;font-size:0.95rem;margin:0 0 20px;">Want to fast-track your results? Book a free 30-minute strategy session and let's map out the path forward.</p>
           <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#9ca3af;color:#0a0a0a;text-decoration:none;padding:16px 36px;border-radius:8px;font-weight:700;font-size:0.95rem;">Book Free Strategy Session &rarr;</a>
-          <p style="margin:20px 0 0;color:#999;font-size:0.85rem;">Or reply directly to this email,we read every message.</p>
+          <p style="margin:20px 0 0;color:#999;font-size:0.85rem;">Or reply directly to this email, we read every message.</p>
         </td>
       </tr>
 
