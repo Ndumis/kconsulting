@@ -11,7 +11,7 @@ const QUIZ_RESULT_LABELS = [
 const QUIZ_RESULT_DESCRIPTIONS = [
     'seo'        => "Your website isn't being found. We'll help you rank for the searches your ideal clients are already making, so the right people discover your business every day.",
     'conversion' => "You're getting traffic but losing sales. We'll identify exactly where visitors drop off and fix those gaps so more of them become paying customers.",
-    'leads'      => "A great-looking site alone won't grow your business. Let's build a system that pulls in qualified enquiries every month — consistently and predictably.",
+    'leads'      => "A great-looking site alone won't grow your business. Let's build a system that pulls in qualified enquiries every month,consistently and predictably.",
     'systems'    => "Disconnected tools are costing you time and money. We'll connect your stack and automate the repetitive work so your team can focus on growth.",
 ];
 
@@ -34,7 +34,7 @@ function sendQuizAdminEmail(array $d, int $submission_id): bool {
         }
         $mail->isHTML(true);
         $displayName = $d['name'] ?: $d['email'];
-        $mail->Subject = 'New Growth Quiz Lead #' . $submission_id . ' — ' . $displayName . ' — ' . $resultInfo['label'];
+        $mail->Subject = 'New Growth Quiz Lead #' . $submission_id . ',' . $displayName . ',' . $resultInfo['label'];
         ob_start();
         include __DIR__ . '/quiz_admin_email_template.php';
         $body = ob_get_clean();

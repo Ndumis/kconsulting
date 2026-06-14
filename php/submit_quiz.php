@@ -23,7 +23,7 @@ if (!$data || empty($data['email'])) {
     exit;
 }
 
-// Trim only — htmlspecialchars is applied once inside email templates
+// Trim only,htmlspecialchars is applied once inside email templates
 $name        = trim($data['name']        ?? '');
 $email       = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
 $phone       = trim($data['phone']       ?? '');

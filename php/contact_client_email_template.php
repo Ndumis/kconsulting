@@ -45,15 +45,15 @@
             padding: 30px;
         }
         .confirmation-box {
-            background-color: #e8f5e9;
-            border-left: 4px solid #4CAF50;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0a0a0a;
             padding: 20px;
             margin-bottom: 25px;
             border-radius: 4px;
         }
         .confirmation-box h3 {
             margin-top: 0;
-            color: #2e7d32;
+            color: #0a0a0a;
         }
         .details-box {
             background-color: #f9f9f9;
@@ -69,7 +69,7 @@
         }
         .detail-label {
             font-weight: 600;
-            color: #1a4f72;
+            color: #0a0a0a;
             min-width: 140px;
         }
         .detail-value {
@@ -82,7 +82,7 @@
             border-radius: 6px;
             margin-top: 10px;
             font-style: italic;
-            border-left: 4px solid #1a4f72;
+            border-left: 4px solid #0a0a0a;
         }
         .next-steps {
             background-color: #f9f9f9;
@@ -96,7 +96,7 @@
             align-items: flex-start;
         }
         .step-number {
-            background-color: #1a4f72;
+            background-color: #0a0a0a;
             color: white;
             width: 28px;
             height: 28px;
@@ -109,7 +109,7 @@
             font-weight: bold;
         }
         .contact-info {
-            background-color: #f0f7ff;
+            background-color: #f5f5f5;
             border-radius: 6px;
             padding: 20px;
             margin: 25px 0;
@@ -152,7 +152,7 @@
                 <p>Thank you for reaching out to us. We have successfully received your message and our team will review it shortly.</p>
             </div>
             
-            <h3 style="color: #1a4f72;">Your Message Summary</h3>
+            <h3 style="color: #0a0a0a;">Your Message Summary</h3>
             <div class="details-box">
                 <div class="detail-item">
                     <span class="detail-label">Name:</span>
@@ -187,7 +187,7 @@
             </div>
             
             <div class="next-steps">
-                <h3 style="margin-top: 0; color: #1a4f72;">What Happens Next?</h3>
+                <h3 style="margin-top: 0; color: #0a0a0a;">What Happens Next?</h3>
                 
                 <div class="step">
                     <div class="step-number">1</div>
@@ -215,7 +215,7 @@
             </div>
             
             <div class="contact-info">
-                <h3 style="margin-top: 0; color: #1a4f72;">Need Faster Assistance?</h3>
+                <h3 style="margin-top: 0; color: #0a0a0a;">Need Faster Assistance?</h3>
                 <p>If your matter is urgent, feel free to contact us directly:</p>
                 <table style="width: 100%;">
                     <tr>
@@ -228,7 +228,7 @@
                     </tr>
                     <tr>
                         <td style="padding: 5px 0;"><strong>WhatsApp:</strong></td>
-                        <td><a href="https://wa.me/27645190549" style="color: #1a4f72;">+27 64 519 0549</a></td>
+                        <td><a href="https://wa.me/27645190549" style="color: #6b7280;">+27 64 519 0549</a></td>
                     </tr>
                 </table>
             </div>

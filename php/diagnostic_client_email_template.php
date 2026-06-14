@@ -17,7 +17,7 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
       <!-- Header -->
       <tr>
         <td style="background:#0a0a0a;padding:40px;text-align:center;">
-          <p style="color:#d4a843;font-size:0.75rem;font-weight:700;letter-spacing:3px;margin:0 0 10px;">YOUR RESULTS ARE IN</p>
+          <p style="color:#9ca3af;font-size:0.75rem;font-weight:700;letter-spacing:3px;margin:0 0 10px;">YOUR RESULTS ARE IN</p>
           <h1 style="color:#ffffff;font-size:1.8rem;font-weight:700;margin:0;">Marketing Growth Diagnostic</h1>
         </td>
       </tr>
@@ -33,8 +33,8 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
       <!-- Recommendation Box -->
       <tr>
         <td style="padding:24px 40px;">
-          <div style="background:#f9f6ee;border:2px solid #d4a843;border-radius:12px;padding:28px;">
-            <p style="color:#d4a843;font-size:0.75rem;font-weight:700;letter-spacing:2px;margin:0 0 10px;">OUR RECOMMENDATION FOR YOU</p>
+          <div style="background:#f5f5f5;border:2px solid #9ca3af;border-radius:12px;padding:28px;">
+            <p style="color:#6b7280;font-size:0.75rem;font-weight:700;letter-spacing:2px;margin:0 0 10px;">OUR RECOMMENDATION FOR YOU</p>
             <p style="color:#0a0a0a;font-size:1rem;line-height:1.7;margin:0;"><?= htmlspecialchars($d['recommendation']) ?></p>
           </div>
         </td>
@@ -47,7 +47,7 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#d4a843;font-size:0.8rem;font-weight:700;">1</div>
+                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#9ca3af;font-size:0.8rem;font-weight:700;">1</div>
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.95rem;">One of our consultants reviews your diagnostic</p>
@@ -56,16 +56,16 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
             </tr>
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#d4a843;font-size:0.8rem;font-weight:700;">2</div>
+                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#9ca3af;font-size:0.8rem;font-weight:700;">2</div>
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.95rem;">We reach out within 1 business day</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.88rem;">Expect a call or email from our team — no pressure, just a conversation about your goals.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.88rem;">Expect a call or email from our team,no pressure, just a conversation about your goals.</p>
               </td>
             </tr>
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#d4a843;border-radius:50%;text-align:center;line-height:28px;color:#0a0a0a;font-size:0.8rem;font-weight:700;">3</div>
+                <div style="width:28px;height:28px;background:#9ca3af;border-radius:50%;text-align:center;line-height:28px;color:#0a0a0a;font-size:0.8rem;font-weight:700;">3</div>
               </td>
               <td style="padding:0 0 0 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.95rem;">We build a clear growth plan together</p>
@@ -80,8 +80,8 @@ $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
       <tr>
         <td style="padding:0 40px 40px;text-align:center;">
           <p style="color:#555;font-size:0.95rem;margin:0 0 20px;">Want to fast-track your results? Book a free 30-minute strategy session and let's map out the path forward.</p>
-          <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#d4a843;color:#0a0a0a;text-decoration:none;padding:16px 36px;border-radius:8px;font-weight:700;font-size:0.95rem;">Book Free Strategy Session →</a>
-          <p style="margin:20px 0 0;color:#999;font-size:0.85rem;">Or reply directly to this email — we read every message.</p>
+          <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#9ca3af;color:#0a0a0a;text-decoration:none;padding:16px 36px;border-radius:8px;font-weight:700;font-size:0.95rem;">Book Free Strategy Session &rarr;</a>
+          <p style="margin:20px 0 0;color:#999;font-size:0.85rem;">Or reply directly to this email,we read every message.</p>
         </td>
       </tr>
 

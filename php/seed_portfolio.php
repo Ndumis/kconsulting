@@ -1,6 +1,6 @@
 <?php
 /**
- * Portfolio Seed Script — testing only.
+ * Portfolio Seed Script,testing only.
  *
  * HOW TO RUN:
  *   Open your browser and go to:

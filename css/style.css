@@ -545,7 +545,7 @@ body {
     opacity: 1;
 }
 
-/* Mobile drawer header — hidden on desktop, shown only inside mobile media query */
+/* Mobile drawer header,hidden on desktop, shown only inside mobile media query */
 .mobile-nav-header { display: none; }
 
 /* ===== MAIN CONTENT SPACING ===== */
@@ -5486,7 +5486,7 @@ input:disabled + .slider {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BLOG — preview section (index.html) and full listing (blog.html)
+   BLOG,preview section (index.html) and full listing (blog.html)
    ═══════════════════════════════════════════════════════════════ */
 
 .blog-preview-section {
@@ -5534,7 +5534,7 @@ input:disabled + .slider {
 
 .blog-preview-section .view-all-link:hover { gap: 10px; }
 
-/* Card grid — 3 columns on desktop, 1 on mobile */
+/* Card grid,3 columns on desktop, 1 on mobile */
 .blog-preview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

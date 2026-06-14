@@ -46,7 +46,7 @@
             border-bottom: none;
         }
         .section-title {
-            color: #1a4f72;
+            color: #0a0a0a;
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -70,7 +70,7 @@
         }
         .score-badge {
             display: inline-block;
-            background-color: #1a4f72;
+            background-color: #0a0a0a;
             color: white;
             padding: 5px 10px;
             border-radius: 4px;

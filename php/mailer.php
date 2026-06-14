@@ -8,6 +8,7 @@ require_once __DIR__ . '/config.php';
 
 function createMailer(): PHPMailer {
     $mail = new PHPMailer(true);
+    $mail->CharSet    = PHPMailer::CHARSET_UTF8;
     $mail->isSMTP();
     $mail->SMTPDebug  = 0;
     $mail->Host       = SMTP_HOST;

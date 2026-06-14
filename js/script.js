@@ -897,7 +897,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-            } catch (_) { /* graceful — show result regardless */ }
+            } catch (_) { /* graceful,show result regardless */ }
 
             showResult(resultType, payload.name);
         }
