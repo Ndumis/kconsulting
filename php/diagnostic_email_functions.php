@@ -11,7 +11,7 @@ function sendDiagnosticAdminEmail(array $d, int $submission_id): bool {
         }
         $mail->isHTML(true);
         $displayName = $d['name'] ?: $d['email'];
-        $mail->Subject = 'New Marketing Diagnostic #' . $submission_id . ' — ' . $displayName;
+        $mail->Subject = 'New Marketing Diagnostic #' . $submission_id . ',' . $displayName;
         ob_start();
         include __DIR__ . '/diagnostic_admin_email_template.php';
         $body = ob_get_clean();

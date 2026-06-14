@@ -11,18 +11,18 @@
         .email-header { background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); color: #fff; padding: 30px; text-align: center; }
         .email-header h1 { margin: 0 0 8px; font-size: 22px; }
         .email-body { padding: 30px; }
-        .confirmation-box { background: #f0f7ff; border-left: 4px solid #1a4f72; padding: 18px 20px; margin-bottom: 24px; border-radius: 4px; }
-        .confirmation-box h3 { margin: 0 0 8px; font-size: 16px; color: #1a4f72; }
+        .confirmation-box { background: #f5f5f5; border-left: 4px solid #0a0a0a; padding: 18px 20px; margin-bottom: 24px; border-radius: 4px; }
+        .confirmation-box h3 { margin: 0 0 8px; font-size: 16px; color: #0a0a0a; }
         .confirmation-box p { margin: 0; font-size: 14px; color: #444; }
         .details-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 6px; padding: 18px 20px; margin: 20px 0; }
         .detail-item { display: flex; margin-bottom: 10px; font-size: 14px; }
-        .detail-label { font-weight: 600; color: #1a4f72; min-width: 160px; }
+        .detail-label { font-weight: 600; color: #0a0a0a; min-width: 160px; }
         .next-steps { background: #f9f9f9; border-radius: 6px; padding: 18px 20px; margin: 24px 0; }
         .step { display: flex; margin-bottom: 14px; align-items: flex-start; }
         .step-number { background: #1a1a1a; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 14px; flex-shrink: 0; font-weight: 700; font-size: 13px; }
         .step strong { display: block; font-size: 14px; margin-bottom: 4px; }
         .step p { margin: 0; font-size: 13px; color: #666; }
-        .contact-info { background: #f0f7ff; border-radius: 6px; padding: 18px 20px; margin: 24px 0; }
+        .contact-info { background: #f5f5f5; border-radius: 6px; padding: 18px 20px; margin: 24px 0; }
         .footer { background: #f5f5f5; padding: 24px 30px; text-align: center; font-size: 13px; color: #888; }
     </style>
 </head>

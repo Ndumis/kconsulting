@@ -37,8 +37,8 @@
             padding: 30px;
         }
         .confirmation-box {
-            background-color: #f0f7ff;
-            border-left: 4px solid #1a4f72;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0a0a0a;
             padding: 20px;
             margin-bottom: 25px;
             border-radius: 4px;
@@ -56,7 +56,7 @@
         }
         .detail-label {
             font-weight: 600;
-            color: #1a4f72;
+            color: #0a0a0a;
             min-width: 160px;
         }
         .next-steps {
@@ -71,7 +71,7 @@
             align-items: flex-start;
         }
         .step-number {
-            background-color: #1a4f72;
+            background-color: #0a0a0a;
             color: white;
             width: 28px;
             height: 28px;
@@ -84,7 +84,7 @@
             font-weight: bold;
         }
         .contact-info {
-            background-color: #f0f7ff;
+            background-color: #f5f5f5;
             border-radius: 6px;
             padding: 20px;
             margin: 25px 0;

@@ -2,14 +2,6 @@
 /* Variables in scope: $d (array), $submission_id (int), $resultInfo (array), $resultDesc (string) */
 $firstName = explode(' ', trim($d['name']))[0] ?: 'there';
 $answers   = is_array($d['answers']) ? $d['answers'] : (json_decode($d['answers'] ?? '[]', true) ?: []);
-
-$iconMap = [
-    'seo'        => '&#128269;', // 🔍
-    'conversion' => '&#128200;', // 📈
-    'leads'      => '&#128101;', // 👥
-    'systems'    => '&#9881;',   // ⚙
-];
-$icon = $iconMap[$d['result_type']] ?? '&#127942;';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +18,7 @@ $icon = $iconMap[$d['result_type']] ?? '&#127942;';
       <!-- Header -->
       <tr>
         <td style="background:#0a0a0a;padding:40px;text-align:center;">
-          <p style="color:#d4a843;font-size:0.75rem;font-weight:700;letter-spacing:3px;margin:0 0 10px;">YOUR RESULTS ARE IN</p>
-          <p style="font-size:2.5rem;margin:0 0 8px;"><?= $icon ?></p>
+          <p style="color:#9ca3af;font-size:0.75rem;font-weight:700;letter-spacing:3px;margin:0 0 10px;">YOUR RESULTS ARE IN</p>
           <h1 style="color:#ffffff;font-size:1.6rem;font-weight:700;margin:0;">Growth Quiz Results</h1>
         </td>
       </tr>
@@ -44,10 +35,10 @@ $icon = $iconMap[$d['result_type']] ?? '&#127942;';
       <tr>
         <td style="padding:24px 40px;">
           <div style="background:#0a0a0a;border-radius:12px;padding:32px;text-align:center;">
-            <p style="color:#d4a843;font-size:0.7rem;font-weight:700;letter-spacing:2.5px;margin:0 0 10px;text-transform:uppercase;">Your Recommended Solution</p>
+            <p style="color:#9ca3af;font-size:0.7rem;font-weight:700;letter-spacing:2.5px;margin:0 0 10px;text-transform:uppercase;">Your Recommended Solution</p>
             <h2 style="color:#ffffff;font-size:1.5rem;font-weight:700;margin:0 0 16px;"><?= htmlspecialchars($resultInfo['label']) ?></h2>
             <p style="color:#aaa;font-size:0.95rem;line-height:1.65;margin:0 0 24px;"><?= htmlspecialchars($resultDesc) ?></p>
-            <a href="<?= htmlspecialchars($resultInfo['link']) ?>" style="display:inline-block;background:#d4a843;color:#0a0a0a;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.9rem;">Get Started Now →</a>
+            <a href="<?= htmlspecialchars($resultInfo['link']) ?>" style="display:inline-block;background:#9ca3af;color:#0a0a0a;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.9rem;">Get Started Now &rarr;</a>
           </div>
         </td>
       </tr>
@@ -59,7 +50,7 @@ $icon = $iconMap[$d['result_type']] ?? '&#127942;';
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#d4a843;font-size:0.8rem;font-weight:700;">1</div>
+                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#9ca3af;font-size:0.8rem;font-weight:700;">1</div>
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.93rem;">Our team reviews your quiz answers</p>
@@ -68,20 +59,20 @@ $icon = $iconMap[$d['result_type']] ?? '&#127942;';
             </tr>
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#d4a843;font-size:0.8rem;font-weight:700;">2</div>
+                <div style="width:28px;height:28px;background:#0a0a0a;border-radius:50%;text-align:center;line-height:28px;color:#9ca3af;font-size:0.8rem;font-weight:700;">2</div>
               </td>
               <td style="padding:0 0 16px 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.93rem;">We reach out within 1 business day</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">Expect a quick message from us — no pressure, just a conversation about where you want to go.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">Expect a quick message from us,no pressure, just a conversation about where you want to go.</p>
               </td>
             </tr>
             <tr>
               <td style="width:36px;vertical-align:top;padding-top:2px;">
-                <div style="width:28px;height:28px;background:#d4a843;border-radius:50%;text-align:center;line-height:28px;color:#0a0a0a;font-size:0.8rem;font-weight:700;">3</div>
+                <div style="width:28px;height:28px;background:#9ca3af;border-radius:50%;text-align:center;line-height:28px;color:#0a0a0a;font-size:0.8rem;font-weight:700;">3</div>
               </td>
               <td style="padding:0 0 0 12px;">
                 <p style="margin:0;font-weight:600;color:#0a0a0a;font-size:0.93rem;">We build your growth plan together</p>
-                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">A specific, actionable plan built around your goals — not a generic proposal.</p>
+                <p style="margin:4px 0 0;color:#777;font-size:0.86rem;">A specific, actionable plan built around your goals,not a generic proposal.</p>
               </td>
             </tr>
           </table>
@@ -109,8 +100,8 @@ $icon = $iconMap[$d['result_type']] ?? '&#127942;';
       <tr>
         <td style="padding:0 40px 40px;text-align:center;">
           <p style="color:#555;font-size:0.95rem;margin:0 0 18px;">Want to skip the wait? Book your free 30-minute strategy session and let's map out the fastest path forward.</p>
-          <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#0a0a0a;color:#ffffff;text-decoration:none;padding:15px 34px;border-radius:8px;font-weight:700;font-size:0.9rem;">Book Free Strategy Session →</a>
-          <p style="margin:16px 0 0;color:#999;font-size:0.83rem;">Or simply reply to this email — we read every one.</p>
+          <a href="https://www.thekconsult.co.za/consultation.html" style="display:inline-block;background:#0a0a0a;color:#ffffff;text-decoration:none;padding:15px 34px;border-radius:8px;font-weight:700;font-size:0.9rem;">Book Free Strategy Session &rarr;</a>
+          <p style="margin:16px 0 0;color:#999;font-size:0.83rem;">Or simply reply to this email,we read every one.</p>
         </td>
       </tr>
 

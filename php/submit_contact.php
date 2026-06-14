@@ -41,7 +41,7 @@ if (empty(trim($input['message'] ?? ''))) {
     exit;
 }
 
-// Trim only — htmlspecialchars is applied once inside email templates
+// Trim only,htmlspecialchars is applied once inside email templates
 $name    = trim($input['name']);
 $email   = filter_var(trim($input['email']), FILTER_SANITIZE_EMAIL);
 $company = trim($input['company'] ?? '');

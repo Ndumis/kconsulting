@@ -53,7 +53,7 @@
             border-bottom: none;
         }
         .section-title {
-            color: #1a4f72;
+            color: #0a0a0a;
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -80,7 +80,7 @@
             padding: 15px;
             border-radius: 6px;
             margin-top: 10px;
-            border-left: 4px solid #1a4f72;
+            border-left: 4px solid #0a0a0a;
         }
         .message-box p {
             margin: 0;
@@ -96,7 +96,7 @@
         }
         .badge {
             display: inline-block;
-            background-color: #1a4f72;
+            background-color: #0a0a0a;
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -131,7 +131,7 @@
                 <div class="field">
                     <span class="field-label">Email:</span>
                     <span class="field-value">
-                        <a href="mailto:<?php echo htmlspecialchars($email); ?>" style="color: #1a4f72; text-decoration: none;">
+                        <a href="mailto:<?php echo htmlspecialchars($email); ?>" style="color: #6b7280; text-decoration: none;">
                             <?php echo htmlspecialchars($email); ?>
                         </a>
                     </span>
@@ -161,11 +161,11 @@
                 </div>
             </div>
             
-            <div style="background-color: #f0f7ff; padding: 15px; border-radius: 6px; margin-top: 20px;">
-                <p style="margin: 0; color: #1a4f72;">
-                    <strong>💡 Quick Actions:</strong><br>
-                    • <a href="mailto:<?php echo htmlspecialchars($email); ?>?subject=Re:%20Your%20KConsulting%20Inquiry" style="color: #1a4f72;">Reply to <?php echo htmlspecialchars($name); ?></a><br>
-                    • <a href="#" style="color: #1a4f72;">View in CRM</a> (coming soon)
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 20px;">
+                <p style="margin: 0; color: #0a0a0a;">
+                    <strong>Quick Actions:</strong><br>
+                    • <a href="mailto:<?php echo htmlspecialchars($email); ?>?subject=Re:%20Your%20KConsulting%20Inquiry" style="color: #6b7280;">Reply to <?php echo htmlspecialchars($name); ?></a><br>
+                    • <a href="#" style="color: #6b7280;">View in CRM</a> (coming soon)
                 </p>
             </div>
         </div>
