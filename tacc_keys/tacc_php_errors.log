@@ -1,0 +1,70 @@
+2026-10-10 09:05:15 | EMAIL QUEUE | Queue run complete | {"processed":0,"failed":0}
+[10-Oct-2026 09:05:15 UTC] 2026-10-10 09:05:15 | EMAIL QUEUE | Queue run complete | {"processed":0,"failed":0}
+2026-10-10 09:08:22 | TACC endpoint START | {"php":"8.5.11","sapi":"litespeed","script":"/home/thekcaar/public_html/tacc/register.php"}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | TACC endpoint START | {"php":"8.5.11","sapi":"litespeed","script":"/home/thekcaar/public_html/tacc/register.php"}
+2026-10-10 09:08:22 | TACC crypto bootstrap completed successfully
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | TACC crypto bootstrap completed successfully
+2026-10-10 09:08:22 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+2026-10-10 09:08:22 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+2026-10-10 09:08:22 | SEND ENCRYPTED: entered | {"screen":null,"has_version":false,"data_type":"array"}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: entered | {"screen":null,"has_version":false,"data_type":"array"}
+2026-10-10 09:08:22 | SEND ENCRYPTED: AES key length checked | {"length":16}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: AES key length checked | {"length":16}
+2026-10-10 09:08:22 | SEND ENCRYPTED: IV length checked | {"length":16}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: IV length checked | {"length":16}
+2026-10-10 09:08:22 | SEND ENCRYPTED: response structure prepared | {"version":"3.0","screen":null,"data_type":"array"}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: response structure prepared | {"version":"3.0","screen":null,"data_type":"array"}
+2026-10-10 09:08:22 | SEND ENCRYPTED: JSON encoding successful | {"plaintext_length":44}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: JSON encoding successful | {"plaintext_length":44}
+2026-10-10 09:08:22 | SEND ENCRYPTED: response IV generated | {"response_iv_length":16}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: response IV generated | {"response_iv_length":16}
+2026-10-10 09:08:22 | SEND ENCRYPTED: starting AES-128-GCM encryption
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: starting AES-128-GCM encryption
+2026-10-10 09:08:22 | SEND ENCRYPTED: AES encryption successful | {"ciphertext_length":44,"tag_length":16}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: AES encryption successful | {"ciphertext_length":44,"tag_length":16}
+2026-10-10 09:08:22 | SEND ENCRYPTED: authentication tag validated | {"tag_length":16}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: authentication tag validated | {"tag_length":16}
+2026-10-10 09:08:22 | SEND ENCRYPTED: ciphertext and tag combined | {"encrypted_binary_length":60}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: ciphertext and tag combined | {"encrypted_binary_length":60}
+2026-10-10 09:08:22 | SEND ENCRYPTED: Base64 encoding successful | {"base64_length":80}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: Base64 encoding successful | {"base64_length":80}
+2026-10-10 09:08:22 | SEND ENCRYPTED: sending HTTP 200 response | {"screen":null,"http_status":200,"base64_length":80}
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: sending HTTP 200 response | {"screen":null,"http_status":200,"base64_length":80}
+2026-10-10 09:08:22 | SEND ENCRYPTED: response body echoed, exiting
+[10-Oct-2026 09:08:22 UTC] TACC FLOW: 2026-10-10 09:08:22 | SEND ENCRYPTED: response body echoed, exiting
+2026-10-10 09:09:04 | TACC endpoint START | {"php":"8.5.11","sapi":"litespeed","script":"/home/thekcaar/public_html/tacc/register.php"}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | TACC endpoint START | {"php":"8.5.11","sapi":"litespeed","script":"/home/thekcaar/public_html/tacc/register.php"}
+2026-10-10 09:09:04 | TACC crypto bootstrap completed successfully
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | TACC crypto bootstrap completed successfully
+2026-10-10 09:09:04 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+2026-10-10 09:09:04 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | FLOW REQUEST | {"action":"ping","screen":"","flow_token_present":false}
+2026-10-10 09:09:04 | SEND ENCRYPTED: entered | {"screen":null,"has_version":false,"data_type":"array"}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: entered | {"screen":null,"has_version":false,"data_type":"array"}
+2026-10-10 09:09:04 | SEND ENCRYPTED: AES key length checked | {"length":16}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: AES key length checked | {"length":16}
+2026-10-10 09:09:04 | SEND ENCRYPTED: IV length checked | {"length":16}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: IV length checked | {"length":16}
+2026-10-10 09:09:04 | SEND ENCRYPTED: response structure prepared | {"version":"3.0","screen":null,"data_type":"array"}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: response structure prepared | {"version":"3.0","screen":null,"data_type":"array"}
+2026-10-10 09:09:04 | SEND ENCRYPTED: JSON encoding successful | {"plaintext_length":44}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: JSON encoding successful | {"plaintext_length":44}
+2026-10-10 09:09:04 | SEND ENCRYPTED: response IV generated | {"response_iv_length":16}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: response IV generated | {"response_iv_length":16}
+2026-10-10 09:09:04 | SEND ENCRYPTED: starting AES-128-GCM encryption
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: starting AES-128-GCM encryption
+2026-10-10 09:09:04 | SEND ENCRYPTED: AES encryption successful | {"ciphertext_length":44,"tag_length":16}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: AES encryption successful | {"ciphertext_length":44,"tag_length":16}
+2026-10-10 09:09:04 | SEND ENCRYPTED: authentication tag validated | {"tag_length":16}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: authentication tag validated | {"tag_length":16}
+2026-10-10 09:09:04 | SEND ENCRYPTED: ciphertext and tag combined | {"encrypted_binary_length":60}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: ciphertext and tag combined | {"encrypted_binary_length":60}
+2026-10-10 09:09:04 | SEND ENCRYPTED: Base64 encoding successful | {"base64_length":80}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: Base64 encoding successful | {"base64_length":80}
+2026-10-10 09:09:04 | SEND ENCRYPTED: sending HTTP 200 response | {"screen":null,"http_status":200,"base64_length":80}
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: sending HTTP 200 response | {"screen":null,"http_status":200,"base64_length":80}
+2026-10-10 09:09:04 | SEND ENCRYPTED: response body echoed, exiting
+[10-Oct-2026 09:09:04 UTC] TACC FLOW: 2026-10-10 09:09:04 | SEND ENCRYPTED: response body echoed, exiting

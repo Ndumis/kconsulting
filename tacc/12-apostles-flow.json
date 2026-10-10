@@ -1,0 +1,1337 @@
+{
+    "version": "7.3",
+    "data_api_version": "3.0",
+    "routing_model": {
+        "WELCOME": [
+            "PERSONAL_INFO"
+        ],
+        "PERSONAL_INFO": [
+            "CONTACT_DETAILS"
+        ],
+        "CONTACT_DETAILS": [
+            "CHURCH_DETAILS"
+        ],
+        "CHURCH_DETAILS": [
+            "FAMILY_INFO"
+        ],
+        "FAMILY_INFO": [
+            "MINISTRIES"
+        ],
+        "MINISTRIES": [
+            "DECLARATION"
+        ],
+        "DECLARATION": [
+            "SUCCESS"
+        ],
+        "SUCCESS": []
+    },
+    "screens": [
+        {
+            "id": "WELCOME",
+            "title": "TACC Membership",
+            "data": {},
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Image",
+                        "src": "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",
+                        "height": 100
+                    },
+                    {
+                        "type": "TextHeading",
+                        "text": "The 12 Apostles Church In Trinity"
+                    },
+                    {
+                        "type": "TextSubheading",
+                        "text": "Official Membership Registration"
+                    },
+                    {
+                        "type": "TextBody",
+                        "text": "Please complete all sections clearly. This information is required for church records, pastoral care and administrative purposes in accordance with the church constitution."
+                    },
+                    {
+                        "type": "Footer",
+                        "label": "Start registration",
+                        "on-click-action": {
+                            "name": "navigate",
+                            "next": {
+                                "type": "screen",
+                                "name": "PERSONAL_INFO"
+                            },
+                            "payload": {}
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "PERSONAL_INFO",
+            "title": "Personal information",
+            "data": {},
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "personal_form",
+                        "children": [
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Full Names",
+                                "name": "full_names",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Surname",
+                                "name": "surname",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": true,
+                                "label": "Date of Birth",
+                                "name": "date_of_birth",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "Dropdown",
+                                "required": true,
+                                "label": "Gender",
+                                "name": "gender",
+                                "data-source": [
+                                    {
+                                        "id": "male",
+                                        "title": "Male"
+                                    },
+                                    {
+                                        "id": "female",
+                                        "title": "Female"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "ID / Passport No.",
+                                "name": "id_number",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "Dropdown",
+                                "required": true,
+                                "label": "Marital Status",
+                                "name": "marital_status",
+                                "data-source": [
+                                    {
+                                        "id": "single",
+                                        "title": "Single"
+                                    },
+                                    {
+                                        "id": "married",
+                                        "title": "Married"
+                                    },
+                                    {
+                                        "id": "widowed",
+                                        "title": "Widowed"
+                                    },
+                                    {
+                                        "id": "divorced",
+                                        "title": "Divorced"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "CONTACT_DETAILS"
+                                    },
+                                    "payload": {
+                                        "full_names": "${form.full_names}",
+                                        "surname": "${form.surname}",
+                                        "date_of_birth": "${form.date_of_birth}",
+                                        "gender": "${form.gender}",
+                                        "id_number": "${form.id_number}",
+                                        "marital_status": "${form.marital_status}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CONTACT_DETAILS",
+            "title": "Contact details",
+            "data": {
+                "full_names": {
+                    "type": "string",
+                    "__example__": "John"
+                },
+                "surname": {
+                    "type": "string",
+                    "__example__": "Doe"
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "__example__": "1990-01-01"
+                },
+                "gender": {
+                    "type": "string",
+                    "__example__": "male"
+                },
+                "id_number": {
+                    "type": "string",
+                    "__example__": "9001015009087"
+                },
+                "marital_status": {
+                    "type": "string",
+                    "__example__": "single"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "contact_form",
+                        "children": [
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Residential Address",
+                                "name": "address",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Postal Code",
+                                "name": "postal_code",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "Dropdown",
+                                "required": true,
+                                "label": "Province",
+                                "name": "province",
+                                "data-source": [
+                                    {
+                                        "id": "ec",
+                                        "title": "Eastern Cape"
+                                    },
+                                    {
+                                        "id": "fs",
+                                        "title": "Free State"
+                                    },
+                                    {
+                                        "id": "gp",
+                                        "title": "Gauteng"
+                                    },
+                                    {
+                                        "id": "kzn",
+                                        "title": "KwaZulu-Natal"
+                                    },
+                                    {
+                                        "id": "lp",
+                                        "title": "Limpopo"
+                                    },
+                                    {
+                                        "id": "mp",
+                                        "title": "Mpumalanga"
+                                    },
+                                    {
+                                        "id": "nc",
+                                        "title": "Northern Cape"
+                                    },
+                                    {
+                                        "id": "nw",
+                                        "title": "North West"
+                                    },
+                                    {
+                                        "id": "wc",
+                                        "title": "Western Cape"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Municipality / Town",
+                                "name": "municipality",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Mobile Number",
+                                "name": "mobile",
+                                "input-type": "phone"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Alt. Number",
+                                "name": "alt_number",
+                                "input-type": "phone"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Email Address",
+                                "name": "email",
+                                "input-type": "email"
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "CHURCH_DETAILS"
+                                    },
+                                    "payload": {
+                                        "full_names": "${data.full_names}",
+                                        "surname": "${data.surname}",
+                                        "date_of_birth": "${data.date_of_birth}",
+                                        "gender": "${data.gender}",
+                                        "id_number": "${data.id_number}",
+                                        "marital_status": "${data.marital_status}",
+                                        "address": "${form.address}",
+                                        "postal_code": "${form.postal_code}",
+                                        "province": "${form.province}",
+                                        "municipality": "${form.municipality}",
+                                        "mobile": "${form.mobile}",
+                                        "alt_number": "${form.alt_number}",
+                                        "email": "${form.email}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "CHURCH_DETAILS",
+            "title": "Church details",
+            "data": {
+                "full_names": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "surname": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "gender": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "id_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "marital_status": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "address": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "postal_code": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "municipality": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "mobile": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "alt_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "email": {
+                    "type": "string",
+                    "__example__": ""
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "church_form",
+                        "children": [
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Congregation",
+                                "name": "congregation",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Region / District",
+                                "name": "region",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "water_baptised",
+                                "label": "Water Baptised"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Baptism Year",
+                                "name": "water_baptism_year",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "sealed",
+                                "label": "Sealed (Holy Spirit)"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Sealing Year",
+                                "name": "sealing_year",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Previous Church",
+                                "name": "previous_church",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "FAMILY_INFO"
+                                    },
+                                    "payload": {
+                                        "full_names": "${data.full_names}",
+                                        "surname": "${data.surname}",
+                                        "date_of_birth": "${data.date_of_birth}",
+                                        "gender": "${data.gender}",
+                                        "id_number": "${data.id_number}",
+                                        "marital_status": "${data.marital_status}",
+                                        "address": "${data.address}",
+                                        "postal_code": "${data.postal_code}",
+                                        "province": "${data.province}",
+                                        "municipality": "${data.municipality}",
+                                        "mobile": "${data.mobile}",
+                                        "alt_number": "${data.alt_number}",
+                                        "email": "${data.email}",
+                                        "congregation": "${form.congregation}",
+                                        "region": "${form.region}",
+                                        "water_baptised": "${form.water_baptised}",
+                                        "water_baptism_year": "${form.water_baptism_year}",
+                                        "sealed": "${form.sealed}",
+                                        "sealing_year": "${form.sealing_year}",
+                                        "previous_church": "${form.previous_church}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "FAMILY_INFO",
+            "title": "Family / household",
+            "data": {
+                "full_names": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "surname": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "gender": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "id_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "marital_status": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "address": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "postal_code": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "municipality": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "mobile": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "alt_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "email": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "congregation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "region": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "water_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "water_baptism_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "sealed": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "sealing_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "previous_church": {
+                    "type": "string",
+                    "__example__": ""
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "TextBody",
+                        "text": "If registering as a family, list up to 5 dependents or a spouse joining with you. Leave blank if not applicable."
+                    },
+                    {
+                        "type": "Form",
+                        "name": "family_form",
+                        "children": [
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 1 Name",
+                                "name": "dep1_name",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 1 Rel.",
+                                "name": "dep1_relationship",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": false,
+                                "label": "Dependent 1 DOB",
+                                "name": "dep1_dob",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "dep1_baptised",
+                                "label": "Dependent 1 Bapt."
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 2 Name",
+                                "name": "dep2_name",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 2 Rel.",
+                                "name": "dep2_relationship",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": false,
+                                "label": "Dependent 2 DOB",
+                                "name": "dep2_dob",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "dep2_baptised",
+                                "label": "Dependent 2 Bapt."
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 3 Name",
+                                "name": "dep3_name",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 3 Rel.",
+                                "name": "dep3_relationship",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": false,
+                                "label": "Dependent 3 DOB",
+                                "name": "dep3_dob",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "dep3_baptised",
+                                "label": "Dependent 3 Bapt."
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 4 Name",
+                                "name": "dep4_name",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 4 Rel.",
+                                "name": "dep4_relationship",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": false,
+                                "label": "Dependent 4 DOB",
+                                "name": "dep4_dob",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "dep4_baptised",
+                                "label": "Dependent 4 Bapt."
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 5 Name",
+                                "name": "dep5_name",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": false,
+                                "label": "Dependent 5 Rel.",
+                                "name": "dep5_relationship",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "required": false,
+                                "label": "Dependent 5 DOB",
+                                "name": "dep5_dob",
+                                "min-date": "1900-01-01",
+                                "max-date": "2026-09-15"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": false,
+                                "name": "dep5_baptised",
+                                "label": "Dependent 5 Bapt."
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "MINISTRIES"
+                                    },
+                                    "payload": {
+                                        "full_names": "${data.full_names}",
+                                        "surname": "${data.surname}",
+                                        "date_of_birth": "${data.date_of_birth}",
+                                        "gender": "${data.gender}",
+                                        "id_number": "${data.id_number}",
+                                        "marital_status": "${data.marital_status}",
+                                        "address": "${data.address}",
+                                        "postal_code": "${data.postal_code}",
+                                        "province": "${data.province}",
+                                        "municipality": "${data.municipality}",
+                                        "mobile": "${data.mobile}",
+                                        "alt_number": "${data.alt_number}",
+                                        "email": "${data.email}",
+                                        "congregation": "${data.congregation}",
+                                        "region": "${data.region}",
+                                        "water_baptised": "${data.water_baptised}",
+                                        "water_baptism_year": "${data.water_baptism_year}",
+                                        "sealed": "${data.sealed}",
+                                        "sealing_year": "${data.sealing_year}",
+                                        "previous_church": "${data.previous_church}",
+                                        "dep1_name": "${form.dep1_name}",
+                                        "dep1_relationship": "${form.dep1_relationship}",
+                                        "dep1_dob": "${form.dep1_dob}",
+                                        "dep1_baptised": "${form.dep1_baptised}",
+                                        "dep2_name": "${form.dep2_name}",
+                                        "dep2_relationship": "${form.dep2_relationship}",
+                                        "dep2_dob": "${form.dep2_dob}",
+                                        "dep2_baptised": "${form.dep2_baptised}",
+                                        "dep3_name": "${form.dep3_name}",
+                                        "dep3_relationship": "${form.dep3_relationship}",
+                                        "dep3_dob": "${form.dep3_dob}",
+                                        "dep3_baptised": "${form.dep3_baptised}",
+                                        "dep4_name": "${form.dep4_name}",
+                                        "dep4_relationship": "${form.dep4_relationship}",
+                                        "dep4_dob": "${form.dep4_dob}",
+                                        "dep4_baptised": "${form.dep4_baptised}",
+                                        "dep5_name": "${form.dep5_name}",
+                                        "dep5_relationship": "${form.dep5_relationship}",
+                                        "dep5_dob": "${form.dep5_dob}",
+                                        "dep5_baptised": "${form.dep5_baptised}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "MINISTRIES",
+            "title": "Ministries & involvement",
+            "data": {
+                "full_names": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "surname": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "gender": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "id_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "marital_status": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "address": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "postal_code": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "municipality": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "mobile": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "alt_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "email": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "congregation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "region": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "water_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "water_baptism_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "sealed": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "sealing_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "previous_church": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep2_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep3_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep4_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep5_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "TextBody",
+                        "text": "Indicate areas where you would like to participate or serve:"
+                    },
+                    {
+                        "type": "Form",
+                        "name": "ministries_form",
+                        "children": [
+                            {
+                                "type": "CheckboxGroup",
+                                "required": false,
+                                "name": "ministries",
+                                "label": "Ministries",
+                                "data-source": [
+                                    {
+                                        "id": "choir",
+                                        "title": "Choir / Singing"
+                                    },
+                                    {
+                                        "id": "youth",
+                                        "title": "Youth Movement"
+                                    },
+                                    {
+                                        "id": "women",
+                                        "title": "Women's / Mothers'"
+                                    },
+                                    {
+                                        "id": "sunday_school",
+                                        "title": "Sunday School"
+                                    },
+                                    {
+                                        "id": "evangelism",
+                                        "title": "Evangelism & Outreach"
+                                    },
+                                    {
+                                        "id": "admin",
+                                        "title": "Admin / Maintenance"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "DECLARATION"
+                                    },
+                                    "payload": {
+                                        "full_names": "${data.full_names}",
+                                        "surname": "${data.surname}",
+                                        "date_of_birth": "${data.date_of_birth}",
+                                        "gender": "${data.gender}",
+                                        "id_number": "${data.id_number}",
+                                        "marital_status": "${data.marital_status}",
+                                        "address": "${data.address}",
+                                        "postal_code": "${data.postal_code}",
+                                        "province": "${data.province}",
+                                        "municipality": "${data.municipality}",
+                                        "mobile": "${data.mobile}",
+                                        "alt_number": "${data.alt_number}",
+                                        "email": "${data.email}",
+                                        "congregation": "${data.congregation}",
+                                        "region": "${data.region}",
+                                        "water_baptised": "${data.water_baptised}",
+                                        "water_baptism_year": "${data.water_baptism_year}",
+                                        "sealed": "${data.sealed}",
+                                        "sealing_year": "${data.sealing_year}",
+                                        "previous_church": "${data.previous_church}",
+                                        "dep1_name": "${data.dep1_name}",
+                                        "dep1_relationship": "${data.dep1_relationship}",
+                                        "dep1_dob": "${data.dep1_dob}",
+                                        "dep1_baptised": "${data.dep1_baptised}",
+                                        "dep2_name": "${data.dep2_name}",
+                                        "dep2_relationship": "${data.dep2_relationship}",
+                                        "dep2_dob": "${data.dep2_dob}",
+                                        "dep2_baptised": "${data.dep2_baptised}",
+                                        "dep3_name": "${data.dep3_name}",
+                                        "dep3_relationship": "${data.dep3_relationship}",
+                                        "dep3_dob": "${data.dep3_dob}",
+                                        "dep3_baptised": "${data.dep3_baptised}",
+                                        "dep4_name": "${data.dep4_name}",
+                                        "dep4_relationship": "${data.dep4_relationship}",
+                                        "dep4_dob": "${data.dep4_dob}",
+                                        "dep4_baptised": "${data.dep4_baptised}",
+                                        "dep5_name": "${data.dep5_name}",
+                                        "dep5_relationship": "${data.dep5_relationship}",
+                                        "dep5_dob": "${data.dep5_dob}",
+                                        "dep5_baptised": "${data.dep5_baptised}",
+                                        "ministries": "${form.ministries}",
+                                        "error_message": "",
+                                        "has_error": false
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "DECLARATION",
+            "title": "Declaration & consent",
+            "data": {
+                "full_names": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "surname": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "gender": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "id_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "marital_status": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "address": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "postal_code": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "municipality": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "mobile": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "alt_number": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "email": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "congregation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "region": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "water_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "water_baptism_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "sealed": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "sealing_year": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "previous_church": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep1_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep2_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep2_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep3_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep3_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep4_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep4_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "dep5_name": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_relationship": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_dob": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "dep5_baptised": {
+                    "type": "boolean",
+                    "__example__": false
+                },
+                "ministries": {
+                    "type": "array",
+                    "__example__": [],
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "error_message": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "has_error": {
+                    "type": "boolean",
+                    "__example__": false
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "TextBody",
+                        "text": "I hereby apply for membership with the Twelve Apostles' Church in Christ (TACC). I declare that the information provided above is true and correct. I agree to uphold the doctrines, constitution, and code of conduct of the church."
+                    },
+                    {
+                        "type": "TextBody",
+                        "text": "${data.error_message}",
+                        "visible": "${data.has_error}"
+                    },
+                    {
+                        "type": "Form",
+                        "name": "declaration_form",
+                        "children": [
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Initials",
+                                "name": "initials",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "OptIn",
+                                "required": true,
+                                "name": "consent",
+                                "label": "I declare the information is true, and I agree to uphold the doctrines, constitution and code of conduct of TACC."
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Submit registration",
+                                "on-click-action": {
+                                    "name": "data_exchange",
+                                    "payload": {
+                                        "full_names": "${data.full_names}",
+                                        "surname": "${data.surname}",
+                                        "date_of_birth": "${data.date_of_birth}",
+                                        "gender": "${data.gender}",
+                                        "id_number": "${data.id_number}",
+                                        "marital_status": "${data.marital_status}",
+                                        "address": "${data.address}",
+                                        "postal_code": "${data.postal_code}",
+                                        "province": "${data.province}",
+                                        "municipality": "${data.municipality}",
+                                        "mobile": "${data.mobile}",
+                                        "alt_number": "${data.alt_number}",
+                                        "email": "${data.email}",
+                                        "congregation": "${data.congregation}",
+                                        "region": "${data.region}",
+                                        "water_baptised": "${data.water_baptised}",
+                                        "water_baptism_year": "${data.water_baptism_year}",
+                                        "sealed": "${data.sealed}",
+                                        "sealing_year": "${data.sealing_year}",
+                                        "previous_church": "${data.previous_church}",
+                                        "dep1_name": "${data.dep1_name}",
+                                        "dep1_relationship": "${data.dep1_relationship}",
+                                        "dep1_dob": "${data.dep1_dob}",
+                                        "dep1_baptised": "${data.dep1_baptised}",
+                                        "dep2_name": "${data.dep2_name}",
+                                        "dep2_relationship": "${data.dep2_relationship}",
+                                        "dep2_dob": "${data.dep2_dob}",
+                                        "dep2_baptised": "${data.dep2_baptised}",
+                                        "dep3_name": "${data.dep3_name}",
+                                        "dep3_relationship": "${data.dep3_relationship}",
+                                        "dep3_dob": "${data.dep3_dob}",
+                                        "dep3_baptised": "${data.dep3_baptised}",
+                                        "dep4_name": "${data.dep4_name}",
+                                        "dep4_relationship": "${data.dep4_relationship}",
+                                        "dep4_dob": "${data.dep4_dob}",
+                                        "dep4_baptised": "${data.dep4_baptised}",
+                                        "dep5_name": "${data.dep5_name}",
+                                        "dep5_relationship": "${data.dep5_relationship}",
+                                        "dep5_dob": "${data.dep5_dob}",
+                                        "dep5_baptised": "${data.dep5_baptised}",
+                                        "ministries": "${data.ministries}",
+                                        "initials": "${form.initials}",
+                                        "consent": "${form.consent}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SUCCESS",
+            "title": "Registration received",
+            "terminal": true,
+            "data": {},
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Image",
+                        "src": "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",
+                        "height": 84,
+                        "scale-type": "contain"
+                    },
+                    {
+                        "type": "TextHeading",
+                        "text": "Registration received"
+                    },
+                    {
+                        "type": "TextBody",
+                        "text": "Thank you. Your TACC membership application has been submitted. Church administration will contact you shortly."
+                    },
+                    {
+                        "type": "Footer",
+                        "label": "Close",
+                        "on-click-action": {
+                            "name": "complete",
+                            "payload": {}
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
