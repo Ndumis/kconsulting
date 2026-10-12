@@ -121,8 +121,13 @@ function ensureTaccTables($conn): void {
             mobile VARCHAR(20) NOT NULL,
             alt_number VARCHAR(20) NULL,
             email VARCHAR(120) NOT NULL,
+            occupation VARCHAR(20) NULL,
             congregation VARCHAR(120) NOT NULL,
             region VARCHAR(120) NOT NULL,
+            church_global VARCHAR(120) NULL,
+            church_province VARCHAR(120) NULL,
+            church_zonal VARCHAR(120) NULL,
+            church_center VARCHAR(120) NULL,
             water_baptised TINYINT(1) NOT NULL DEFAULT 0,
             water_baptism_year VARCHAR(10) NULL,
             sealed TINYINT(1) NOT NULL DEFAULT 0,
@@ -166,6 +171,21 @@ function ensureTaccTables($conn): void {
     foreach ($tables as $sql) {
         dbQuery($conn, $sql);
     }
+
+    // Columns added after tacc_members was first created.
+    $newColumns = [
+        'occupation'      => "VARCHAR(20) NULL AFTER email",
+        'church_global'   => "VARCHAR(120) NULL AFTER region",
+        'church_province' => "VARCHAR(120) NULL AFTER church_global",
+        'church_zonal'    => "VARCHAR(120) NULL AFTER church_province",
+        'church_center'   => "VARCHAR(120) NULL AFTER church_zonal",
+    ];
+    $existing = array_column(dbFetchAll($conn, "SHOW COLUMNS FROM tacc_members"), 'Field');
+    foreach ($newColumns as $column => $definition) {
+        if (!in_array($column, $existing, true)) {
+            dbQuery($conn, "ALTER TABLE tacc_members ADD COLUMN $column $definition");
+        }
+    }
 }
 
 try {
@@ -208,7 +228,7 @@ if (($_GET['action'] ?? '') === 'export') {
     $out = fopen('php://output', 'w');
     fputcsv($out, ['ID','Full Names','Surname','DOB','Gender','ID Number','Marital Status',
                    'Address','Postal Code','Province','Municipality','Mobile','Alt Number','Email',
-                   'Congregation','Region','Water Baptised','Baptism Year','Sealed','Sealing Year',
+                   'Occupation','Congregation','Regional / District','Global','Church Province','Zonal','Center','Water Baptised','Baptism Year','Sealed','Sealing Year',
                    'Previous Church','Initials','Consent','Submitted']);
 
     $rows = dbFetchAll($conn, "SELECT * FROM tacc_members ORDER BY submitted_at DESC");
@@ -217,7 +237,9 @@ if (($_GET['action'] ?? '') === 'export') {
             $r['id'], $r['full_names'], $r['surname'], $r['date_of_birth'], $r['gender'],
             $r['id_number'], $r['marital_status'], $r['address'], $r['postal_code'],
             $r['province'], $r['municipality'], $r['mobile'], $r['alt_number'], $r['email'],
-            $r['congregation'], $r['region'],
+            $r['occupation'] ?? '', $r['congregation'], $r['region'],
+            $r['church_global'] ?? '', $r['church_province'] ?? '',
+            $r['church_zonal'] ?? '', $r['church_center'] ?? '',
             $r['water_baptised'] ? 'Yes' : 'No', $r['water_baptism_year'],
             $r['sealed'] ? 'Yes' : 'No', $r['sealing_year'],
             $r['previous_church'], $r['initials'], $r['consent'] ? 'Yes' : 'No',
@@ -236,13 +258,38 @@ $thisMonth     = (int)dbScalar($conn, "SELECT COUNT(*) c FROM tacc_members
 $waterBaptised = (int)dbScalar($conn, "SELECT COUNT(*) c FROM tacc_members WHERE water_baptised=1");
 $sealed        = (int)dbScalar($conn, "SELECT COUNT(*) c FROM tacc_members WHERE sealed=1");
 
-// ---- Members list ---------------------------------------------------
+// ---- Members list (paginated) ----------------------------------------
+const MEMBERS_PER_PAGE = 25;
+
+$q = trim((string)($_GET['q'] ?? ''));
+$where = '';
+if ($q !== '') {
+    $like = '%' . addcslashes($q, '%_\\') . '%';
+    $likeSql = $conn instanceof mysqli
+        ? "'" . $conn->real_escape_string($like) . "'"
+        : $conn->quote($like);
+    $where = "WHERE CONCAT_WS(' ', full_names, surname, email, mobile, congregation) LIKE $likeSql";
+}
+
+$matching   = (int)dbScalar($conn, "SELECT COUNT(*) c FROM tacc_members $where");
+$totalPages = max(1, (int)ceil($matching / MEMBERS_PER_PAGE));
+$page       = min($totalPages, max(1, (int)($_GET['page'] ?? 1)));
+$offset     = ($page - 1) * MEMBERS_PER_PAGE;
+
 $members = dbFetchAll($conn, "
     SELECT id, full_names, surname, email, mobile, congregation, region,
            water_baptised, sealed, submitted_at
     FROM tacc_members
-    ORDER BY submitted_at DESC
+    $where
+    ORDER BY submitted_at DESC, id DESC
+    LIMIT " . MEMBERS_PER_PAGE . " OFFSET $offset
 ");
+
+function pageUrl(int $page, string $q): string {
+    $params = ['page' => $page];
+    if ($q !== '') $params['q'] = $q;
+    return '?' . http_build_query($params);
+}
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -299,6 +346,15 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 .search input{padding:9px 12px 9px 36px;border:1px solid var(--border);border-radius:8px;
     font-size:13px;width:280px;max-width:100%;outline:none;transition:.15s}
 .search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:14px 20px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+.pager-links{display:flex;gap:6px;flex-wrap:wrap}
+.pager-links a,.pager-links span{min-width:34px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;
+    text-align:center;text-decoration:none;color:var(--text);background:#fff}
+.pager-links a:hover{border-color:var(--blue);color:var(--blue)}
+.pager-links .current{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+.pager-links .disabled{color:var(--border)}
+.pager-links .gap{border:none;background:none;min-width:auto}
 .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
 
 table{width:100%;border-collapse:collapse}
@@ -399,17 +455,22 @@ tbody tr:last-child td{border-bottom:none}
     <div class="panel">
         <div class="panel-head">
             <h2>Registered Members</h2>
-            <div class="search">
+            <form class="search" method="get">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input id="search" type="text" placeholder="Search name, email, mobile…">
-            </div>
+                <input id="search" name="q" type="search" value="<?= htmlspecialchars($q) ?>" placeholder="Search name, email, mobile… (Enter)">
+            </form>
         </div>
 
         <?php if (empty($members)): ?>
             <div class="empty">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                <?php if ($q !== ''): ?>
+                <h3>No members match “<?= htmlspecialchars($q) ?>”</h3>
+                <p><a href="?">Clear the search</a> to see all members.</p>
+                <?php else: ?>
                 <h3>No registrations yet</h3>
                 <p>Members will appear here once they complete the WhatsApp Flow.</p>
+                <?php endif; ?>
             </div>
         <?php else: ?>
         <div style="overflow-x:auto">
@@ -454,6 +515,38 @@ tbody tr:last-child td{border-bottom:none}
             </tbody>
         </table>
         </div>
+        <div class="pager">
+            <div>
+                Showing <?= $offset + 1 ?>–<?= $offset + count($members) ?> of <?= $matching ?>
+                <?= $q !== '' ? 'matching “' . htmlspecialchars($q) . '”' : 'members' ?>
+            </div>
+            <?php if ($totalPages > 1): ?>
+            <nav class="pager-links" aria-label="Pagination">
+                <?php if ($page > 1): ?>
+                    <a href="<?= htmlspecialchars(pageUrl($page - 1, $q)) ?>">&lsaquo; Prev</a>
+                <?php else: ?>
+                    <span class="disabled">&lsaquo; Prev</span>
+                <?php endif; ?>
+                <?php
+                $last = 0;
+                for ($p = 1; $p <= $totalPages; $p++):
+                    if ($p !== 1 && $p !== $totalPages && abs($p - $page) > 2) continue;
+                    if ($last && $p - $last > 1): ?><span class="gap">…</span><?php endif;
+                    $last = $p;
+                    if ($p === $page): ?>
+                        <span class="current"><?= $p ?></span>
+                    <?php else: ?>
+                        <a href="<?= htmlspecialchars(pageUrl($p, $q)) ?>"><?= $p ?></a>
+                    <?php endif;
+                endfor; ?>
+                <?php if ($page < $totalPages): ?>
+                    <a href="<?= htmlspecialchars(pageUrl($page + 1, $q)) ?>">Next &rsaquo;</a>
+                <?php else: ?>
+                    <span class="disabled">Next &rsaquo;</span>
+                <?php endif; ?>
+            </nav>
+            <?php endif; ?>
+        </div>
         <?php endif; ?>
     </div>
 </div>
@@ -475,14 +568,11 @@ tbody tr:last-child td{border-bottom:none}
 
 <script>
 (function(){
+    // Clearing the search box (e.g. the × in a search input) shows all members again.
     const search = document.getElementById('search');
     if (search) {
-        search.addEventListener('input', () => {
-            const q = search.value.trim().toLowerCase();
-            document.querySelectorAll('#membersTable tbody tr').forEach(tr => {
-                const hay = tr.dataset.search || '';
-                tr.style.display = (!q || hay.includes(q)) ? '' : 'none';
-            });
+        search.addEventListener('search', () => {
+            if (search.value.trim() === '') search.form.submit();
         });
     }
 
@@ -539,11 +629,16 @@ tbody tr:last-child td{border-bottom:none}
         html += field('Mobile', m.mobile);
         html += field('Alt. Number', m.alt_number);
         html += field('Email', m.email);
+        html += field('Occupation', m.occupation);
         html += '</div></div>';
 
         html += '<div class="section"><h4>Church</h4><div class="grid">';
         html += field('Congregation', m.congregation);
-        html += field('Region / District', m.region);
+        html += field('Global', m.church_global);
+        html += field('Province', m.church_province);
+        html += field('Regional / District', m.region);
+        html += field('Zonal', m.church_zonal);
+        html += field('Center', m.church_center);
         html += field('Water Baptised', m.water_baptised == 1 ? 'Yes' : 'No');
         html += field('Baptism Year', m.water_baptism_year);
         html += field('Sealed', m.sealed == 1 ? 'Yes' : 'No');

@@ -292,6 +292,30 @@
                                 "input-type": "email"
                             },
                             {
+                                "type": "Dropdown",
+                                "required": true,
+                                "label": "Occupation",
+                                "name": "occupation",
+                                "data-source": [
+                                    {
+                                        "id": "working",
+                                        "title": "Working"
+                                    },
+                                    {
+                                        "id": "student",
+                                        "title": "Student"
+                                    },
+                                    {
+                                        "id": "self_employed",
+                                        "title": "Self Employed"
+                                    },
+                                    {
+                                        "id": "unemployed",
+                                        "title": "Unemployed"
+                                    }
+                                ]
+                            },
+                            {
                                 "type": "Footer",
                                 "label": "Next",
                                 "on-click-action": {
@@ -313,7 +337,8 @@
                                         "municipality": "${form.municipality}",
                                         "mobile": "${form.mobile}",
                                         "alt_number": "${form.alt_number}",
-                                        "email": "${form.email}"
+                                        "email": "${form.email}",
+                                        "occupation": "${form.occupation}"
                                     }
                                 }
                             }
@@ -377,6 +402,10 @@
                 "email": {
                     "type": "string",
                     "__example__": ""
+                },
+                "occupation": {
+                    "type": "string",
+                    "__example__": ""
                 }
             },
             "layout": {
@@ -396,8 +425,36 @@
                             {
                                 "type": "TextInput",
                                 "required": true,
-                                "label": "Region / District",
+                                "label": "Global",
+                                "name": "church_global",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Province",
+                                "name": "church_province",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Regional / District",
                                 "name": "region",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Zonal",
+                                "name": "church_zonal",
+                                "input-type": "text"
+                            },
+                            {
+                                "type": "TextInput",
+                                "required": true,
+                                "label": "Center",
+                                "name": "church_center",
                                 "input-type": "text"
                             },
                             {
@@ -462,7 +519,12 @@
                                         "water_baptism_year": "${form.water_baptism_year}",
                                         "sealed": "${form.sealed}",
                                         "sealing_year": "${form.sealing_year}",
-                                        "previous_church": "${form.previous_church}"
+                                        "previous_church": "${form.previous_church}",
+                                        "occupation": "${data.occupation}",
+                                        "church_global": "${form.church_global}",
+                                        "church_province": "${form.church_province}",
+                                        "church_zonal": "${form.church_zonal}",
+                                        "church_center": "${form.church_center}"
                                     }
                                 }
                             }
@@ -552,6 +614,26 @@
                     "__example__": ""
                 },
                 "previous_church": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "occupation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_global": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_zonal": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_center": {
                     "type": "string",
                     "__example__": ""
                 }
@@ -756,7 +838,12 @@
                                         "dep5_name": "${form.dep5_name}",
                                         "dep5_relationship": "${form.dep5_relationship}",
                                         "dep5_dob": "${form.dep5_dob}",
-                                        "dep5_baptised": "${form.dep5_baptised}"
+                                        "dep5_baptised": "${form.dep5_baptised}",
+                                        "occupation": "${data.occupation}",
+                                        "church_global": "${data.church_global}",
+                                        "church_province": "${data.church_province}",
+                                        "church_zonal": "${data.church_zonal}",
+                                        "church_center": "${data.church_center}"
                                     }
                                 }
                             }
@@ -928,6 +1015,26 @@
                 "dep5_baptised": {
                     "type": "boolean",
                     "__example__": false
+                },
+                "occupation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_global": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_zonal": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_center": {
+                    "type": "string",
+                    "__example__": ""
                 }
             },
             "layout": {
@@ -1025,7 +1132,12 @@
                                         "dep5_baptised": "${data.dep5_baptised}",
                                         "ministries": "${form.ministries}",
                                         "error_message": "",
-                                        "has_error": false
+                                        "has_error": false,
+                                        "occupation": "${data.occupation}",
+                                        "church_global": "${data.church_global}",
+                                        "church_province": "${data.church_province}",
+                                        "church_zonal": "${data.church_zonal}",
+                                        "church_center": "${data.church_center}"
                                     }
                                 }
                             }
@@ -1212,6 +1324,26 @@
                 "has_error": {
                     "type": "boolean",
                     "__example__": false
+                },
+                "occupation": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_global": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_province": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_zonal": {
+                    "type": "string",
+                    "__example__": ""
+                },
+                "church_center": {
+                    "type": "string",
+                    "__example__": ""
                 }
             },
             "layout": {
@@ -1219,7 +1351,7 @@
                 "children": [
                     {
                         "type": "TextBody",
-                        "text": "I hereby apply for membership with the Twelve Apostles' Church in Christ (TACC). I declare that the information provided above is true and correct. I agree to uphold the doctrines, constitution, and code of conduct of the church."
+                        "text": "I hereby apply for membership with The 12 Apostle Church in Trinity (TACC). I declare that the information provided above is true and correct. I agree to uphold the doctrines, constitution, and code of conduct of the church."
                     },
                     {
                         "type": "TextBody",
@@ -1291,7 +1423,12 @@
                                         "dep5_baptised": "${data.dep5_baptised}",
                                         "ministries": "${data.ministries}",
                                         "initials": "${form.initials}",
-                                        "consent": "${form.consent}"
+                                        "consent": "${form.consent}",
+                                        "occupation": "${data.occupation}",
+                                        "church_global": "${data.church_global}",
+                                        "church_province": "${data.church_province}",
+                                        "church_zonal": "${data.church_zonal}",
+                                        "church_center": "${data.church_center}"
                                     }
                                 }
                             }

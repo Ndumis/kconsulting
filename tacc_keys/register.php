@@ -655,8 +655,13 @@ $municipality       = s($data, 'municipality');
 $mobile             = s($data, 'mobile');
 $alt_number         = s($data, 'alt_number');
 $email              = strtolower(s($data, 'email'));
+$occupation         = s($data, 'occupation');
 $congregation       = s($data, 'congregation');
 $region             = s($data, 'region');
+$church_global      = s($data, 'church_global');
+$church_province    = s($data, 'church_province');
+$church_zonal       = s($data, 'church_zonal');
+$church_center      = s($data, 'church_center');
 $water_baptised     = !empty($data['water_baptised']) ? 1 : 0;
 $water_baptism_year = s($data, 'water_baptism_year');
 $sealed             = !empty($data['sealed']) ? 1 : 0;
@@ -678,8 +683,13 @@ $required = [
     'municipality'   => $municipality,
     'mobile'         => $mobile,
     'email'          => $email,
+    'occupation'     => $occupation,
     'congregation'   => $congregation,
     'region'         => $region,
+    'church_global'  => $church_global,
+    'church_province' => $church_province,
+    'church_zonal'   => $church_zonal,
+    'church_center'  => $church_center,
     'initials'       => $initials,
 ];
 
@@ -815,15 +825,16 @@ try {
         (
             full_names, surname, date_of_birth, gender, id_number,
             marital_status, address, postal_code, province, municipality,
-            mobile, alt_number, email, congregation, region,
+            mobile, alt_number, email, occupation, congregation, region,
+            church_global, church_province, church_zonal, church_center,
             water_baptised, water_baptism_year, sealed, sealing_year,
             previous_church, initials, consent, ip_address, user_agent
         )
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
     );
 
     $stmt->bind_param(
-        'sssssssssssssssisisssiss',
+        'ssssssssssssssssssssisisssiss',
         $full_names,
         $surname,
         $date_of_birth,
@@ -837,8 +848,13 @@ try {
         $mobile,
         $alt_number,
         $email,
+        $occupation,
         $congregation,
         $region,
+        $church_global,
+        $church_province,
+        $church_zonal,
+        $church_center,
         $water_baptised,
         $water_baptism_year,
         $sealed,
@@ -935,6 +951,11 @@ try {
         'address'            => $address,
         'congregation'       => $congregation,
         'region'             => $region,
+        'church_global'      => $church_global,
+        'church_province'    => $church_province,
+        'church_zonal'       => $church_zonal,
+        'church_center'      => $church_center,
+        'occupation'         => $occupation,
         'gender'             => $gender,
         'marital_status'     => $marital_status,
         'date_of_birth'      => $date_of_birth,
